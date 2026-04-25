@@ -1,3 +1,5 @@
 output/
+.wrangler/
 .DS_Store
 Thumbs.db
+assets/k5pro-final.mp4
