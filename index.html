@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="幻之道个人作品集，以站酷发布作品为主线，展示电商详情页、AI 场景、三维产品渲染与视觉海报。"
+    />
+    <title>幻之道 | Published Works Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;650;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header" data-theme="dark">
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span>H.Z.D</span>
+        <small>Published Works</small>
+      </a>
+      <nav class="top-nav" aria-label="主导航">
+        <a href="#index">INDEX</a>
+        <a href="#work">WORK</a>
+        <a href="#profile">PROFILE</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <button class="menu-button" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </header>
+
+    <aside class="social-rail" aria-label="社交与外链">
+      <a href="https://www.zcool.com.cn/u/12943024" target="_blank" rel="noreferrer">ZCOOL</a>
+      <a href="#work">WORK</a>
+      <a href="#contact">WECHAT</a>
+    </aside>
+
+    <main id="top">
+      <section class="hero section-dark" aria-label="作品集封面">
+        <div class="hero-scan" aria-hidden="true"></div>
+        <div class="hero-copy" data-speed="-0.08">
+          <p class="eyebrow">12 works / ZCOOL cases / Tuni coffee / e-commerce / AI / 3D</p>
+          <h1 data-text="PUBLISH IMPACT.">
+            PUBLISH<br />
+            IMPACT<span>.</span>
+          </h1>
+        </div>
+        <div class="hero-meta">
+          <div><span>12</span><small>Total Works</small></div>
+          <div><span>5</span><small>Project Tracks</small></div>
+          <div><span>320d</span><small>Latest Publish</small></div>
+        </div>
+        <div class="hero-visual" data-parallax data-speed="0.12">
+          <img class="hero-image hero-image-current" src="assets/wigomat-cover.webp" alt="wigomat 唯咖美咖啡机详情页视觉" />
+          <img class="hero-image hero-image-next" src="assets/bosch-cover.webp" alt="" aria-hidden="true" />
+          <div class="hero-flash" aria-hidden="true"></div>
+          <div class="hero-frame">
+            <strong>Z</strong>
+            <p>ZCOOL published cases / commercial visuals / 3D product stories.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro-strip section-dark" aria-label="作品方向">
+        <p>DETAIL PAGE</p>
+        <p>AI VISUAL</p>
+        <p>3D RENDER</p>
+        <p>VISUAL POSTER</p>
+        <p>TUNI COFFEE</p>
+      </section>
+
+      <section class="showreel section-dark" id="showreel" aria-label="K5 Pro 视频展示">
+        <div class="showreel-copy">
+          <p class="eyebrow">Motion Case</p>
+          <h2>K5 PRO<br />FINAL FILM</h2>
+          <p>独立满屏视频段落，用动态产品镜头把三维、材质、灯光和节奏直接展示出来。</p>
+        </div>
+        <video src="assets/k5pro-final.mp4" autoplay loop playsinline controls preload="metadata"></video>
+        <button class="sound-unlock" type="button">开启声音 / PLAY WITH SOUND</button>
+      </section>
+
+      <section class="project-index section-dark" id="index">
+        <div class="sticky-title">
+          <p class="eyebrow">Index from URLs</p>
+          <h2>Every case follows the order in your txt file.</h2>
+          <div class="index-preview" aria-hidden="true">
+            <img src="assets/wigomat-cover.webp" alt="" />
+          </div>
+        </div>
+        <div class="index-list" id="indexList" aria-label="站酷作品索引"></div>
+      </section>
+
+      <section class="work-stage section-dark" id="work">
+        <div class="work-pin">
+          <div class="section-heading">
+            <p class="eyebrow">Drag Track</p>
+            <h2>Published works, not loose assets.</h2>
+          </div>
+          <div class="work-meta">
+            <div class="work-progress"><span></span></div>
+            <div class="work-current">
+              <b id="workCounter">01</b>
+              <p id="workCurrentTitle">Tuni Coffee Machine</p>
+            </div>
+          </div>
+          <div class="work-viewport">
+            <div class="work-track" id="workTrack" aria-label="站酷发布作品横向列表"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gtm section-light" id="practice">
+        <div class="gtm-title">
+          <p class="eyebrow">Filtered archive</p>
+          <h2>WORKS GRID</h2>
+          <p>分类来自站酷作品标签与项目内容：电商详情页、AI 场景、三维产品、视觉海报。</p>
+        </div>
+        <div class="filter-bar" role="tablist" aria-label="作品分类">
+          <button class="active" type="button" data-filter="all">ALL</button>
+          <button type="button" data-filter="ecommerce">E-COMMERCE</button>
+          <button type="button" data-filter="ai">AI</button>
+          <button type="button" data-filter="3d">3D</button>
+          <button type="button" data-filter="poster">POSTER</button>
+          <button type="button" data-filter="coffee">COFFEE</button>
+        </div>
+        <div class="project-grid" id="projectGrid"></div>
+      </section>
+
+      <section class="profile section-dark" id="profile">
+        <div>
+          <p class="eyebrow">Profile</p>
+          <h2>幻之道</h2>
+          <figure class="avatar-lockup">
+            <img src="assets/avatar.webp" alt="幻之道站酷头像" />
+            <figcaption>ZCOOL / 12943024</figcaption>
+          </figure>
+        </div>
+        <div class="profile-copy">
+          <p>
+            佛山设计爱好者。已发布作品覆盖 wigomat 唯咖美、BOSCH 博世、SONDY 森电、Curvymoon、雷神科技等项目。
+          </p>
+          <dl>
+            <div><dt>Location</dt><dd>Foshan, Guangdong</dd></div>
+            <div><dt>Focus</dt><dd>Detail page / AI / 3D render</dd></div>
+            <div><dt>Source</dt><dd>ZCOOL published works</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="links section-dark" id="contact">
+        <h2>OPEN THE<br />ORIGINALS.</h2>
+        <div class="link-list" id="linkList"></div>
+      </section>
+    </main>
+
+    <dialog class="project-dialog" aria-label="作品详情">
+      <button class="dialog-close" type="button" aria-label="关闭">×</button>
+      <div class="dialog-media"></div>
+      <div class="dialog-copy">
+        <p class="eyebrow"></p>
+        <h3></h3>
+        <p class="dialog-text"></p>
+        <ul class="dialog-facts"></ul>
+        <a class="dialog-link" href="#" target="_blank" rel="noreferrer">Open ZCOOL page</a>
+      </div>
+    </dialog>
+
+    <script src="assets/gallery-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
