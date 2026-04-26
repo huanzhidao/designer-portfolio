@@ -17,8 +17,9 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="is-intro">
     <div class="grain" aria-hidden="true"></div>
+    <div class="ambient-glow" aria-hidden="true"></div>
     <div class="scroll-progress" aria-hidden="true"></div>
 
     <header class="site-header" data-theme="dark">
@@ -44,9 +45,18 @@
     </header>
 
     <aside class="social-rail" aria-label="Social and external links">
-      <a href="https://www.zcool.com.cn/u/12943024" target="_blank" rel="noreferrer">ZCOOL</a>
-      <a href="#work">WORK</a>
-      <a href="#contact">WECHAT</a>
+      <a href="https://www.zcool.com.cn/u/12943024" target="_blank" rel="noreferrer" data-rail-icon="external"><span>ZCOOL</span></a>
+      <a href="#work" data-rail-icon="grid"><span>WORK</span></a>
+      <div class="rail-wechat">
+        <a href="#wechat-qr-card" class="rail-wechat-trigger" data-rail-icon="message"><span>WECHAT</span></a>
+        <div class="wechat-pop" aria-label="WeChat QR code">
+          <img src="assets/wechat-qr.jpg" alt="WeChat QR code" loading="lazy" />
+          <div class="wechat-pop-copy">
+            <strong data-i18n="wechatScanTitle">SCAN WECHAT</strong>
+            <p data-i18n="wechatScanText">Use WeChat to scan and start a direct conversation.</p>
+          </div>
+        </div>
+      </div>
     </aside>
 
     <main id="top">
@@ -55,14 +65,18 @@
         <div class="hero-copy" data-speed="-0.08">
           <p class="eyebrow" data-i18n="heroEyebrow">12 works / ZCOOL cases / Tuni coffee / e-commerce / AI / 3D</p>
           <h1 data-text="PUBLISH IMPACT." data-i18n-html="heroTitle">
-            PUBLISH<br />
-            IMPACT<span>.</span>
+            <span class="hero-title-line">PUBLISH</span>
+            <span class="hero-title-line">IMPACT<span class="hero-dot">.</span></span>
           </h1>
+          <div class="hero-position">
+            <p data-i18n="heroRole">AI-Driven Commercial Visual Designer</p>
+            <span data-i18n="heroSubtitle">E-commerce Visuals / Photoshop Retouching / AI Images / CGI Product Stories / Workflow Automation</span>
+          </div>
         </div>
         <div class="hero-meta">
-          <div><span>12</span><small data-i18n="totalWorks">Total Works</small></div>
-          <div><span>5</span><small data-i18n="projectTracks">Project Tracks</small></div>
-          <div><span>320d</span><small data-i18n="latestPublish">Latest Publish</small></div>
+          <div data-meta-icon="grid"><span>12</span><small data-i18n="totalWorks">Total Works</small></div>
+          <div data-meta-icon="layers"><span>5</span><small data-i18n="projectTracks">Project Tracks</small></div>
+          <div data-meta-icon="clock"><span data-i18n="latestStatus">Updated</span><small data-i18n="latestPublish">Recently Updated</small></div>
         </div>
         <div class="hero-visual" data-parallax data-speed="0.12">
           <img class="hero-image hero-image-current" src="assets/wigomat-cover.webp" alt="wigomat coffee machine detail page visual" />
@@ -75,13 +89,7 @@
         </div>
       </section>
 
-      <section class="intro-strip section-dark" aria-label="Creative directions">
-        <p>DETAIL PAGE</p>
-        <p>AI VISUAL</p>
-        <p>3D RENDER</p>
-        <p>VISUAL POSTER</p>
-        <p>TUNI COFFEE</p>
-      </section>
+      <section class="intro-strip section-dark" id="directionTags" aria-label="Creative directions"></section>
 
       <section class="showreel section-dark" id="showreel" aria-label="K5 Pro film">
         <div class="showreel-copy reveal-block" data-reveal>
@@ -90,13 +98,46 @@
           <p data-i18n="showreelText">A full-screen film section that presents 3D, material, lighting and rhythm through product motion.</p>
         </div>
         <video src="https://pub-88f8e039647d44168307edc9cce26e68.r2.dev/k5pro-final.mp4" autoplay loop playsinline controls preload="metadata"></video>
-        <button class="sound-unlock" type="button" data-i18n="soundUnlock">PLAY WITH SOUND</button>
+        <button class="sound-unlock" type="button"><span class="sound-icon" aria-hidden="true"></span><span data-i18n="soundUnlock">PLAY WITH SOUND</span></button>
       </section>
 
-      <section class="project-index section-dark" id="index">
+      <div class="marquee-track marquee-track-etched" aria-hidden="true">
+        <div class="marquee-content">
+          <span>AI-DRIVEN VISUALS • CGI PRODUCT STORY • PHOTOSHOP RETOUCHING • </span>
+          <span>AI-DRIVEN VISUALS • CGI PRODUCT STORY • PHOTOSHOP RETOUCHING • </span>
+        </div>
+      </div>
+
+      <section class="capabilities section-dark ambient-section" id="capabilities">
+        <div class="capabilities-head reveal-block" data-reveal>
+          <p class="eyebrow" data-i18n="capabilitiesEyebrow">Core capabilities</p>
+          <h2 data-i18n="capabilitiesTitle">CAPABILITIES</h2>
+          <p data-i18n="capabilitiesText">A compact overview of my design, AI, CGI and workflow capabilities.</p>
+        </div>
+        <div class="capability-layout">
+          <div class="capability-grid" id="capabilityGrid"></div>
+          <aside class="capability-preview reveal-block" data-reveal aria-label="Capability visual preview">
+            <img id="capabilityPreviewImage" src="assets/wigomat-cover.webp" alt="Commercial visual preview" />
+            <div class="capability-preview-copy">
+              <span id="capabilityPreviewIndex">01</span>
+              <strong id="capabilityPreviewTitle">E-commerce Visual Design</strong>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="workflow section-dark ambient-section" id="workflow">
+        <div class="workflow-head reveal-block" data-reveal>
+          <p class="eyebrow" data-i18n="workflowEyebrow">Tools & Workflow</p>
+          <h2 data-i18n="workflowTitle">TOOLS &amp; WORKFLOW</h2>
+        </div>
+        <div class="workflow-grid" id="workflowGrid"></div>
+      </section>
+
+      <section class="project-index section-dark ambient-section" id="index">
         <div class="sticky-title reveal-block" data-reveal>
-          <p class="eyebrow" data-i18n="indexEyebrow">Index from URLs</p>
-          <h2 data-i18n="indexTitle">Every case follows the order in your txt file.</h2>
+          <p class="eyebrow" data-i18n="indexEyebrow">Published Archive</p>
+          <h2 data-i18n="indexTitle">A curated index of selected published works.</h2>
           <div class="index-preview" aria-hidden="true">
             <img src="assets/wigomat-cover.webp" alt="" />
           </div>
@@ -104,11 +145,11 @@
         <div class="index-list" id="indexList" aria-label="Published work index"></div>
       </section>
 
-      <section class="work-stage section-dark" id="work">
+      <section class="work-stage section-dark ambient-section" id="work">
         <div class="work-pin">
           <div class="section-heading reveal-block" data-reveal>
             <p class="eyebrow" data-i18n="workEyebrow">Drag Track</p>
-            <h2 data-i18n="workTitle">Published works, not loose assets.</h2>
+            <h2 data-i18n="workTitle">Selected published cases with complete visual context.</h2>
           </div>
           <div class="work-meta reveal-block" data-reveal>
             <div class="work-progress"><span></span></div>
@@ -125,9 +166,9 @@
 
       <section class="gtm section-light" id="practice">
         <div class="gtm-title reveal-block" data-reveal>
-          <p class="eyebrow" data-i18n="archiveEyebrow">Filtered archive</p>
+          <p class="eyebrow" data-i18n="archiveEyebrow">Curated Selection</p>
           <h2 data-i18n="archiveTitle">WORKS GRID</h2>
-          <p data-i18n="archiveText">Categories are organized from ZCOOL tags and project content: e-commerce pages, AI scenes, 3D product visuals and posters.</p>
+          <p data-i18n="archiveText">Selected works across e-commerce detail pages, Photoshop-based product visuals, AI-generated scenes, 3D product visuals and commercial posters.</p>
         </div>
         <div class="filter-bar reveal-block" role="tablist" aria-label="Work categories" data-reveal>
           <button class="active" type="button" data-filter="all">ALL</button>
@@ -140,7 +181,7 @@
         <div class="project-grid" id="projectGrid"></div>
       </section>
 
-      <section class="profile section-dark" id="profile">
+      <section class="profile section-dark ambient-section" id="profile">
         <div class="reveal-block" data-reveal>
           <p class="eyebrow" data-i18n="profileEyebrow">Profile</p>
           <h2>HUANZHIDAO</h2>
@@ -150,20 +191,54 @@
           </figure>
         </div>
         <div class="profile-copy reveal-block" data-reveal>
-          <p data-i18n="profileText">
-            Foshan-based designer focused on commercial visuals, e-commerce detail pages, AI scene images and 3D product rendering.
+          <p class="profile-lead" data-i18n="profileText">
+            AI-driven commercial visual designer focused on e-commerce detail pages, Photoshop-based visual retouching, AI-generated scenes, CGI-style product visuals and workflow automation.
+          </p>
+          <p class="profile-note" data-i18n="profileNote">
+            Familiar with Photoshop compositing, product retouching and detail page visual handling, with Illustrator basics, C4D / Octane, Codex, Quicker and Photoshop Script supporting a more efficient design workflow.
           </p>
           <dl>
             <div><dt data-i18n="profileLocationLabel">Location</dt><dd data-i18n="profileLocation">Foshan, Guangdong</dd></div>
-            <div><dt data-i18n="profileFocusLabel">Focus</dt><dd data-i18n="profileFocus">Detail page / AI / 3D render</dd></div>
+            <div><dt data-i18n="profileFocusLabel">Focus</dt><dd data-i18n="profileFocus">Detail page / Photoshop / AI / CGI / Workflow</dd></div>
             <div><dt data-i18n="profileSourceLabel">Source</dt><dd data-i18n="profileSource">ZCOOL published works</dd></div>
+            <div><dt data-i18n="profileToolsLabel">Tools</dt><dd data-i18n="profileTools">Photoshop / Illustrator / C4D / Octane / Midjourney / Jimeng AI / Codex / Quicker / Photoshop Script</dd></div>
           </dl>
         </div>
       </section>
 
-      <section class="links section-dark" id="contact">
-        <h2 class="reveal-block" data-reveal data-i18n-html="linksTitle">OPEN THE<br />ORIGINALS.</h2>
-        <div class="link-list reveal-block" id="linkList" data-reveal></div>
+      <section class="brand-experience section-dark ambient-section" id="brand-experience">
+        <div class="brand-head reveal-block" data-reveal>
+          <p class="eyebrow" data-i18n="brandExperienceEyebrow">Brand Experience</p>
+          <h2 data-i18n="brandExperienceTitle">BRAND EXPERIENCE</h2>
+          <p data-i18n="brandExperienceText">Selected project brands across e-commerce visuals, product posters, AI-assisted commercial content and CGI-style product storytelling.</p>
+        </div>
+        <div class="brand-grid reveal-block" id="brandGrid" data-reveal></div>
+      </section>
+
+      <section class="links final-cta section-dark ambient-section" id="contact">
+        <div class="final-cta-copy reveal-block" data-reveal>
+          <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+          <h2 data-i18n-html="linksTitle">LET'S BUILD PRODUCT VISUALS THAT SELL.</h2>
+          <p data-i18n="contactText">Open to e-commerce visuals, product posters, AI-assisted content and CGI-style product storytelling.</p>
+          <div class="cta-actions">
+            <a href="https://www.zcool.com.cn/u/12943024" target="_blank" rel="noreferrer" data-i18n="zcoolPortfolio">ZCOOL Portfolio</a>
+            <a href="#work" data-i18n="viewWorks">View Works</a>
+            <a href="#wechat-qr-card" data-i18n="wechatContact">WeChat / Contact</a>
+          </div>
+        </div>
+        <div class="contact-side reveal-block" data-reveal>
+          <section class="contact-qr-card" id="wechat-qr-card" aria-label="WeChat QR code card">
+            <div class="contact-qr-media">
+              <img src="assets/wechat-qr.jpg" alt="WeChat QR code" loading="lazy" />
+            </div>
+            <div class="contact-qr-copy">
+              <p class="eyebrow" data-i18n="wechatScanEyebrow">WeChat</p>
+              <strong data-i18n="wechatScanTitle">SCAN WECHAT</strong>
+              <span data-i18n="wechatScanText">Use WeChat to scan and start a direct conversation.</span>
+            </div>
+          </section>
+          <div class="link-list compact-originals" id="linkList"></div>
+        </div>
       </section>
     </main>
 
@@ -180,6 +255,7 @@
     </dialog>
 
     <script src="assets/gallery-data.js"></script>
+    <div id="magic-cursor" aria-hidden="true"><span class="cursor-text"></span></div>
     <script src="script.js"></script>
   </body>
 </html>

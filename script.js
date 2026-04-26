@@ -212,99 +212,198 @@ const projects = [
   },
 ];
 
-if (window.caseGalleries) {
-  projects.forEach((project) => {
-    if (window.caseGalleries[project.id]?.length) {
-      project.gallery = window.caseGalleries[project.id];
-      project.image = window.caseGalleries[project.id][0];
-    }
-  });
+const projectCapabilityMap = {
+  tuni: { skills: ["productVisual", "motion", "cgi", "photoshop"], tags: ["coffee", "motion", "cgi"] },
+  wigomat: { skills: ["detailPage", "photoshop", "cgi", "poster"], tags: ["ecommerce", "coffee", "cgi"] },
+  bosch: { skills: ["aiGeneration", "detailPage", "photoshop", "sceneDirection"], tags: ["ai", "ecommerce", "homeAppliance"] },
+  sondy: { skills: ["detailPage", "cgi", "photoshop", "productStory"], tags: ["ecommerce", "vacuum", "cgi"] },
+  curvymoon: { skills: ["detailPage", "aiGeneration", "cgi", "photoshop"], tags: ["amazon", "ecommerce", "ai"] },
+  lieren: { skills: ["poster", "cgi", "photoshop", "productVisual"], tags: ["poster", "laptop", "cgi"] },
+  peripheral: { skills: ["cgi", "productVisual", "photoshop"], tags: ["3d", "peripheral", "render"] },
+  dishwasher: { skills: ["aiGeneration", "photoshop", "sceneDirection"], tags: ["ai", "homeAppliance", "composite"] },
+  g45: { skills: ["cgi", "productVisual", "photoshop"], tags: ["3d", "controller", "render"] },
+  watch: { skills: ["cgi", "productVisual", "lighting"], tags: ["3d", "watch", "material"] },
+  avata: { skills: ["cgi", "lighting", "productVisual"], tags: ["3d", "drone", "render"] },
+  keyboard: { skills: ["cgi", "productVisual", "lighting"], tags: ["3d", "keyboard", "render"] },
+};
+
+projects.forEach((project) => {
+  Object.assign(project, projectCapabilityMap[project.id] || {});
+});
+
+const icons = {
+  grid: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>',
+  layers: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg>',
+  clock: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>',
+  layout: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 10h16M10 10v9"/></svg>',
+  sparkle: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="m18 15 .8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15Z"/></svg>',
+  cube: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M4 7.5 12 12l8-4.5M12 12v9"/></svg>',
+  image: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="m7 16 4-4 3 3 2-2 3 3"/><circle cx="8.5" cy="8.5" r="1.2"/></svg>',
+  brush: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l5 5-8 8-5-5 8-8Z"/><path d="M7 12c-2 1-3 3-3 6 3 0 5-1 6-3"/></svg>',
+  frame: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>',
+  terminal: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="m8 9 3 3-3 3M13 15h4"/></svg>',
+  external: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8h8v8"/><path d="m16 8-9 9"/><path d="M5 5h14v14H5z"/></svg>',
+  coffee: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h12v5a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5V8Z"/><path d="M17 10h2a2 2 0 0 1 0 4h-2"/><path d="M8 4v2M12 4v2M16 4v2"/></svg>',
+  message: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H9l-5 4V5Z"/></svg>',
+  volume: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h4l5-4v12l-5-4H4z"/><path d="M16 9c1 1 1 5 0 6M18.5 7c2 2 2 8 0 10"/></svg>',
+};
+
+function icon(name) {
+  return `<span class="line-icon line-icon-${name}" aria-hidden="true">${icons[name] || ""}</span>`;
 }
+
+function isImageAsset(src = "") {
+  return /\.(avif|webp|png|jpe?g|gif)$/i.test(src.split("?")[0]);
+}
+
+function uniqueAssets(assets = []) {
+  return [...new Set(assets.filter(Boolean))];
+}
+
+function getProjectCoverCandidates(project) {
+  return uniqueAssets([project.coverImage, project.image, ...(project.gallery || [])]).filter(isImageAsset);
+}
+
+projects.forEach((project) => {
+  project.coverImage = project.image;
+  if (window.caseGalleries?.[project.id]?.length) {
+    project.gallery = window.caseGalleries[project.id];
+  }
+  project.coverCandidates = getProjectCoverCandidates(project);
+  project.image = project.coverCandidates[0] || project.image;
+});
 
 const uiText = {
   en: {
-    metaDescription: "HUANZHIDAO designer portfolio, built around published ZCOOL cases, e-commerce detail pages, AI visuals, 3D renders and commercial motion work.",
+    metaDescription: "HUANZHIDAO portfolio for AI-driven commercial visual design, e-commerce detail pages, Photoshop retouching, AI images, CGI product stories and workflow automation.",
     brandSmall: "Published Works",
     navIndex: "INDEX",
     navWork: "WORK",
     navProfile: "PROFILE",
     navContact: "CONTACT",
     heroEyebrow: "12 works / ZCOOL cases / Tuni coffee / e-commerce / AI / 3D",
-    heroTitle: "PUBLISH<br />IMPACT<span>.</span>",
+    heroTitle: '<span class="hero-title-line">PUBLISH</span><span class="hero-title-line">IMPACT<span class="hero-dot">.</span></span>',
     heroTitlePlain: "PUBLISH IMPACT.",
+    heroRole: "AI-Driven Commercial Visual Designer",
+    heroSubtitle: "E-commerce Visuals / Photoshop Retouching / AI Images / CGI Product Stories / Workflow Automation",
     totalWorks: "Total Works",
     projectTracks: "Project Tracks",
-    latestPublish: "Latest Publish",
+    latestStatus: "Updated",
+    latestPublish: "Recently Updated",
     heroFrame: "ZCOOL published cases / commercial visuals / 3D product stories.",
     showreelEyebrow: "Motion Case",
     showreelText: "A full-screen film section that presents 3D, material, lighting and rhythm through product motion.",
     soundUnlock: "PLAY WITH SOUND",
-    indexEyebrow: "Index from URLs",
-    indexTitle: "Every case follows the order in your txt file.",
+    showreelAction: "OPEN ON BILIBILI",
+    capabilitiesEyebrow: "Core capabilities",
+    capabilitiesTitle: "CAPABILITIES",
+    capabilitiesText: "A compact overview of my design, AI, CGI and workflow capabilities.",
+    workflowEyebrow: "Tools & Workflow",
+    workflowTitle: "TOOLS & WORKFLOW",
+    indexEyebrow: "Published Archive",
+    indexTitle: "A curated index of selected published works.",
     workEyebrow: "Drag Track",
-    workTitle: "Published works, not loose assets.",
-    archiveEyebrow: "Filtered archive",
+    workTitle: "Selected published cases with complete visual context.",
+    archiveEyebrow: "Curated Selection",
     archiveTitle: "WORKS GRID",
-    archiveText: "Categories are organized from ZCOOL tags and project content: e-commerce pages, AI scenes, 3D product visuals and posters.",
+    archiveText: "Selected works across e-commerce detail pages, Photoshop-based product visuals, AI-generated scenes, 3D product visuals and commercial posters.",
     profileEyebrow: "Profile",
-    profileText: "Foshan-based designer focused on commercial visuals, e-commerce detail pages, AI scene images and 3D product rendering.",
+    profileText: "AI-driven commercial visual designer focused on e-commerce detail pages, Photoshop-based visual retouching, AI-generated scenes, CGI-style product visuals and workflow automation.",
+    profileNote: "Familiar with Photoshop compositing, product retouching and detail page visual handling, with Illustrator basics, C4D / Octane, Codex, Quicker and Photoshop Script supporting a more efficient design workflow.",
     profileLocationLabel: "Location",
     profileLocation: "Foshan, Guangdong",
     profileFocusLabel: "Focus",
-    profileFocus: "Detail page / AI / 3D render",
+    profileFocus: "Detail page / Photoshop / AI / CGI / Workflow",
     profileSourceLabel: "Source",
     profileSource: "ZCOOL published works",
-    linksTitle: "OPEN THE<br />ORIGINALS.",
+    profileToolsLabel: "Tools",
+    profileTools: "Photoshop / Illustrator / C4D / Octane / Midjourney / Jimeng AI / Codex / Quicker / Photoshop Script",
+    brandExperienceEyebrow: "Brand Experience",
+    brandExperienceTitle: "BRAND EXPERIENCE",
+    brandExperienceText: "Selected project brands across e-commerce visuals, product posters, AI-assisted commercial content and CGI-style product storytelling.",
+    contactEyebrow: "Contact",
+    linksTitle: "LET'S BUILD PRODUCT VISUALS THAT SELL.",
+    contactText: "Open to e-commerce visuals, product posters, AI-assisted content and CGI-style product storytelling.",
+    zcoolPortfolio: "ZCOOL Portfolio",
+    viewWorks: "View Works",
+    wechatContact: "WeChat / Contact",
+    wechatScanEyebrow: "WeChat",
+    wechatScanTitle: "SCAN WECHAT",
+    wechatScanText: "Use WeChat to scan and start a direct conversation.",
     openZcool: "Open ZCOOL page",
     prev: "Prev",
     next: "Next",
     auto: "Auto",
     brand: "Brand",
     role: "Role",
+    skills: "Skills",
     tools: "Tools",
     source: "Source",
     localProject: "local project",
     views: "views",
   },
   zh: {
-    metaDescription: "幻之道个人作品集，以站酷发布作品为主线，展示电商详情页、AI 场景、三维产品渲染与动态视觉。",
+    metaDescription: "幻之道个人作品集，展示 AI 驱动型商业视觉、电商详情页、Photoshop 商业后期、AI 图像生成、CGI 产品视觉与自动化工作流。",
     brandSmall: "发布作品",
     navIndex: "索引",
     navWork: "作品",
     navProfile: "简介",
     navContact: "联系",
     heroEyebrow: "12 个作品 / 站酷案例 / 突尼咖啡 / 电商 / AI / 3D",
-    heroTitle: "发布<br />影响<span>.</span>",
+    heroTitle: '<span class="hero-title-line">发布</span><span class="hero-title-line">影响<span class="hero-dot">.</span></span>',
     heroTitlePlain: "发布 影响.",
-    totalWorks: "作品总数",
-    projectTracks: "项目分类",
-    latestPublish: "最近发布",
+    heroRole: "AI 驱动型商业视觉设计师",
+    heroSubtitle: "专注电商详情页、产品海报、Photoshop 商业后期、AI 图像生成与 CGI 风格产品视觉表达。",
+    totalWorks: "组作品",
+    projectTracks: "个方向",
+    latestStatus: "更新中",
+    latestPublish: "持续更新",
     heroFrame: "站酷发布案例 / 商业视觉 / 三维产品叙事。",
     showreelEyebrow: "动态案例",
     showreelText: "独立满屏视频段落，用动态产品镜头直接展示三维、材质、灯光和节奏。",
     soundUnlock: "开启声音",
-    indexEyebrow: "链接索引",
-    indexTitle: "作品顺序优先按你的 txt 链接整理。",
+    capabilitiesEyebrow: "核心能力",
+    capabilitiesTitle: "核心能力",
+    capabilitiesText: "围绕商业视觉、AI 生成、产品 CGI 与自动化工作流形成复合型设计能力。",
+    workflowEyebrow: "工具链与工作流",
+    workflowTitle: "工具链与工作流",
+    indexEyebrow: "已发布作品归档",
+    indexTitle: "精选已发布作品的视觉归档。",
     workEyebrow: "拖拽轨道",
-    workTitle: "发布作品，而不是散乱素材。",
-    archiveEyebrow: "分类归档",
+    workTitle: "精选完整发布案例，而非零散素材展示。",
+    archiveEyebrow: "精选作品",
     archiveTitle: "作品网格",
-    archiveText: "分类来自站酷作品标签与项目内容：电商详情页、AI 场景、三维产品和视觉海报。",
+    archiveText: "作品覆盖电商详情页、Photoshop 产品视觉、AI 场景图、3D 产品视觉与商业海报。",
     profileEyebrow: "个人简介",
-    profileText: "佛山设计师，关注商业视觉、电商详情页、AI 场景图和三维产品渲染。",
+    profileText: "AI 驱动型商业视觉设计师，专注电商详情页、产品海报、Photoshop 商业后期、AI 场景图与 CGI 风格产品视觉。",
+    profileNote: "熟悉 Photoshop 图像合成、产品修图与详情页视觉处理，了解 Illustrator 基础平面与矢量处理，并结合 C4D / Octane、Codex、Quicker 与 Photoshop Script 探索更高效的设计工作流。",
     profileLocationLabel: "所在地",
     profileLocation: "广东佛山",
     profileFocusLabel: "方向",
-    profileFocus: "详情页 / AI / 三维渲染",
+    profileFocus: "详情页 / Photoshop / AI / CGI / 工作流",
     profileSourceLabel: "来源",
     profileSource: "站酷发布作品",
-    linksTitle: "打开<br />原始作品。",
+    profileToolsLabel: "工具",
+    profileTools: "Photoshop / Illustrator / C4D / Octane / Midjourney / 即梦 AI / Codex / Quicker / Photoshop Script",
+    brandExperienceEyebrow: "品牌项目经验",
+    brandExperienceTitle: "BRAND EXPERIENCE",
+    brandExperienceText: "覆盖电商详情页、产品海报、AI 商业视觉与 CGI 风格产品表达的项目品牌经验。",
+    contactEyebrow: "联系合作",
+    linksTitle: "一起打造更有销售力的产品视觉。",
+    contactText: "可合作方向包括电商详情页、产品海报、AI 商业视觉与 CGI 风格产品表达。",
+    zcoolPortfolio: "站酷作品集",
+    viewWorks: "查看作品",
+    wechatContact: "微信 / 联系",
+    wechatScanEyebrow: "微信",
+    wechatScanTitle: "扫码联系",
+    wechatScanText: "使用微信扫码，直接开始沟通。",
     openZcool: "打开站酷页面",
     prev: "上一张",
     next: "下一张",
     auto: "自动",
     brand: "品牌",
     role: "职责",
+    skills: "能力",
     tools: "工具",
     source: "来源",
     localProject: "本地项目",
@@ -330,6 +429,238 @@ const categoryText = {
     poster: "海报",
   },
 };
+
+const directionText = {
+  en: [
+    { icon: "layout", label: "DETAIL PAGE" },
+    { icon: "sparkle", label: "AI VISUAL" },
+    { icon: "cube", label: "3D RENDER" },
+    { icon: "image", label: "VISUAL POSTER" },
+    { icon: "coffee", label: "TUNI COFFEE" },
+  ],
+  zh: [
+    { icon: "layout", label: "详情页" },
+    { icon: "sparkle", label: "AI 视觉" },
+    { icon: "cube", label: "3D 渲染" },
+    { icon: "image", label: "视觉海报" },
+    { icon: "coffee", label: "突尼咖啡" },
+  ],
+};
+
+const skillText = {
+  en: {
+    detailPage: "E-commerce detail page structure",
+    photoshop: "Photoshop retouching and compositing",
+    aiGeneration: "AI-assisted scene generation",
+    cgi: "CGI-style lighting and material control",
+    poster: "Commercial poster direction",
+    productVisual: "Product visual storytelling",
+    productStory: "Product selling-point visualization",
+    motion: "Product motion rhythm",
+    sceneDirection: "Commercial scene direction",
+    lighting: "Lighting and material judgment",
+  },
+  zh: {
+    detailPage: "电商详情页结构",
+    photoshop: "Photoshop 修图与合成",
+    aiGeneration: "AI 辅助场景生成",
+    cgi: "CGI 风格灯光与材质控制",
+    poster: "商业海报视觉方向",
+    productVisual: "产品视觉叙事",
+    productStory: "产品卖点视觉化",
+    motion: "产品动态节奏",
+    sceneDirection: "商业场景方向",
+    lighting: "灯光与材质判断",
+  },
+};
+
+const capabilitiesText = {
+  en: [
+    {
+      icon: "layout",
+      preview: "assets/wigomat-cover.webp",
+      title: "E-commerce Visual Design",
+      text: "Detail page structure, selling-point visualization, platform conversion logic and long-page rhythm control.",
+    },
+    {
+      icon: "brush",
+      preview: "assets/tuni-cover.webp",
+      title: "Photoshop Visual Retouching",
+      text: "Photoshop product retouching, image compositing, tone refinement, commercial post-production and detail page visual handling.",
+    },
+    {
+      icon: "frame",
+      preview: "assets/lieren-cover.webp",
+      title: "Product Poster Design",
+      text: "Launch visuals, livestream campaigns, brand communication, product key visuals and commercial poster systems.",
+    },
+    {
+      icon: "sparkle",
+      preview: "assets/bosch-cover.webp",
+      title: "AI Image Generation",
+      text: "Reference-image analysis, Prompt Engineering, repainting, commercial scene generation and visual style consistency.",
+    },
+    {
+      icon: "cube",
+      preview: "assets/watch-cover.webp",
+      title: "CGI Product Thinking",
+      text: "C4D / Octane visual judgment, material expression, lighting atmosphere, product advertising feel and 3D product storytelling.",
+    },
+    {
+      icon: "terminal",
+      preview: "assets/keyboard-cover.webp",
+      title: "AI-assisted Workflow",
+      text: "Codex, Quicker and Photoshop Script support website edits, interaction prototypes, repeated-action automation and design workflow efficiency.",
+    },
+  ],
+  zh: [
+    {
+      icon: "layout",
+      preview: "assets/wigomat-cover.webp",
+      title: "电商视觉设计",
+      text: "电商详情页结构规划、卖点视觉化、平台转化逻辑与页面节奏控制。",
+    },
+    {
+      icon: "brush",
+      preview: "assets/tuni-cover.webp",
+      title: "Photoshop 商业后期",
+      text: "Photoshop 产品修图、图像合成、色调优化、商业后期与详情页视觉处理。",
+    },
+    {
+      icon: "frame",
+      preview: "assets/lieren-cover.webp",
+      title: "产品商业海报",
+      text: "新品上市、直播活动、品牌宣传、产品主视觉与商业海报设计。",
+    },
+    {
+      icon: "sparkle",
+      preview: "assets/bosch-cover.webp",
+      title: "AI 图像生成",
+      text: "参考图反推、Prompt Engineering、图像重绘、商业场景生成与风格统一。",
+    },
+    {
+      icon: "cube",
+      preview: "assets/watch-cover.webp",
+      title: "CGI 产品思维",
+      text: "C4D / Octane 视觉理解、材质表现、灯光氛围、产品广告感与 3D 产品故事表达。",
+    },
+    {
+      icon: "terminal",
+      preview: "assets/keyboard-cover.webp",
+      title: "AI 辅助工作流",
+      text: "使用 Codex、Quicker 与 Photoshop Script 辅助网页修改、交互原型、高频操作自动化和设计流程提效。",
+    },
+  ],
+};
+
+const workflowText = {
+  en: [
+    {
+      icon: "image",
+      title: "Design Tools",
+      tools: "Photoshop / Illustrator / Camera Raw / Eagle",
+      text: "For product retouching, image compositing, detail page layout, basic vector handling, asset management and commercial post-production.",
+    },
+    {
+      icon: "sparkle",
+      title: "AI Creative Tools",
+      tools: "Midjourney / Jimeng AI / ChatGPT",
+      text: "For prompt reverse thinking, AI scene generation, creative exploration, visual style testing and image repainting.",
+    },
+    {
+      icon: "cube",
+      title: "3D & CGI",
+      tools: "Cinema 4D / OctaneRender",
+      text: "For product CGI judgment, material and lighting decisions, product advertising feel and three-dimensional visual expression.",
+    },
+    {
+      icon: "terminal",
+      title: "Workflow & Coding",
+      tools: "Codex / Quicker / Photoshop Script",
+      text: "For website edits, interaction motion communication, automated actions, batch processing and design workflow efficiency.",
+    },
+  ],
+  zh: [
+    {
+      icon: "image",
+      title: "设计工具",
+      tools: "Photoshop / Illustrator / Camera Raw / Eagle",
+      text: "用于产品修图、图像合成、详情页排版、基础矢量处理、素材管理与商业后期。",
+    },
+    {
+      icon: "sparkle",
+      title: "AI 创意工具",
+      tools: "Midjourney / 即梦 AI / ChatGPT",
+      text: "用于提示词反推、AI 场景图生成、创意发散、视觉风格测试与图像重绘。",
+    },
+    {
+      icon: "cube",
+      title: "3D & CGI",
+      tools: "Cinema 4D / OctaneRender",
+      text: "用于产品 CGI 视觉理解、材质灯光判断、产品广告感和三维视觉表达。",
+    },
+    {
+      icon: "terminal",
+      title: "工作流与自动化",
+      tools: "Codex / Quicker / Photoshop Script",
+      text: "用于网页修改、交互动效沟通、自动化动作、批量处理和设计流程提效。",
+    },
+  ],
+};
+
+uiText.en.heroSubtitle = "E-commerce Visuals / Photoshop Retouching / C4D CGI / Octane Lighting / AI Images / Workflow Automation";
+uiText.en.capabilitiesText = "A compact overview of my commercial visual, C4D / Octane CGI, AI image and workflow capabilities.";
+uiText.en.profileText = "AI-driven commercial visual designer focused on e-commerce detail pages, Photoshop-based visual retouching, C4D / Octane product CGI, AI-generated scenes and workflow automation.";
+uiText.en.profileNote = "Built around Photoshop compositing and product retouching, with Illustrator basics, C4D / Octane product visualization, lighting and material thinking, plus Codex, Quicker and Photoshop Script for a faster design workflow.";
+uiText.en.profileFocus = "Detail page / Photoshop / C4D / Octane / AI / Workflow";
+
+uiText.zh.heroSubtitle = "专注电商详情页、产品海报、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 图像生成与工作流优化。";
+uiText.zh.capabilitiesText = "围绕商业视觉、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流形成复合型设计能力。";
+uiText.zh.profileText = "AI 驱动型商业视觉设计师，专注电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 场景图与工作流优化。";
+uiText.zh.profileNote = "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光与广告感判断能力，并结合 Illustrator 基础、Codex、Quicker 与 Photoshop Script 提升设计效率。";
+uiText.zh.profileFocus = "详情页 / Photoshop / C4D / Octane / AI / 工作流";
+
+capabilitiesText.en[4].title = "C4D / Octane Product CGI";
+capabilitiesText.en[4].text = "C4D / Octane product visualization, material control, lighting atmosphere, commercial rendering judgment and 3D product storytelling.";
+capabilitiesText.zh[4].title = "C4D / Octane 产品 CGI";
+capabilitiesText.zh[4].text = "C4D / Octane 产品可视化、材质表现、灯光氛围、广告感判断与 3D 产品叙事表达。";
+
+workflowText.en[2].title = "C4D & Octane CGI";
+workflowText.en[2].text = "Used for product CGI visualization, material and lighting decisions, commercial rendering atmosphere and three-dimensional product storytelling.";
+workflowText.zh[2].title = "C4D 与 Octane CGI";
+workflowText.zh[2].text = "用于产品 CGI 可视化、材质与灯光判断、商业渲染氛围以及三维产品叙事表达。";
+
+  const brandList = [
+    "Audio-Technica 铁三角",
+    "Midea 美的",
+    "Haier 海尔",
+    "OGAWA 奥佳华",
+    "BOSCH 博世",
+    "wigomat 唯咖美",
+    "ThundeRobot 雷神",
+    "TUNI 突尼",
+    "SONDY 森电",
+    "RT-Mart 大润发",
+    "Curvymoon",
+    "森友汇",
+    "SeenDa",
+    "Royalstar 荣事达",
+  ];
+
+const gridPattern = [
+  "size-large",
+  "size-standard",
+  "size-tall",
+  "size-standard",
+  "size-wide",
+  "size-standard",
+  "size-tall",
+  "size-standard",
+  "size-wide",
+  "size-standard",
+  "size-standard",
+  "size-standard",
+];
 
 const projectText = {
   en: {
@@ -561,12 +892,19 @@ const parallax = document.querySelector("[data-parallax]");
 const heroVisual = document.querySelector(".hero-visual");
 const heroCurrentImage = document.querySelector(".hero-image-current");
 const heroNextImage = document.querySelector(".hero-image-next");
+const directionTags = document.querySelector("#directionTags");
 const indexList = document.querySelector("#indexList");
 const indexPreview = document.querySelector(".index-preview");
 const workTrack = document.querySelector("#workTrack");
 const workStage = document.querySelector("#work");
 const workCounter = document.querySelector("#workCounter");
 const workCurrentTitle = document.querySelector("#workCurrentTitle");
+const capabilityGrid = document.querySelector("#capabilityGrid");
+const capabilityPreviewImage = document.querySelector("#capabilityPreviewImage");
+const capabilityPreviewIndex = document.querySelector("#capabilityPreviewIndex");
+const capabilityPreviewTitle = document.querySelector("#capabilityPreviewTitle");
+const workflowGrid = document.querySelector("#workflowGrid");
+const brandGrid = document.querySelector("#brandGrid");
 const projectGrid = document.querySelector("#projectGrid");
 const linkList = document.querySelector("#linkList");
 const dialog = document.querySelector(".project-dialog");
@@ -586,10 +924,17 @@ let heroSwitching = false;
 let lastHeroSwitch = 0;
 let ignoreWorkClick = false;
 let activeProjectKey = null;
+let dialogClosing = false;
 let currentLanguage = localStorage.getItem("portfolio-language") || "en";
 let caseAuto = true;
 let caseTimer = null;
 let lastCaseWheel = 0;
+let revealObserver = null;
+let ambientFrame = null;
+let gridCoverResizeTimer = null;
+let imageParallaxTargets = [];
+let imageParallaxFrame = null;
+let imageParallaxBound = false;
 
 function projectNumber(index) {
   return String(index + 1).padStart(2, "0");
@@ -610,9 +955,103 @@ function getCategoryLabel(category) {
   return categoryText[currentLanguage]?.[category] || categoryText.en[category] || category.toUpperCase();
 }
 
+function getSkillLabels(project) {
+  return (project.skills || [])
+    .map((skill) => skillText[currentLanguage]?.[skill] || skillText.en[skill] || skill)
+    .slice(0, 4);
+}
+
 function setTextContent(selector, text) {
   const node = document.querySelector(selector);
   if (node) node.textContent = text;
+}
+
+function renderStaticIcons() {
+  document.querySelectorAll("[data-rail-icon]").forEach((node) => {
+    const label = node.querySelector("span:last-child")?.textContent || node.textContent.trim();
+    node.innerHTML = `${icon(node.dataset.railIcon)}<span>${label}</span>`;
+  });
+
+  document.querySelectorAll("[data-meta-icon]").forEach((node) => {
+    node.querySelector(":scope > .line-icon")?.remove();
+    node.insertAdjacentHTML("afterbegin", icon(node.dataset.metaIcon));
+  });
+
+  const soundIcon = document.querySelector(".sound-icon");
+  if (soundIcon) soundIcon.innerHTML = icons.volume || "";
+}
+
+function renderDirectionTags() {
+  if (!directionTags) return;
+  directionTags.innerHTML = (directionText[currentLanguage] || directionText.en)
+    .map((item) => `<p>${icon(item.icon)}<span>${item.label}</span></p>`)
+    .join("");
+}
+
+function renderCapabilities() {
+  if (!capabilityGrid) return;
+  capabilityGrid.innerHTML = (capabilitiesText[currentLanguage] || capabilitiesText.en)
+    .map(
+      (item, index) => `
+        <article class="capability-card reveal-block" tabindex="0" data-capability="${index}" data-reveal style="--reveal-delay: ${index * 55}ms">
+          <div class="card-kicker"><span>${projectNumber(index)}</span>${icon(item.icon)}</div>
+          <h3>${item.title}</h3>
+          <p>${item.text}</p>
+        </article>
+      `,
+    )
+    .join("");
+}
+
+function updateCapabilityPreview(index = 0, animate = true) {
+  const items = capabilitiesText[currentLanguage] || capabilitiesText.en;
+  const item = items[index] || items[0];
+  if (!item || !capabilityPreviewImage) return;
+  capabilityGrid?.querySelectorAll(".capability-card").forEach((card) => {
+    card.classList.toggle("is-hovered", Number(card.dataset.capability) === index);
+  });
+  if (capabilityPreviewIndex) capabilityPreviewIndex.textContent = projectNumber(index);
+  if (capabilityPreviewTitle) capabilityPreviewTitle.textContent = item.title;
+  if (capabilityPreviewImage.getAttribute("src") === item.preview) return;
+  if (!animate || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    capabilityPreviewImage.src = item.preview;
+    return;
+  }
+  capabilityPreviewImage.classList.add("is-switching");
+  window.setTimeout(() => {
+    capabilityPreviewImage.src = item.preview;
+    capabilityPreviewImage.classList.remove("is-switching");
+  }, 140);
+}
+
+function renderWorkflow() {
+  if (!workflowGrid) return;
+  workflowGrid.innerHTML = (workflowText[currentLanguage] || workflowText.en)
+    .map(
+      (item, index) => `
+        <article class="workflow-item reveal-block" data-reveal style="--reveal-delay: ${index * 60}ms">
+          <div class="workflow-kicker"><span>${projectNumber(index)}</span>${icon(item.icon)}</div>
+          <h3>${item.title}</h3>
+          <strong>${item.tools}</strong>
+          <p>${item.text}</p>
+        </article>
+      `,
+    )
+    .join("");
+}
+
+function renderBrandExperience() {
+  if (!brandGrid) return;
+  brandGrid.innerHTML = brandList
+    .map(
+      (brand, index) => `
+        <span class="brand-token" data-reveal style="--reveal-delay: ${index * 35}ms">
+          ${icon(index % 2 ? "layers" : "external")}
+          <span>${brand}</span>
+        </span>
+      `,
+    )
+    .join("");
 }
 
 function applyLanguage() {
@@ -637,8 +1076,18 @@ function applyLanguage() {
     button.textContent = getCategoryLabel(button.dataset.filter);
   });
 
+  renderStaticIcons();
+  renderDirectionTags();
+  renderCapabilities();
+  updateCapabilityPreview(0, false);
+  renderWorkflow();
+  renderBrandExperience();
   renderProjects();
+  setupFeatureCovers();
+  setupGridCovers();
+  setupImageMaskParallax();
   updateWorkScroller();
+  updateKineticWords();
   const activeProject = projects.find((item) => item.id === activeProjectKey);
   if (dialog.open && activeProject) renderDialogCopy(activeProject);
   if (typeof setupReveal === "function") setupReveal();
@@ -646,6 +1095,7 @@ function applyLanguage() {
 
 function setupHeroCarousel() {
   if (!heroVisual || !heroCurrentImage || !heroNextImage) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const glitchStack = document.createElement("div");
   glitchStack.className = "hero-glitch-stack";
   glitchStack.setAttribute("aria-hidden", "true");
@@ -660,21 +1110,21 @@ function setupHeroCarousel() {
   heroIndex = 0;
 
   const buildHeroSlices = (src) => {
-    glitchStack.innerHTML = Array.from({ length: 11 }, (_, index) => {
-      const top = Math.max(0, index * 9 - (index % 2 ? 2 : 0));
-      const height = index % 3 === 0 ? 18 : index % 3 === 1 ? 13 : 10;
+    glitchStack.innerHTML = Array.from({ length: 7 }, (_, index) => {
+      const top = Math.max(0, index * 14 - (index % 2 ? 2 : 0));
+      const height = index % 3 === 0 ? 13 : index % 3 === 1 ? 10 : 8;
       const bottom = Math.max(0, 100 - top - height);
       const direction = index % 2 === 0 ? 1 : -1;
-      const strength = 24 + ((index * 17) % 58);
-      const y = ((index * 7) % 22) - 11;
-      const delay = (index % 5) * 24;
+      const strength = 10 + ((index * 11) % 24);
+      const y = ((index * 5) % 12) - 6;
+      const delay = (index % 4) * 32;
       return `<span class="hero-slice" style="--slice-image: url('${src}'); --slice-top: ${top}%; --slice-bottom: ${bottom}%; --slice-x: ${direction * strength}px; --slice-y: ${y}px; --slice-delay: ${delay}ms;"></span>`;
     }).join("");
   };
 
   const switchHero = (mode = "auto") => {
     const now = performance.now();
-    if (heroSwitching || (mode === "pointer" && now - lastHeroSwitch < 780)) return;
+    if (heroSwitching || (mode === "pointer" && now - lastHeroSwitch < 1200)) return;
     heroSwitching = true;
     lastHeroSwitch = now;
     const nextIndex = (heroIndex + 1 + Math.floor(Math.random() * (heroPool.length - 1))) % heroPool.length;
@@ -689,12 +1139,12 @@ function setupHeroCarousel() {
       heroVisual.classList.remove("is-switching");
       glitchStack.innerHTML = "";
       heroSwitching = false;
-    }, 900);
+    }, 820);
   };
 
   const restartHeroTimer = () => {
     window.clearInterval(heroTimer);
-    heroTimer = window.setInterval(() => switchHero("auto"), 5200);
+    heroTimer = window.setInterval(() => switchHero("auto"), 6500);
   };
 
   heroVisual.addEventListener("pointerenter", () => {
@@ -710,60 +1160,6 @@ function setupHeroCarousel() {
   restartHeroTimer();
 }
 
-function renderProjects() {
-  indexList.innerHTML = projects
-    .map(
-      (project, index) => `
-        <button class="index-row" type="button" data-project="${project.id}" data-reveal>
-          <span>${projectNumber(index)}</span>
-          <strong>${project.title}</strong>
-          <em>${project.tag}</em>
-          <b>${project.views} views</b>
-        </button>
-      `,
-    )
-    .join("");
-
-  workTrack.innerHTML = projects
-    .map(
-      (project, index) => `
-        <article class="feature-card ${index % 2 ? "tall" : ""}" data-project="${project.id}" data-reveal>
-          <img src="${project.image}" alt="${project.title}" loading="${index < 3 ? "eager" : "lazy"}" />
-          <div>
-            <span>${projectNumber(index)} / ${project.category.toUpperCase()}</span>
-            <h3>${project.short}</h3>
-            <p>${project.brand} · ${project.role}</p>
-          </div>
-        </article>
-      `,
-    )
-    .join("");
-
-  projectGrid.innerHTML = projects
-    .map(
-      (project, index) => `
-        <button class="project-tile ${index === 0 || index === 3 ? "wide" : ""}" type="button"
-          data-category="${project.category}" data-project="${project.id}" data-reveal>
-          <img src="${project.image}" alt="${project.title}" loading="lazy" />
-          <span>${project.short}</span>
-        </button>
-      `,
-    )
-    .join("");
-
-  linkList.innerHTML = projects
-    .filter((project) => project.url !== "#")
-    .slice(0, 6)
-    .map(
-      (project) => `
-        <a href="${project.url}" target="_blank" rel="noreferrer">
-          <span>${project.title}</span><b>OPEN</b>
-        </a>
-      `,
-    )
-    .join("");
-}
-
 function updateProgress() {
   const height = document.documentElement.scrollHeight - window.innerHeight;
   const value = height > 0 ? (window.scrollY / height) * 100 : 0;
@@ -774,164 +1170,8 @@ function updateProgress() {
     node.style.setProperty("--scroll-shift", `${window.scrollY * speed}px`);
   });
 
+  updateKineticWords();
   updateWorkScroller();
-}
-
-function openProject(key) {
-  const project = projects.find((item) => item.id === key);
-  if (!project) return;
-  const gallery = project.gallery?.length ? project.gallery : [project.image];
-  activeGallery = gallery;
-  activeSlide = 0;
-  const thumbs = gallery
-    .map(
-      (src, index) => `
-        <button type="button" class="case-thumb ${index === 0 ? "active" : ""}" data-slide="${index}" aria-label="View asset ${index + 1}">
-          ${
-            src.endsWith(".mp4")
-              ? `<video src="${src}" muted playsinline preload="metadata"></video>`
-              : `<img src="${src}" alt="" loading="lazy" />`
-          }
-          <span>${String(index + 1).padStart(2, "0")}</span>
-        </button>
-      `,
-    )
-    .join("");
-  dialogMedia.innerHTML = `
-    <div class="case-viewer">
-      <div class="case-stage"></div>
-      <div class="case-controls" aria-label="Artwork navigation">
-        <button type="button" class="case-prev" aria-label="Previous">Prev</button>
-        <div class="case-progress"><span></span><b>01 / ${String(gallery.length).padStart(2, "0")}</b></div>
-        <button type="button" class="case-next" aria-label="Next">Next</button>
-      </div>
-      <div class="case-strip" aria-label="Artwork thumbnails">${thumbs}</div>
-    </div>
-  `;
-  dialogTag.textContent = project.tag;
-  dialogTitle.textContent = project.title;
-  dialogText.textContent = project.text;
-  dialogFacts.innerHTML = `
-    <li><span>Brand</span><b>${project.brand}</b></li>
-    <li><span>Role</span><b>${project.role}</b></li>
-    <li><span>Tools</span><b>${project.tools}</b></li>
-    <li><span>Source</span><b>${project.date} / ${project.views === "local" ? "local project" : `${project.views} views`}</b></li>
-  `;
-  dialogLink.href = project.url;
-  dialogLink.style.display = project.url === "#" ? "none" : "";
-  dialog.showModal();
-  document.body.classList.add("dialog-open");
-  renderSlide();
-}
-
-function closeProject() {
-  dialog.close();
-  dialogMedia.innerHTML = "";
-  document.body.classList.remove("dialog-open");
-  activeGallery = [];
-  activeSlide = 0;
-}
-
-function renderSlide() {
-  if (!activeGallery.length) return;
-  const src = activeGallery[activeSlide];
-  const stage = dialog.querySelector(".case-stage");
-  const progressBar = dialog.querySelector(".case-progress span");
-  const progressText = dialog.querySelector(".case-progress b");
-  if (!stage) return;
-  stage.classList.remove("is-entering");
-  void stage.offsetWidth;
-  stage.classList.add("is-entering");
-  stage.innerHTML = src.endsWith(".mp4")
-    ? `<video src="${src}" autoplay muted loop playsinline controls></video>`
-    : `<img src="${src}" alt="Artwork ${activeSlide + 1}" />`;
-  dialog.querySelectorAll(".case-thumb").forEach((button) => {
-    button.classList.toggle("active", Number(button.dataset.slide) === activeSlide);
-  });
-  dialog.querySelector(".case-thumb.active")?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
-  if (progressBar) progressBar.style.width = `${((activeSlide + 1) / activeGallery.length) * 100}%`;
-  if (progressText) progressText.textContent = `${String(activeSlide + 1).padStart(2, "0")} / ${String(activeGallery.length).padStart(2, "0")}`;
-}
-
-function stepSlide(direction) {
-  if (!activeGallery.length) return;
-  activeSlide = (activeSlide + direction + activeGallery.length) % activeGallery.length;
-  renderSlide();
-}
-
-function bindEvents() {
-  document.body.addEventListener("click", (event) => {
-    const projectTrigger = event.target.closest("[data-project]");
-    if (projectTrigger && ignoreWorkClick && workTrack?.contains(projectTrigger)) {
-      event.preventDefault();
-      return;
-    }
-    if (projectTrigger) openProject(projectTrigger.dataset.project);
-
-    const thumb = event.target.closest(".case-thumb");
-    if (thumb) {
-      activeSlide = Number(thumb.dataset.slide);
-      renderSlide();
-    }
-
-    if (event.target.closest(".case-prev")) stepSlide(-1);
-    if (event.target.closest(".case-next")) stepSlide(1);
-  });
-
-  document.querySelectorAll(".index-row").forEach((row) => {
-    row.addEventListener("mouseenter", () => updateIndexPreview(row.dataset.project));
-    row.addEventListener("focus", () => updateIndexPreview(row.dataset.project));
-  });
-
-  document.querySelectorAll(".filter-bar button").forEach((button) => {
-    button.addEventListener("click", () => {
-      document.querySelector(".filter-bar button.active")?.classList.remove("active");
-      button.classList.add("active");
-      const filter = button.dataset.filter;
-      document.querySelectorAll(".project-tile").forEach((tile) => {
-        tile.classList.toggle("is-hidden", filter !== "all" && tile.dataset.category !== filter);
-      });
-    });
-  });
-
-  menuButton.addEventListener("click", () => {
-    const open = topNav.classList.toggle("is-open");
-    menuButton.setAttribute("aria-expanded", String(open));
-  });
-
-  topNav.addEventListener("click", (event) => {
-    if (event.target.matches("a")) {
-      topNav.classList.remove("is-open");
-      menuButton.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  closeDialog.addEventListener("click", closeProject);
-  dialog.addEventListener("click", (event) => {
-    if (event.target === dialog) closeProject();
-  });
-
-  window.addEventListener("scroll", updateProgress, { passive: true });
-  window.addEventListener("resize", updateProgress);
-  workTrack?.addEventListener("scroll", updateWorkScroller, { passive: true });
-  setupWorkDrag();
-  dialog.addEventListener("wheel", (event) => {
-    const strip = event.target.closest(".case-strip");
-    if (!strip) return;
-    strip.scrollLeft += event.deltaY + event.deltaX;
-    event.preventDefault();
-  }, { passive: false });
-
-  window.addEventListener(
-    "pointermove",
-    (event) => {
-      if (!parallax || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      const x = (event.clientX / window.innerWidth - 0.5) * 18;
-      const y = (event.clientY / window.innerHeight - 0.5) * 18;
-      parallax.style.transform = `translate3d(${x}px, calc(var(--scroll-shift, 0px) + ${y}px), 0)`;
-    },
-    { passive: true },
-  );
 }
 
 function updateIndexPreview(key) {
@@ -946,48 +1186,44 @@ function updateIndexPreview(key) {
   }, 140);
 }
 
-function updateWorkScroller() {
-  if (!workStage || !workTrack) return;
-
-  const cards = [...workTrack.children];
-  const maxScroll = Math.max(1, workTrack.scrollWidth - workTrack.clientWidth);
-  const raw = Math.min(1, Math.max(0, workTrack.scrollLeft / maxScroll));
-  const center = workTrack.scrollLeft + workTrack.clientWidth / 2;
-  let activeIndex = 0;
-  let bestDistance = Infinity;
-  cards.forEach((card, index) => {
-    const cardCenter = card.offsetLeft + card.clientWidth / 2;
-    const distance = Math.abs(cardCenter - center);
-    if (distance < bestDistance) {
-      bestDistance = distance;
-      activeIndex = index;
-    }
-  });
-  workStage.style.setProperty("--work-progress", `${raw * 100}%`);
-  if (workCounter) workCounter.textContent = projectNumber(activeIndex);
-  if (workCurrentTitle) workCurrentTitle.textContent = projects[activeIndex]?.short || "";
-
-  cards.forEach((card, index) => {
-    const delta = index - activeIndex;
-    const depth = Math.min(1.4, Math.abs(delta));
-    const tilt = Math.max(-1, Math.min(1, delta));
-    card.style.setProperty("--card-depth", depth.toFixed(3));
-    card.style.setProperty("--card-tilt", tilt.toFixed(3));
-    card.classList.toggle("is-active", index === activeIndex);
-  });
-}
-
 function setupWorkDrag() {
   if (!workTrack) return;
   let dragging = false;
   let startX = 0;
   let startScroll = 0;
+  let lastX = 0;
+  let lastTime = 0;
+  let velocity = 0;
+  let inertiaFrame = null;
   let moved = false;
+  let pendingProject = null;
+
+  const stopInertia = () => {
+    if (!inertiaFrame) return;
+    window.cancelAnimationFrame(inertiaFrame);
+    inertiaFrame = null;
+  };
+
+  const runInertia = () => {
+    velocity *= 0.95;
+    workTrack.scrollLeft += velocity * 16;
+    updateWorkScroller();
+    if (Math.abs(velocity) < 0.1) {
+      inertiaFrame = null;
+      return;
+    }
+    inertiaFrame = window.requestAnimationFrame(runInertia);
+  };
 
   workTrack.addEventListener("pointerdown", (event) => {
+    stopInertia();
     dragging = true;
     moved = false;
+    velocity = 0;
+    pendingProject = event.target.closest("[data-project]")?.dataset.project || null;
     startX = event.clientX;
+    lastX = event.clientX;
+    lastTime = event.timeStamp;
     startScroll = workTrack.scrollLeft;
     workTrack.classList.add("is-dragging");
     workTrack.setPointerCapture(event.pointerId);
@@ -996,20 +1232,37 @@ function setupWorkDrag() {
   workTrack.addEventListener("pointermove", (event) => {
     if (!dragging) return;
     const delta = event.clientX - startX;
+    const deltaTime = Math.max(16, event.timeStamp - lastTime);
+    const deltaX = lastX - event.clientX;
     if (Math.abs(delta) > 6) moved = true;
+    velocity = deltaX / deltaTime;
     workTrack.scrollLeft = startScroll - delta;
+    lastX = event.clientX;
+    lastTime = event.timeStamp;
+    updateWorkScroller();
   });
 
-  const endDrag = () => {
+  const endDrag = (event) => {
     if (!dragging) return;
     dragging = false;
     workTrack.classList.remove("is-dragging");
+    if (event?.pointerId != null && workTrack.hasPointerCapture?.(event.pointerId)) {
+      workTrack.releasePointerCapture(event.pointerId);
+    }
     if (moved) {
       ignoreWorkClick = true;
+      inertiaFrame = window.requestAnimationFrame(runInertia);
+      window.setTimeout(() => {
+        ignoreWorkClick = false;
+      }, 80);
+    } else if (pendingProject) {
+      ignoreWorkClick = true;
+      openProject(pendingProject);
       window.setTimeout(() => {
         ignoreWorkClick = false;
       }, 80);
     }
+    pendingProject = null;
   };
 
   workTrack.addEventListener("pointerup", endDrag);
@@ -1017,23 +1270,365 @@ function setupWorkDrag() {
   workTrack.addEventListener("pointerleave", endDrag);
 }
 
+function setupMagicCursor() {
+  const cursor = document.getElementById("magic-cursor");
+  const glow = document.querySelector(".ambient-glow");
+  const grain = document.querySelector(".grain");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!cursor || reduceMotion || !window.matchMedia("(pointer: fine)").matches) return;
+
+  const cursorText = cursor.querySelector(".cursor-text");
+  const interactiveSelector = [
+    ".project-tile",
+    ".feature-card",
+    ".showreel",
+    ".hero-visual",
+    ".brand",
+    ".top-nav a",
+    ".lang-switch button",
+    ".social-rail a",
+    ".filter-bar button",
+    ".index-row",
+    ".dialog-link",
+    ".dialog-close",
+    ".case-thumb",
+    ".case-stage",
+    ".case-prev",
+    ".case-next",
+    ".case-auto",
+    ".sound-unlock",
+    ".menu-button",
+    ".link-list a",
+  ].join(", ");
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+  let cursorScale = 1;
+  let targetScale = 1;
+  let releaseTimer = null;
+  let cursorInside = false;
+  let activeCursorTarget = null;
+
+  const cursorLabel = (target) => {
+    if (target.matches(".showreel, .sound-unlock")) return "PLAY";
+    if (target.matches(".lang-switch button, .filter-bar button, .case-auto")) return "SET";
+    if (target.matches(".project-tile, .feature-card, .hero-visual, .index-row, .case-thumb, .case-stage")) return "VIEW";
+    return "GO";
+  };
+
+  const useLargeCursor = (target) =>
+    target.matches(".project-tile, .feature-card, .hero-visual, .index-row, .case-thumb, .case-stage, .showreel, .sound-unlock");
+
+  const showCursor = () => {
+    cursorInside = true;
+    cursor.classList.add("is-visible");
+    glow?.classList.add("is-visible");
+  };
+
+  const setCursorTarget = (target) => {
+    if (target === activeCursorTarget) return;
+    activeCursorTarget = target;
+    if (target && useLargeCursor(target)) {
+      cursor.classList.add("is-active");
+      cursorText.textContent = cursorLabel(target);
+    } else {
+      cursor.classList.remove("is-active");
+      cursorText.textContent = "";
+    }
+  };
+
+  const hideCursor = () => {
+    cursorInside = false;
+    targetScale = 1;
+    activeCursorTarget = null;
+    cursor.classList.remove("is-visible", "is-active", "is-pressed", "is-releasing");
+    cursorText.textContent = "";
+    glow?.classList.remove("is-visible");
+  };
+
+  const animateCursor = () => {
+    cursorX += (mouseX - cursorX) * 0.48;
+    cursorY += (mouseY - cursorY) * 0.48;
+    cursorScale += (targetScale - cursorScale) * 0.42;
+    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) scale(${cursorScale})`;
+    if (glow && cursorInside) {
+      glow.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate3d(-50%, -50%, 0)`;
+    }
+    window.requestAnimationFrame(animateCursor);
+  };
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      showCursor();
+      setCursorTarget(document.elementFromPoint(event.clientX, event.clientY)?.closest?.(interactiveSelector) || null);
+      if (grain) {
+        grain.style.setProperty("--grain-x", `${(event.clientX / window.innerWidth - 0.5) * 10}px`);
+        grain.style.setProperty("--grain-y", `${(event.clientY / window.innerHeight - 0.5) * 10}px`);
+      }
+    },
+    { passive: true },
+  );
+  window.requestAnimationFrame(animateCursor);
+
+  document.addEventListener("mouseleave", hideCursor);
+  window.addEventListener("blur", hideCursor);
+  window.addEventListener("mouseout", (event) => {
+    if (!event.relatedTarget) hideCursor();
+  });
+
+  window.addEventListener("mousedown", () => {
+    if (!cursorInside) return;
+    window.clearTimeout(releaseTimer);
+    cursor.classList.remove("is-releasing");
+    cursor.classList.add("is-pressed");
+    targetScale = 0.8;
+  });
+
+  window.addEventListener("mouseup", () => {
+    if (!cursorInside) return;
+    cursor.classList.remove("is-pressed");
+    cursor.classList.add("is-releasing");
+    targetScale = 1.2;
+    releaseTimer = window.setTimeout(() => {
+      targetScale = 1;
+      cursor.classList.remove("is-releasing");
+    }, 120);
+  });
+
+  document.addEventListener("mouseover", (event) => {
+    const target = event.target.closest(interactiveSelector);
+    if (target && !target.contains(event.relatedTarget)) setCursorTarget(target);
+  });
+
+  document.addEventListener("mouseout", (event) => {
+    const target = event.target.closest(interactiveSelector);
+    if (target && !target.contains(event.relatedTarget)) setCursorTarget(null);
+  });
+}
+
 function setupReveal() {
-  const observer = new IntersectionObserver(
+  revealObserver?.disconnect();
+  revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle("is-visible", entry.isIntersecting);
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver?.unobserve(entry.target);
       });
     },
     { threshold: 0.18, rootMargin: "0px 0px -8% 0px" },
   );
-  document.querySelectorAll("[data-reveal]").forEach((node) => observer.observe(node));
+  document.querySelectorAll("[data-reveal]:not(.is-visible)").forEach((node) => revealObserver.observe(node));
+}
+
+function setupKineticWords() {
+  const labels = new Map([
+    ["capabilities", "CAPABILITIES"],
+    ["workflow", "WORKFLOW"],
+    ["index", "ARCHIVE"],
+    ["work", "TRACK"],
+    ["practice", "GRID"],
+    ["profile", "HUANZHIDAO"],
+    ["brand-experience", "BRANDS"],
+    ["contact", "CONTACT"],
+  ]);
+
+  labels.forEach((label, id) => {
+    const section = document.getElementById(id);
+    if (!section || section.querySelector(".kinetic-word")) return;
+    const word = document.createElement("span");
+    word.className = "kinetic-word";
+    word.setAttribute("aria-hidden", "true");
+    word.textContent = label;
+    section.prepend(word);
+  });
+}
+
+function updateKineticWords() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.querySelectorAll(".kinetic-word").forEach((word) => {
+    const section = word.closest("section");
+    if (!section) return;
+    const rect = section.getBoundingClientRect();
+    const viewportCenter = window.innerHeight / 2;
+    const sectionCenter = rect.top + rect.height / 2;
+    const offset = (sectionCenter - viewportCenter) * -0.2;
+    word.style.setProperty("--kinetic-y", `${offset.toFixed(2)}px`);
+  });
+}
+
+function setupImageMaskParallax() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  imageParallaxTargets = [
+    ...document.querySelectorAll(".project-tile img"),
+    ...document.querySelectorAll(".feature-media img"),
+  ];
+  if (!imageParallaxTargets.length) return;
+
+  const update = () => {
+    imageParallaxFrame = null;
+    const viewportCenter = window.innerHeight / 2;
+
+    imageParallaxTargets.forEach((image) => {
+      if (!image.isConnected) return;
+      const rect = image.parentElement.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const distance = (center - viewportCenter) / Math.max(1, viewportCenter);
+      const clamped = Math.max(-1, Math.min(1, distance));
+      image.style.setProperty("--img-parallax", `${(-clamped * 15).toFixed(2)}%`);
+    });
+  };
+
+  const requestUpdate = () => {
+    if (imageParallaxFrame) return;
+    imageParallaxFrame = window.requestAnimationFrame(update);
+  };
+
+  if (!imageParallaxBound) {
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    imageParallaxBound = true;
+  }
+
+  requestUpdate();
+}
+
+const imageMetaCache = new Map();
+
+function loadImageMeta(src) {
+  if (imageMetaCache.has(src)) return imageMetaCache.get(src);
+  const request = new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => {
+      const ratio = image.naturalWidth / Math.max(1, image.naturalHeight);
+      resolve({ src, ratio });
+    };
+    image.onerror = () => resolve({ src, ratio: 0 });
+    image.src = src;
+  });
+  imageMetaCache.set(src, request);
+  return request;
+}
+
+async function pickCoverForTile(candidates, tileRatio) {
+  const metas = await Promise.all(candidates.map(loadImageMeta));
+  return metas
+    .filter((item) => item.ratio > 0)
+    .sort((a, b) => Math.abs(Math.log(a.ratio / tileRatio)) - Math.abs(Math.log(b.ratio / tileRatio)))[0]?.src;
+}
+
+function setupFeatureCovers() {
+  const cards = document.querySelectorAll(".feature-card");
+  cards.forEach((card) => {
+    const project = projects.find((item) => item.id === card.dataset.project);
+    const image = card.querySelector("img");
+    if (!project || !image) return;
+
+    const cardRatio = card.clientWidth / Math.max(1, card.clientHeight);
+    const candidates = project.coverCandidates?.length ? project.coverCandidates : getProjectCoverCandidates(project);
+    if (!cardRatio || !candidates.length) return;
+
+    card.classList.add("is-cover-pending");
+    pickCoverForTile(candidates, cardRatio).then((cover) => {
+      if (!card.isConnected || !cover) return;
+      if (image.getAttribute("src") !== cover) image.src = cover;
+      project.trackImage = cover;
+      card.classList.remove("is-cover-pending");
+    });
+  });
+}
+
+function setupGridCovers() {
+  const tiles = document.querySelectorAll(".project-tile");
+  tiles.forEach((tile) => {
+    const project = projects.find((item) => item.id === tile.dataset.project);
+    const image = tile.querySelector("img");
+    if (!project || !image) return;
+
+    const tileRatio = tile.clientWidth / Math.max(1, tile.clientHeight);
+    const candidates = project.coverCandidates?.length ? project.coverCandidates : getProjectCoverCandidates(project);
+    if (!tileRatio || !candidates.length) return;
+
+    tile.classList.remove("fit-contain");
+    tile.classList.add("is-cover-pending");
+    pickCoverForTile(candidates, tileRatio).then((cover) => {
+      if (!tile.isConnected || !cover) return;
+      if (image.getAttribute("src") !== cover) image.src = cover;
+      project.gridImage = cover;
+      tile.classList.remove("is-cover-pending");
+    });
+  });
+}
+
+function setupIntroAnimation() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) {
+    document.body.classList.remove("is-intro");
+    document.body.classList.add("intro-done");
+    return;
+  }
+  window.setTimeout(() => {
+    document.body.classList.add("intro-done");
+    document.body.classList.remove("is-intro");
+  }, 1450);
+}
+
+function setupAmbientPointer() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  if (reduceMotion || !finePointer) return;
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      if (ambientFrame) return;
+      ambientFrame = window.requestAnimationFrame(() => {
+        ambientFrame = null;
+        const target = document.elementFromPoint(event.clientX, event.clientY);
+        const section = target?.closest?.(".ambient-section");
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        section.style.setProperty("--mouse-x", `${event.clientX - rect.left}px`);
+        section.style.setProperty("--mouse-y", `${event.clientY - rect.top}px`);
+        section.classList.add("is-glowing");
+      });
+    },
+    { passive: true },
+  );
+}
+
+function setupCapabilityPreview() {
+  if (!capabilityGrid) return;
+  capabilityGrid.addEventListener("mouseover", (event) => {
+    const card = event.target.closest(".capability-card");
+    if (!card) return;
+    updateCapabilityPreview(Number(card.dataset.capability));
+  });
+  capabilityGrid.addEventListener("focusin", (event) => {
+    const card = event.target.closest(".capability-card");
+    if (!card) return;
+    updateCapabilityPreview(Number(card.dataset.capability));
+  });
+  capabilityGrid.addEventListener("mouseleave", () => updateCapabilityPreview(0));
 }
 
 function setupVideoReplay() {
+  const showreelVideos = [...document.querySelectorAll(".showreel video")];
+  if (!showreelVideos.length) {
+    document.querySelector(".showreel")?.classList.add("is-playing");
+    return;
+  }
+
   const restartVideo = (video) => {
     const showreel = video.closest(".showreel");
     if (video.closest(".showreel")) video.muted = false;
     video.currentTime = 0;
+    showreel?.classList.add("is-playing");
     video.play().then(() => {
       showreel?.classList.remove("needs-sound");
     }).catch(() => {
@@ -1055,6 +1650,7 @@ function setupVideoReplay() {
         if (entry.isIntersecting) {
           restartVideo(video);
         } else {
+          video.closest(".showreel")?.classList.remove("is-playing");
           video.pause();
           video.currentTime = 0;
         }
@@ -1063,10 +1659,10 @@ function setupVideoReplay() {
     { threshold: 0.58 },
   );
 
-  document.querySelectorAll(".showreel video").forEach((video) => videoObserver.observe(video));
+  showreelVideos.forEach((video) => videoObserver.observe(video));
 
   const unlockAudio = (restart = false) => {
-    document.querySelectorAll(".showreel video").forEach((video) => {
+    showreelVideos.forEach((video) => {
       video.muted = false;
       if (restart) video.currentTime = 0;
       if (video.getBoundingClientRect().top < window.innerHeight && video.getBoundingClientRect().bottom > 0) {
@@ -1123,9 +1719,10 @@ function renderProjects() {
   projectGrid.innerHTML = projects
     .map((project, index) => {
       const copy = getProjectCopy(project);
+      const sizeClass = gridPattern[index % gridPattern.length];
       return `
-        <button class="project-tile" type="button" data-category="${project.category}" data-project="${project.id}" data-reveal style="--reveal-delay: ${index * 42}ms">
-          <img src="${project.image}" alt="${copy.title}" loading="lazy" />
+        <button class="project-tile ${sizeClass}" type="button" data-category="${project.category}" data-project="${project.id}" data-reveal style="--reveal-delay: ${index * 42}ms">
+          <img src="${project.image}" alt="${copy.title}" loading="${index < 8 ? "eager" : "lazy"}" decoding="async" />
           <span>${copy.short}</span>
         </button>
       `;
@@ -1154,6 +1751,7 @@ function renderDialogCopy(project) {
   dialogFacts.innerHTML = `
     <li><span>${t("brand")}</span><b>${copy.brand}</b></li>
     <li><span>${t("role")}</span><b>${copy.role}</b></li>
+    <li><span>${t("skills")}</span><b>${getSkillLabels(project).join(" / ")}</b></li>
     <li><span>${t("tools")}</span><b>${copy.tools}</b></li>
     <li><span>${t("source")}</span><b>${copy.date} / ${project.views === "local" ? t("localProject") : `${project.views} ${t("views")}`}</b></li>
   `;
@@ -1165,6 +1763,8 @@ function renderDialogCopy(project) {
 function openProject(key) {
   const project = projects.find((item) => item.id === key);
   if (!project) return;
+  dialogClosing = false;
+  dialog.classList.remove("is-closing");
   const gallery = project.gallery?.length ? project.gallery : [project.image];
   activeProjectKey = key;
   activeGallery = gallery;
@@ -1197,18 +1797,29 @@ function openProject(key) {
   renderDialogCopy(project);
   dialog.showModal();
   document.body.classList.add("dialog-open");
+  const cursor = document.getElementById("magic-cursor");
+  if (cursor && cursor.parentElement !== dialog) dialog.appendChild(cursor);
   renderSlide();
   startCaseAuto();
 }
 
 function closeProject() {
+  if (!dialog.open || dialogClosing) return;
   stopCaseAuto();
-  dialog.close();
-  dialogMedia.innerHTML = "";
-  document.body.classList.remove("dialog-open");
-  activeGallery = [];
-  activeSlide = 0;
-  activeProjectKey = null;
+  dialogClosing = true;
+  dialog.classList.add("is-closing");
+  window.setTimeout(() => {
+    dialog.close();
+    dialog.classList.remove("is-closing");
+    dialogMedia.innerHTML = "";
+    const cursor = document.getElementById("magic-cursor");
+    if (cursor && cursor.parentElement !== document.body) document.body.appendChild(cursor);
+    document.body.classList.remove("dialog-open");
+    activeGallery = [];
+    activeSlide = 0;
+    activeProjectKey = null;
+    dialogClosing = false;
+  }, 230);
 }
 
 function renderSlide() {
@@ -1317,9 +1928,13 @@ function bindEvents() {
     document.querySelector(".filter-bar button.active")?.classList.remove("active");
     button.classList.add("active");
     const filter = button.dataset.filter;
+    projectGrid?.classList.remove("is-filtering");
+    void projectGrid?.offsetWidth;
+    projectGrid?.classList.add("is-filtering");
     document.querySelectorAll(".project-tile").forEach((tile) => {
       tile.classList.toggle("is-hidden", filter !== "all" && tile.dataset.category !== filter);
     });
+    window.setTimeout(() => projectGrid?.classList.remove("is-filtering"), 340);
   });
 
   menuButton.addEventListener("click", () => {
@@ -1338,10 +1953,22 @@ function bindEvents() {
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) closeProject();
   });
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    closeProject();
+  });
   dialog.addEventListener("close", stopCaseAuto);
 
   window.addEventListener("scroll", updateProgress, { passive: true });
-  window.addEventListener("resize", updateProgress);
+  window.addEventListener("resize", () => {
+    updateProgress();
+    window.clearTimeout(gridCoverResizeTimer);
+    gridCoverResizeTimer = window.setTimeout(() => {
+      setupFeatureCovers();
+      setupGridCovers();
+      setupImageMaskParallax();
+    }, 180);
+  });
   workTrack?.addEventListener("scroll", updateWorkScroller, { passive: true });
   setupWorkDrag();
   dialog.addEventListener("wheel", (event) => {
@@ -1414,6 +2041,12 @@ function updateWorkScroller() {
 
 applyLanguage();
 bindEvents();
+setupIntroAnimation();
+setupAmbientPointer();
+setupCapabilityPreview();
+setupMagicCursor();
+setupKineticWords();
+setupGridCovers();
 setupReveal();
 setupVideoReplay();
 setupHeroCarousel();
