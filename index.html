@@ -97,14 +97,20 @@
           <h2>K5 PRO<br />FINAL FILM</h2>
           <p data-i18n="showreelText">A full-screen film section that presents 3D, material, lighting and rhythm through product motion.</p>
         </div>
-        <video src="https://pub-88f8e039647d44168307edc9cce26e68.r2.dev/k5pro-final.mp4" autoplay loop playsinline controls preload="metadata"></video>
-        <button class="sound-unlock" type="button"><span class="sound-icon" aria-hidden="true"></span><span data-i18n="soundUnlock">PLAY WITH SOUND</span></button>
+        <video src="https://pub-88f8e039647d44168307edc9cce26e68.r2.dev/k5pro-final.mp4" poster="assets/wigomat-cover.webp" autoplay loop playsinline controls preload="metadata"></video>
+        <button class="sound-unlock" type="button" aria-label="Turn sound on">
+          <span class="sound-orbit" aria-hidden="true"><span class="sound-icon"></span></span>
+          <span class="sound-copy">
+            <strong data-i18n="soundUnlock">TURN SOUND ON</strong>
+            <small data-i18n="soundHint">The motion cut is designed with audio.</small>
+          </span>
+        </button>
       </section>
 
       <div class="marquee-track marquee-track-etched" aria-hidden="true">
         <div class="marquee-content">
-          <span>AI-DRIVEN VISUALS • CGI PRODUCT STORY • PHOTOSHOP RETOUCHING • </span>
-          <span>AI-DRIVEN VISUALS • CGI PRODUCT STORY • PHOTOSHOP RETOUCHING • </span>
+          <span>AI-DRIVEN VISUALS &nbsp;•&nbsp; C4D CGI PRODUCT STORY &nbsp;•&nbsp; PHOTOSHOP RETOUCHING &nbsp;•&nbsp; OCTANE LIGHTING &nbsp;•&nbsp; </span>
+          <span>AI-DRIVEN VISUALS &nbsp;•&nbsp; C4D CGI PRODUCT STORY &nbsp;•&nbsp; PHOTOSHOP RETOUCHING &nbsp;•&nbsp; OCTANE LIGHTING &nbsp;•&nbsp; </span>
         </div>
       </div>
 
@@ -123,6 +129,45 @@
               <strong id="capabilityPreviewTitle">E-commerce Visual Design</strong>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section class="cgi-process section-dark ambient-section" id="cgi-process">
+        <div class="cgi-visual reveal-block" data-reveal>
+          <img id="cgiProcessImage" src="assets/tuni-cover.webp" alt="C4D and Octane CGI process visual" />
+          <div class="cgi-hud" aria-hidden="true">
+            <span>C4D</span>
+            <span>OCTANE</span>
+            <span>PHOTOSHOP</span>
+          </div>
+          <div class="cgi-scan" aria-hidden="true"></div>
+        </div>
+        <div class="cgi-copy">
+          <p class="eyebrow reveal-block" data-reveal data-i18n="cgiEyebrow">CGI Process</p>
+          <h2 class="reveal-block" data-reveal data-i18n-html="cgiTitle">FROM MODEL<br />TO PRODUCT STORY.</h2>
+          <p class="cgi-lead reveal-block" data-reveal data-i18n="cgiLead">A compact view of how C4D / Octane, Photoshop and AI-assisted thinking turn product structure into commercial visual impact.</p>
+          <div class="cgi-steps" aria-label="CGI process steps">
+            <article class="cgi-step is-active reveal-block" tabindex="0" data-reveal data-cgi-image="assets/tuni-cover.webp">
+              <span>01</span>
+              <strong data-i18n="cgiStep1Title">Structure & Form</strong>
+              <p data-i18n="cgiStep1Text">Read the product silhouette, mechanical structure and hero angle before composition starts.</p>
+            </article>
+            <article class="cgi-step reveal-block" tabindex="0" data-reveal data-cgi-image="assets/watch-full-04.webp">
+              <span>02</span>
+              <strong data-i18n="cgiStep2Title">Material & Light</strong>
+              <p data-i18n="cgiStep2Text">Use Octane-style lighting judgment to build metal, glass, plastic and atmosphere.</p>
+            </article>
+            <article class="cgi-step reveal-block" tabindex="0" data-reveal data-cgi-image="assets/tuni-cover.webp">
+              <span>03</span>
+              <strong data-i18n="cgiStep3Title">Retouch & Composite</strong>
+              <p data-i18n="cgiStep3Text">Polish product hierarchy through Photoshop compositing, tone control and commercial post-production.</p>
+            </article>
+            <article class="cgi-step reveal-block" tabindex="0" data-reveal data-cgi-image="assets/bosch-cover.webp">
+              <span>04</span>
+              <strong data-i18n="cgiStep4Title">AI Scene Expansion</strong>
+              <p data-i18n="cgiStep4Text">Extend scene options with AI while keeping product logic, detail-page rhythm and brand consistency.</p>
+            </article>
+          </div>
         </div>
       </section>
 

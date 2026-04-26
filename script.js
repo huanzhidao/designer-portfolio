@@ -266,10 +266,11 @@ function getProjectCoverCandidates(project) {
 
 projects.forEach((project) => {
   project.coverImage = project.image;
+  const curatedCoverCandidates = getProjectCoverCandidates(project);
   if (window.caseGalleries?.[project.id]?.length) {
     project.gallery = window.caseGalleries[project.id];
   }
-  project.coverCandidates = getProjectCoverCandidates(project);
+  project.coverCandidates = curatedCoverCandidates;
   project.image = project.coverCandidates[0] || project.image;
 });
 
@@ -293,8 +294,8 @@ const uiText = {
     heroFrame: "ZCOOL published cases / commercial visuals / 3D product stories.",
     showreelEyebrow: "Motion Case",
     showreelText: "A full-screen film section that presents 3D, material, lighting and rhythm through product motion.",
-    soundUnlock: "PLAY WITH SOUND",
-    showreelAction: "OPEN ON BILIBILI",
+    soundUnlock: "TURN SOUND ON",
+    soundHint: "The motion cut is designed with audio.",
     capabilitiesEyebrow: "Core capabilities",
     capabilitiesTitle: "CAPABILITIES",
     capabilitiesText: "A compact overview of my design, AI, CGI and workflow capabilities.",
@@ -361,7 +362,8 @@ const uiText = {
     heroFrame: "站酷发布案例 / 商业视觉 / 三维产品叙事。",
     showreelEyebrow: "动态案例",
     showreelText: "独立满屏视频段落，用动态产品镜头直接展示三维、材质、灯光和节奏。",
-    soundUnlock: "开启声音",
+    soundUnlock: "打开声音",
+    soundHint: "这支动态短片需要声音一起观看。",
     capabilitiesEyebrow: "核心能力",
     capabilitiesTitle: "核心能力",
     capabilitiesText: "围绕商业视觉、AI 生成、产品 CGI 与自动化工作流形成复合型设计能力。",
@@ -646,6 +648,165 @@ workflowText.zh[2].text = "用于产品 CGI 可视化、材质与灯光判断、
     "SeenDa",
     "Royalstar 荣事达",
   ];
+
+Object.assign(uiText.en, {
+  cgiEyebrow: "CGI Process",
+  cgiTitle: "FROM MODEL<br />TO PRODUCT STORY.",
+  cgiLead: "A compact view of how C4D / Octane, Photoshop and AI-assisted thinking turn product structure into commercial visual impact.",
+  cgiStep1Title: "Structure & Form",
+  cgiStep1Text: "Read the product silhouette, mechanical structure and hero angle before composition starts.",
+  cgiStep2Title: "Material & Light",
+  cgiStep2Text: "Use Octane-style lighting judgment to build metal, glass, plastic and atmosphere.",
+  cgiStep3Title: "Retouch & Composite",
+  cgiStep3Text: "Polish product hierarchy through Photoshop compositing, tone control and commercial post-production.",
+  cgiStep4Title: "AI Scene Expansion",
+  cgiStep4Text: "Extend scene options with AI while keeping product logic, detail-page rhythm and brand consistency.",
+});
+
+Object.assign(uiText.zh, {
+  metaDescription: "幻之道个人作品集，展示 AI 驱动型商业视觉、电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流。",
+  brandSmall: "发布作品",
+  navIndex: "索引",
+  navWork: "作品",
+  navProfile: "简介",
+  navContact: "联系",
+  heroEyebrow: "12 个作品 / 站酷案例 / 突尼咖啡 / 电商 / AI / 3D",
+  heroTitle: '<span class="hero-title-line">发布</span><span class="hero-title-line">影响<span class="hero-dot">.</span></span>',
+  heroTitlePlain: "发布 影响.",
+  heroRole: "AI 驱动型商业视觉设计师",
+  heroSubtitle: "电商详情页 / Photoshop 商业后期 / C4D CGI / Octane 灯光材质 / AI 图像 / 工作流优化",
+  totalWorks: "组作品",
+  projectTracks: "个方向",
+  latestStatus: "更新中",
+  latestPublish: "持续更新",
+  heroFrame: "站酷发布案例 / 商业视觉 / 三维产品叙事。",
+  showreelEyebrow: "动态案例",
+  showreelText: "独立满屏视频段落，用动态产品镜头直接展示三维、材质、灯光和节奏。",
+  soundUnlock: "打开声音",
+  soundHint: "这支动态短片需要声音一起观看。",
+  capabilitiesEyebrow: "核心能力",
+  capabilitiesTitle: "核心能力",
+  capabilitiesText: "围绕商业视觉、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流形成复合型设计能力。",
+  workflowEyebrow: "工具链与工作流",
+  workflowTitle: "工具链与工作流",
+  indexEyebrow: "已发布作品归档",
+  indexTitle: "精选已发布作品的视觉归档。",
+  workEyebrow: "拖拽轨道",
+  workTitle: "精选完整发布案例，而非零散素材展示。",
+  archiveEyebrow: "精选作品",
+  archiveTitle: "作品网格",
+  archiveText: "作品覆盖电商详情页、Photoshop 产品视觉、AI 场景图、3D 产品视觉与商业海报。",
+  profileEyebrow: "个人简介",
+  profileText: "AI 驱动型商业视觉设计师，专注电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 场景图与工作流优化。",
+  profileNote: "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光与广告感判断能力，并结合 Illustrator 基础、Codex、Quicker 与 Photoshop Script 提升设计效率。",
+  profileLocationLabel: "所在地",
+  profileLocation: "广东佛山",
+  profileFocusLabel: "方向",
+  profileFocus: "详情页 / Photoshop / C4D / Octane / AI / 工作流",
+  profileSourceLabel: "来源",
+  profileSource: "站酷发布作品",
+  profileToolsLabel: "工具",
+  profileTools: "Photoshop / Illustrator / C4D / Octane / Midjourney / 即梦 AI / Codex / Quicker / Photoshop Script",
+  brandExperienceEyebrow: "品牌项目经验",
+  brandExperienceTitle: "BRAND EXPERIENCE",
+  brandExperienceText: "覆盖电商详情页、产品海报、AI 商业视觉与 CGI 风格产品表达的项目品牌经验。",
+  contactEyebrow: "联系合作",
+  linksTitle: "一起打造更有销售力的产品视觉。",
+  contactText: "可合作方向包括电商详情页、产品海报、AI 商业视觉与 CGI 风格产品表达。",
+  zcoolPortfolio: "站酷作品集",
+  viewWorks: "查看作品",
+  wechatContact: "微信 / 联系",
+  wechatScanEyebrow: "微信",
+  wechatScanTitle: "扫码联系",
+  wechatScanText: "使用微信扫码，直接开始沟通。",
+  openZcool: "打开站酷页面",
+  prev: "上一张",
+  next: "下一张",
+  auto: "自动",
+  brand: "品牌",
+  role: "职责",
+  skills: "能力",
+  tools: "工具",
+  source: "来源",
+  localProject: "本地项目",
+  views: "浏览",
+  cgiEyebrow: "CGI 流程",
+  cgiTitle: "从模型<br />到产品叙事。",
+  cgiLead: "用 C4D / Octane、Photoshop 与 AI 辅助思路，把产品结构转化为具有商业冲击力的视觉表达。",
+  cgiStep1Title: "结构与形体",
+  cgiStep1Text: "先判断产品轮廓、机械结构和主视觉角度，再进入画面组织。",
+  cgiStep2Title: "材质与灯光",
+  cgiStep2Text: "用 Octane 风格的灯光判断，建立金属、玻璃、塑料和氛围层次。",
+  cgiStep3Title: "后期与合成",
+  cgiStep3Text: "通过 Photoshop 合成、色调控制和商业后期，强化产品层级。",
+  cgiStep4Title: "AI 场景延展",
+  cgiStep4Text: "用 AI 扩展场景可能性，同时保持产品逻辑、详情页节奏和品牌一致性。",
+});
+
+Object.assign(categoryText.zh, {
+  all: "全部",
+  coffee: "咖啡机",
+  ecommerce: "电商",
+  ai: "AI",
+  "3d": "三维",
+  poster: "海报",
+});
+
+directionText.zh = [
+  { icon: "layout", label: "详情页" },
+  { icon: "sparkle", label: "AI 视觉" },
+  { icon: "cube", label: "3D 渲染" },
+  { icon: "image", label: "视觉海报" },
+  { icon: "coffee", label: "突尼咖啡" },
+];
+
+Object.assign(skillText.zh, {
+  detailPage: "电商详情页结构",
+  photoshop: "Photoshop 修图与合成",
+  aiGeneration: "AI 辅助场景生成",
+  cgi: "CGI 风格灯光与材质控制",
+  poster: "商业海报视觉方向",
+  productVisual: "产品视觉叙事",
+  productStory: "产品卖点视觉化",
+  motion: "产品动态节奏",
+  sceneDirection: "商业场景方向",
+  lighting: "灯光与材质判断",
+});
+
+capabilitiesText.zh = [
+  { icon: "layout", preview: "assets/wigomat-cover.webp", title: "电商视觉设计", text: "电商详情页结构规划、卖点视觉化、平台转化逻辑与页面节奏控制。" },
+  { icon: "brush", preview: "assets/tuni-cover.webp", title: "Photoshop 商业后期", text: "Photoshop 产品修图、图像合成、色调优化、商业后期与详情页视觉处理。" },
+  { icon: "frame", preview: "assets/lieren-cover.webp", title: "产品商业海报", text: "新品上市、直播活动、品牌宣传、产品主视觉与商业海报设计。" },
+  { icon: "sparkle", preview: "assets/bosch-cover.webp", title: "AI 图像生成", text: "参考图反推、Prompt Engineering、图像重绘、商业场景生成与风格统一。" },
+  { icon: "cube", preview: "assets/watch-cover.webp", title: "C4D / Octane 产品 CGI", text: "C4D / Octane 产品可视化、材质表现、灯光氛围、广告感判断与 3D 产品叙事表达。" },
+  { icon: "terminal", preview: "assets/keyboard-cover.webp", title: "AI 辅助工作流", text: "使用 Codex、Quicker 与 Photoshop Script 辅助网页修改、交互原型、高频操作自动化和设计流程提效。" },
+];
+
+workflowText.zh = [
+  { icon: "image", title: "设计工具", tools: "Photoshop / Illustrator / Camera Raw / Eagle", text: "用于产品修图、图像合成、详情页排版、基础矢量处理、素材管理与商业后期。" },
+  { icon: "sparkle", title: "AI 创意工具", tools: "Midjourney / 即梦 AI / ChatGPT", text: "用于提示词反推、AI 场景图生成、创意发散、视觉风格测试与图像重绘。" },
+  { icon: "cube", title: "C4D 与 Octane CGI", tools: "Cinema 4D / OctaneRender", text: "用于产品 CGI 可视化、材质与灯光判断、商业渲染氛围以及三维产品叙事表达。" },
+  { icon: "terminal", title: "工作流与自动化", tools: "Codex / Quicker / Photoshop Script", text: "用于网页修改、交互动效沟通、自动化动作、批量处理和设计流程提效。" },
+];
+
+brandList.splice(
+  0,
+  brandList.length,
+  "Audio-Technica 铁三角",
+  "Midea 美的",
+  "Haier 海尔",
+  "OGAWA 奥佳华",
+  "BOSCH 博世",
+  "wigomat 唯咖美",
+  "ThundeRobot 雷神",
+  "TUNI 突尼",
+  "SONDY 森电",
+  "RT-Mart 大润发",
+  "Curvymoon",
+  "森友汇",
+  "SeenDa",
+  "Royalstar 荣事达",
+);
 
 const gridPattern = [
   "size-large",
@@ -1428,6 +1589,7 @@ function setupReveal() {
 function setupKineticWords() {
   const labels = new Map([
     ["capabilities", "CAPABILITIES"],
+    ["cgi-process", "C4D CGI"],
     ["workflow", "WORKFLOW"],
     ["index", "ARCHIVE"],
     ["work", "TRACK"],
@@ -1519,7 +1681,15 @@ async function pickCoverForTile(candidates, tileRatio) {
   const metas = await Promise.all(candidates.map(loadImageMeta));
   return metas
     .filter((item) => item.ratio > 0)
-    .sort((a, b) => Math.abs(Math.log(a.ratio / tileRatio)) - Math.abs(Math.log(b.ratio / tileRatio)))[0]?.src;
+    .sort((a, b) => Math.abs(Math.log(a.ratio / tileRatio)) - Math.abs(Math.log(b.ratio / tileRatio)))[0];
+}
+
+function applyCoverFitState(container, meta, frameRatio) {
+  if (!container || !meta?.ratio || !frameRatio) return;
+  const mismatch = Math.abs(Math.log(meta.ratio / frameRatio));
+  container.classList.toggle("is-tight-crop", mismatch > 0.34);
+  container.style.setProperty("--media-focus-x", meta.ratio < frameRatio ? "50%" : "50%");
+  container.style.setProperty("--media-focus-y", meta.ratio < frameRatio ? "42%" : "50%");
 }
 
 function setupFeatureCovers() {
@@ -1534,10 +1704,12 @@ function setupFeatureCovers() {
     if (!cardRatio || !candidates.length) return;
 
     card.classList.add("is-cover-pending");
-    pickCoverForTile(candidates, cardRatio).then((cover) => {
-      if (!card.isConnected || !cover) return;
-      if (image.getAttribute("src") !== cover) image.src = cover;
-      project.trackImage = cover;
+    card.classList.remove("is-tight-crop");
+    pickCoverForTile(candidates, cardRatio).then((coverMeta) => {
+      if (!card.isConnected || !coverMeta?.src) return;
+      if (image.getAttribute("src") !== coverMeta.src) image.src = coverMeta.src;
+      applyCoverFitState(card, coverMeta, cardRatio);
+      project.trackImage = coverMeta.src;
       card.classList.remove("is-cover-pending");
     });
   });
@@ -1554,12 +1726,13 @@ function setupGridCovers() {
     const candidates = project.coverCandidates?.length ? project.coverCandidates : getProjectCoverCandidates(project);
     if (!tileRatio || !candidates.length) return;
 
-    tile.classList.remove("fit-contain");
+    tile.classList.remove("fit-contain", "is-tight-crop");
     tile.classList.add("is-cover-pending");
-    pickCoverForTile(candidates, tileRatio).then((cover) => {
-      if (!tile.isConnected || !cover) return;
-      if (image.getAttribute("src") !== cover) image.src = cover;
-      project.gridImage = cover;
+    pickCoverForTile(candidates, tileRatio).then((coverMeta) => {
+      if (!tile.isConnected || !coverMeta?.src) return;
+      if (image.getAttribute("src") !== coverMeta.src) image.src = coverMeta.src;
+      applyCoverFitState(tile, coverMeta, tileRatio);
+      project.gridImage = coverMeta.src;
       tile.classList.remove("is-cover-pending");
     });
   });
@@ -1615,6 +1788,31 @@ function setupCapabilityPreview() {
     updateCapabilityPreview(Number(card.dataset.capability));
   });
   capabilityGrid.addEventListener("mouseleave", () => updateCapabilityPreview(0));
+}
+
+function setupCgiProcess() {
+  const image = document.querySelector("#cgiProcessImage");
+  const steps = [...document.querySelectorAll(".cgi-step")];
+  if (!image || !steps.length) return;
+
+  const setStep = (step) => {
+    const nextImage = step.dataset.cgiImage;
+    if (!nextImage) return;
+    steps.forEach((item) => item.classList.toggle("is-active", item === step));
+    if (image.getAttribute("src") === nextImage) return;
+
+    image.classList.add("is-switching");
+    window.setTimeout(() => {
+      image.src = nextImage;
+      image.classList.remove("is-switching");
+    }, 140);
+  };
+
+  steps.forEach((step) => {
+    step.addEventListener("mouseenter", () => setStep(step));
+    step.addEventListener("focusin", () => setStep(step));
+    step.addEventListener("click", () => setStep(step));
+  });
 }
 
 function setupVideoReplay() {
@@ -2044,6 +2242,7 @@ bindEvents();
 setupIntroAnimation();
 setupAmbientPointer();
 setupCapabilityPreview();
+setupCgiProcess();
 setupMagicCursor();
 setupKineticWords();
 setupGridCovers();
