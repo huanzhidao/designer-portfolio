@@ -1,17 +1,17 @@
 const projects = [
   {
     id: "tuni",
-    title: "突尼咖啡机产品视觉整理",
-    short: "Tuni Coffee Machine",
+    title: "突尼咖啡机产品视觉",
+    short: "突尼咖啡机",
     category: "coffee",
-    tag: "外单 / 咖啡机 / 动态视频 / 产品视觉",
+    tag: "商业项目 / 咖啡机 / 动态视频 / 产品视觉",
     date: "2025",
     views: "local",
     brand: "突尼咖啡机",
     role: "产品静态图、动态视频、红蓝光首发视觉",
     tools: "Cinema 4D / Octane / Photoshop / Motion",
     text:
-      "来自突尼咖啡机项目整理文件夹的独立案例，包含静态产品图与多条动态视频素材。这个分类不依赖站酷跳转，直接在站内展示产品视觉和动态镜头。",
+      "突尼咖啡机项目视觉，包含产品静态图、动态视频和红蓝光首发视觉。重点展示产品结构、材质细节和动态镜头表现。",
     image: "assets/tuni-cover.webp",
     gallery: [
       "assets/tuni-gallery-01.webp",
@@ -35,7 +35,7 @@ const projects = [
     role: "视觉创意、三维渲染、平面设计、动效渲染、后期精修",
     tools: "Cinema 4D / Octane / Photoshop",
     text:
-      "德国咖啡机品牌进入中国市场后的详情页视觉。页面信息包含品牌介绍、场景拍摄、三维渲染、动效渲染与后期精修，适合作为作品集首个完整商业案例。",
+      "德国咖啡机品牌进入中国市场后的详情页视觉。项目包含品牌介绍、场景拍摄、三维渲染、动效渲染与后期精修，是一个完整的商业页面案例。",
     image: "assets/wigomat-cover.webp",
     gallery: ["assets/wigomat-gallery-01.webp", "assets/wigomat-gallery-02.webp", "assets/wigomat-gallery-03.webp", "assets/wigomat-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNzIwMzkxMDg=.html",
@@ -52,7 +52,7 @@ const projects = [
     role: "视觉创意、平面",
     tools: "Photoshop / Stable Diffusion / ComfyUI / LiblibAI",
     text:
-      "服务于天猫博世家电官方旗舰店的 AI 视觉页面。以家电新品场景为核心，强调 AI 生成、合成与电商页面落地的结合。",
+      "服务于天猫博世家电官方旗舰店的 AI 视觉页面。以家电新品场景为核心，将 AI 生成、图像合成与电商页面落地结合在一起。",
     image: "assets/bosch-cover.webp",
     gallery: ["assets/bosch-gallery-01.webp", "assets/bosch-gallery-02.webp", "assets/bosch-gallery-03.webp", "assets/bosch-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNzE2OTU2Njg=.html",
@@ -69,7 +69,7 @@ const projects = [
     role: "平面、三维",
     tools: "Cinema 4D / Octane / Photoshop",
     text:
-      "森电吸尘器全案详情页，包含三维产品表现和电商卖点拆解。适合呈现长页节奏、产品结构和功能信息的组织能力。",
+      "森电吸尘器全案详情页，包含三维产品表现和电商卖点拆解。重点呈现长页节奏、产品结构和功能信息的组织方式。",
     image: "assets/sondy-cover.webp",
     gallery: ["assets/sondy-gallery-01.webp", "assets/sondy-gallery-02.webp", "assets/sondy-gallery-03.webp", "assets/sondy-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNzA0Mjk4OTY=.html",
@@ -86,7 +86,7 @@ const projects = [
     role: "视觉创意、平面、三维",
     tools: "Cinema 4D / Octane / Photoshop / Midjourney",
     text:
-      "亚马逊新品吸尘器主图与 A+ 页面全案，页面由主图、功能卖点、大图模块和产品角度展示组成，是电商发布链路里的完整项目。",
+      "亚马逊新品吸尘器主图与 A+ 页面全案，包含主图、功能卖点、大图模块和多角度产品展示，是完整的电商发布项目。",
     image: "assets/curvymoon-cover.webp",
     gallery: ["assets/curvymoon-gallery-01.webp", "assets/curvymoon-gallery-02.webp", "assets/curvymoon-gallery-03.webp", "assets/curvymoon-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNjg0Mzk1NTI=.html",
@@ -212,6 +212,15 @@ const projects = [
   },
 ];
 
+const hiddenProjectIds = new Set(["dishwasher"]);
+for (let index = projects.length - 1; index >= 0; index -= 1) {
+  if (hiddenProjectIds.has(projects[index].id)) projects.splice(index, 1);
+}
+["sondy", "curvymoon"].forEach((projectId) => {
+  const index = projects.findIndex((project) => project.id === projectId);
+  if (index >= 0) projects.push(...projects.splice(index, 1));
+});
+
 const projectCapabilityMap = {
   tuni: { skills: ["productVisual", "motion", "cgi", "photoshop"], tags: ["coffee", "motion", "cgi"] },
   wigomat: { skills: ["detailPage", "photoshop", "cgi", "poster"], tags: ["ecommerce", "coffee", "cgi"] },
@@ -256,22 +265,82 @@ function isImageAsset(src = "") {
   return /\.(avif|webp|png|jpe?g|gif)$/i.test(src.split("?")[0]);
 }
 
+function isVideoAsset(src = "") {
+  return /\.(mp4|webm|mov)$/i.test(src.split("?")[0]);
+}
+
 function uniqueAssets(assets = []) {
   return [...new Set(assets.filter(Boolean))];
 }
 
-function getProjectCoverCandidates(project) {
+const curatedFeatureCovers = {
+  tuni: ["assets/tuni-cover.webp"],
+  wigomat: ["assets/wigomat-cover.webp"],
+  bosch: ["assets/bosch-cover.webp"],
+  sondy: ["assets/sondy-cover.webp"],
+  curvymoon: ["assets/curvymoon-cover.webp"],
+  lieren: ["assets/lieren-cover.webp"],
+  peripheral: ["assets/peripheral-cover.webp", "assets/peripheral-full-03.webp"],
+  dishwasher: ["assets/dishwasher-cover.webp"],
+  g45: ["assets/g45-cover.webp"],
+  watch: ["assets/watch-cover.webp"],
+  avata: ["assets/avata-cover.webp"],
+  keyboard: ["assets/keyboard-cover.webp"],
+};
+
+const curatedGridCovers = {
+  tuni: "assets/tuni-cover.webp",
+  wigomat: "assets/wigomat-full-01.webp",
+  bosch: "assets/bosch-cover.webp",
+  sondy: "assets/sondy-full-01.webp",
+  curvymoon: "assets/curvymoon-full-01.webp",
+  lieren: "assets/lieren-cover.webp",
+  peripheral: "assets/peripheral-full-04.webp",
+  dishwasher: "assets/dishwasher-cover.webp",
+  g45: "assets/g45-cover.webp",
+  watch: "assets/watch-cover.webp",
+  avata: "assets/avata-cover.webp",
+  keyboard: "assets/keyboard-cover.webp",
+};
+
+const curatedIndexPreviews = {
+  tuni: "assets/tuni-cover.webp",
+  wigomat: "assets/wigomat-cover.webp",
+  bosch: "assets/bosch-cover.webp",
+  sondy: "assets/sondy-cover.webp",
+  curvymoon: "assets/curvymoon-cover.webp",
+  lieren: "assets/lieren-cover.webp",
+  peripheral: "assets/peripheral-cover.webp",
+  dishwasher: "assets/dishwasher-cover.webp",
+  g45: "assets/g45-cover.webp",
+  watch: "assets/watch-cover.webp",
+  avata: "assets/avata-cover.webp",
+  keyboard: "assets/keyboard-cover.webp",
+};
+
+function getFeatureCoverCandidates(project) {
+  const curated = curatedFeatureCovers[project.id];
+  if (curated?.length) return uniqueAssets(curated).filter(isImageAsset);
   return uniqueAssets([project.coverImage, project.image, ...(project.gallery || [])]).filter(isImageAsset);
+}
+
+function getGridCoverCandidates(project) {
+  const curated = curatedGridCovers[project.id];
+  if (curated) return [curated].filter(isImageAsset);
+  return uniqueAssets([project.coverImage, project.image]).filter(isImageAsset);
 }
 
 projects.forEach((project) => {
   project.coverImage = project.image;
-  const curatedCoverCandidates = getProjectCoverCandidates(project);
   if (window.caseGalleries?.[project.id]?.length) {
     project.gallery = window.caseGalleries[project.id];
   }
-  project.coverCandidates = curatedCoverCandidates;
-  project.image = project.coverCandidates[0] || project.image;
+  project.featureCoverCandidates = getFeatureCoverCandidates(project);
+  project.gridCoverCandidates = getGridCoverCandidates(project);
+  project.coverCandidates = project.featureCoverCandidates;
+  project.image = project.featureCoverCandidates[0] || project.image;
+  project.gridImage = project.gridCoverCandidates[0] || project.image;
+  project.indexPreviewImage = curatedIndexPreviews[project.id] || project.gridImage || project.image;
 });
 
 const uiText = {
@@ -302,7 +371,8 @@ const uiText = {
     workflowEyebrow: "Tools & Workflow",
     workflowTitle: "TOOLS & WORKFLOW",
     indexEyebrow: "Published Archive",
-    indexTitle: "A curated index of selected published works.",
+    indexTitle: "Selected published works.",
+    indexLead: "Commercial visuals / product CGI / AI-led cases.",
     workEyebrow: "Drag Track",
     workTitle: "Selected published cases with complete visual context.",
     archiveEyebrow: "Curated Selection",
@@ -325,12 +395,18 @@ const uiText = {
     contactEyebrow: "Contact",
     linksTitle: "LET'S BUILD PRODUCT VISUALS THAT SELL.",
     contactText: "Open to e-commerce visuals, product posters, AI-assisted content and CGI-style product storytelling.",
+    ctaPresence1: "E-commerce Detail Pages",
+    ctaPresence2: "C4D / Octane Product CGI",
+    ctaPresence3: "AI-assisted Visual Systems",
     zcoolPortfolio: "ZCOOL Portfolio",
     viewWorks: "View Works",
     wechatContact: "WeChat / Contact",
     wechatScanEyebrow: "WeChat",
     wechatScanTitle: "SCAN WECHAT",
     wechatScanText: "Use WeChat to scan and start a direct conversation.",
+    availabilityEyebrow: "Availability",
+    availabilityTitle: "OPEN FOR SELECTED COMMERCIAL VISUAL PROJECTS",
+    availabilityText: "Currently focused on product pages, launch visuals, CGI hero imagery and AI-assisted commercial systems.",
     openZcool: "Open ZCOOL page",
     prev: "Prev",
     next: "Next",
@@ -344,41 +420,42 @@ const uiText = {
     views: "views",
   },
   zh: {
-    metaDescription: "幻之道个人作品集，展示 AI 驱动型商业视觉、电商详情页、Photoshop 商业后期、AI 图像生成、CGI 产品视觉与自动化工作流。",
-    brandSmall: "发布作品",
+    metaDescription: "幻之道个人作品集，展示电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流。",
+    brandSmall: "作品集",
     navIndex: "索引",
     navWork: "作品",
     navProfile: "简介",
     navContact: "联系",
-    heroEyebrow: "12 个作品 / 站酷案例 / 突尼咖啡 / 电商 / AI / 3D",
-    heroTitle: '<span class="hero-title-line">发布</span><span class="hero-title-line">影响<span class="hero-dot">.</span></span>',
-    heroTitlePlain: "发布 影响.",
-    heroRole: "AI 驱动型商业视觉设计师",
-    heroSubtitle: "专注电商详情页、产品海报、Photoshop 商业后期、AI 图像生成与 CGI 风格产品视觉表达。",
+    heroEyebrow: "12 组作品 / 站酷案例 / 咖啡机 / 电商 / AI / 3D",
+    heroTitle: '<span class="hero-title-line">商业</span><span class="hero-title-line">视觉<span class="hero-dot">.</span></span>',
+    heroTitlePlain: "商业视觉.",
+    heroRole: "商业视觉设计师",
+    heroSubtitle: "专注电商详情页、产品海报、Photoshop 商业后期、AI 图像生成与 CGI 产品视觉表达。",
     totalWorks: "组作品",
     projectTracks: "个方向",
     latestStatus: "更新中",
     latestPublish: "持续更新",
-    heroFrame: "站酷发布案例 / 商业视觉 / 三维产品叙事。",
+    heroFrame: "站酷发布案例 / 商业视觉 / 三维产品表达。",
     showreelEyebrow: "动态案例",
-    showreelText: "独立满屏视频段落，用动态产品镜头直接展示三维、材质、灯光和节奏。",
+    showreelText: "通过产品动态镜头展示三维造型、材质灯光和画面节奏。",
     soundUnlock: "打开声音",
-    soundHint: "这支动态短片需要声音一起观看。",
+    soundHint: "这支动态短片包含声音设计。",
     capabilitiesEyebrow: "核心能力",
     capabilitiesTitle: "核心能力",
-    capabilitiesText: "围绕商业视觉、AI 生成、产品 CGI 与自动化工作流形成复合型设计能力。",
+    capabilitiesText: "从电商视觉、产品 CGI、AI 图像到自动化工作流，整理完整的商业视觉能力。",
     workflowEyebrow: "工具链与工作流",
     workflowTitle: "工具链与工作流",
     indexEyebrow: "已发布作品归档",
-    indexTitle: "精选已发布作品的视觉归档。",
-    workEyebrow: "拖拽轨道",
-    workTitle: "精选完整发布案例，而非零散素材展示。",
+    indexTitle: "已发布作品精选。",
+    indexLead: "商业视觉 / 产品 CGI / AI 驱动案例。",
+    workEyebrow: "横向作品轨道",
+    workTitle: "精选完整案例，展示从产品视觉到页面落地的过程。",
     archiveEyebrow: "精选作品",
     archiveTitle: "作品网格",
     archiveText: "作品覆盖电商详情页、Photoshop 产品视觉、AI 场景图、3D 产品视觉与商业海报。",
     profileEyebrow: "个人简介",
-    profileText: "AI 驱动型商业视觉设计师，专注电商详情页、产品海报、Photoshop 商业后期、AI 场景图与 CGI 风格产品视觉。",
-    profileNote: "熟悉 Photoshop 图像合成、产品修图与详情页视觉处理，了解 Illustrator 基础平面与矢量处理，并结合 C4D / Octane、Codex、Quicker 与 Photoshop Script 探索更高效的设计工作流。",
+    profileText: "商业视觉设计师，专注电商详情页、产品海报、Photoshop 商业后期、AI 场景图与 CGI 产品视觉。",
+    profileNote: "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光和商业画面判断能力，并结合 Illustrator、Codex、Quicker 与 Photoshop Script 提升设计效率。",
     profileLocationLabel: "所在地",
     profileLocation: "广东佛山",
     profileFocusLabel: "方向",
@@ -388,11 +465,11 @@ const uiText = {
     profileToolsLabel: "工具",
     profileTools: "Photoshop / Illustrator / C4D / Octane / Midjourney / 即梦 AI / Codex / Quicker / Photoshop Script",
     brandExperienceEyebrow: "品牌项目经验",
-    brandExperienceTitle: "BRAND EXPERIENCE",
-    brandExperienceText: "覆盖电商详情页、产品海报、AI 商业视觉与 CGI 风格产品表达的项目品牌经验。",
+    brandExperienceTitle: "品牌项目经验",
+    brandExperienceText: "覆盖电商详情页、产品海报、AI 商业视觉与 CGI 产品表达的项目经验。",
     contactEyebrow: "联系合作",
     linksTitle: "一起打造更有销售力的产品视觉。",
-    contactText: "可合作方向包括电商详情页、产品海报、AI 商业视觉与 CGI 风格产品表达。",
+    contactText: "可合作方向包括电商详情页、产品海报、AI 商业视觉与 CGI 产品表达。",
     zcoolPortfolio: "站酷作品集",
     viewWorks: "查看作品",
     wechatContact: "微信 / 联系",
@@ -466,13 +543,13 @@ const skillText = {
     detailPage: "电商详情页结构",
     photoshop: "Photoshop 修图与合成",
     aiGeneration: "AI 辅助场景生成",
-    cgi: "CGI 风格灯光与材质控制",
-    poster: "商业海报视觉方向",
-    productVisual: "产品视觉叙事",
+    cgi: "CGI 灯光与材质表现",
+    poster: "商业海报设计",
+    productVisual: "产品视觉表达",
     productStory: "产品卖点视觉化",
     motion: "产品动态节奏",
-    sceneDirection: "商业场景方向",
-    lighting: "灯光与材质判断",
+    sceneDirection: "商业场景设计",
+    lighting: "灯光与材质表现",
   },
 };
 
@@ -480,37 +557,55 @@ const capabilitiesText = {
   en: [
     {
       icon: "layout",
-      preview: "assets/wigomat-cover.webp",
+      preview: "assets/wigomat-full-03.webp",
+      label: "Conversion Systems",
+      tools: "Photoshop / Layout / Product Story",
+      word: "COMMERCE",
       title: "E-commerce Visual Design",
       text: "Detail page structure, selling-point visualization, platform conversion logic and long-page rhythm control.",
     },
     {
       icon: "brush",
-      preview: "assets/tuni-cover.webp",
+      preview: "assets/tuni-gallery-03.webp",
+      label: "Retouch Precision",
+      tools: "Photoshop / Composite / Finish",
+      word: "RETOUCH",
       title: "Photoshop Visual Retouching",
       text: "Photoshop product retouching, image compositing, tone refinement, commercial post-production and detail page visual handling.",
     },
     {
       icon: "frame",
-      preview: "assets/lieren-cover.webp",
+      preview: "assets/lieren-full-03.webp",
+      label: "Launch Campaigns",
+      tools: "Poster / Key Visual / Promotion",
+      word: "POSTER",
       title: "Product Poster Design",
       text: "Launch visuals, livestream campaigns, brand communication, product key visuals and commercial poster systems.",
     },
     {
       icon: "sparkle",
-      preview: "assets/bosch-cover.webp",
+      preview: "assets/bosch-full-03.webp",
+      label: "Scene Expansion",
+      tools: "Prompt / Repaint / Visual System",
+      word: "AI",
       title: "AI Image Generation",
       text: "Reference-image analysis, Prompt Engineering, repainting, commercial scene generation and visual style consistency.",
     },
     {
       icon: "cube",
-      preview: "assets/watch-cover.webp",
+      preview: "assets/watch-full-04.webp",
+      label: "Material Thinking",
+      tools: "C4D / Octane / Lighting",
+      word: "CGI",
       title: "CGI Product Thinking",
       text: "C4D / Octane visual judgment, material expression, lighting atmosphere, product advertising feel and 3D product storytelling.",
     },
     {
       icon: "terminal",
-      preview: "assets/keyboard-cover.webp",
+      preview: "assets/peripheral-full-12.webp",
+      label: "System Efficiency",
+      tools: "Codex / Quicker / PS Script",
+      word: "FLOW",
       title: "AI-assisted Workflow",
       text: "Codex, Quicker and Photoshop Script support website edits, interaction prototypes, repeated-action automation and design workflow efficiency.",
     },
@@ -518,39 +613,57 @@ const capabilitiesText = {
   zh: [
     {
       icon: "layout",
-      preview: "assets/wigomat-cover.webp",
+      preview: "assets/wigomat-full-03.webp",
+      label: "转化页面",
+      tools: "Photoshop / 版式 / 卖点梳理",
+      word: "电商视觉",
       title: "电商视觉设计",
-      text: "电商详情页结构规划、卖点视觉化、平台转化逻辑与页面节奏控制。",
+      text: "电商详情页结构规划、卖点视觉化、页面转化逻辑与长图节奏控制。",
     },
     {
       icon: "brush",
-      preview: "assets/tuni-cover.webp",
+      preview: "assets/tuni-gallery-03.webp",
+      label: "商业后期",
+      tools: "Photoshop / 合成 / 精修",
+      word: "后期精修",
       title: "Photoshop 商业后期",
-      text: "Photoshop 产品修图、图像合成、色调优化、商业后期与详情页视觉处理。",
+      text: "产品修图、图像合成、色调优化、商业后期与详情页视觉处理。",
     },
     {
       icon: "frame",
-      preview: "assets/lieren-cover.webp",
+      preview: "assets/lieren-full-03.webp",
+      label: "上市视觉",
+      tools: "海报 / 主视觉 / 活动图",
+      word: "产品海报",
       title: "产品商业海报",
       text: "新品上市、直播活动、品牌宣传、产品主视觉与商业海报设计。",
     },
     {
       icon: "sparkle",
-      preview: "assets/bosch-cover.webp",
+      preview: "assets/bosch-full-03.webp",
+      label: "场景生成",
+      tools: "提示词 / 重绘 / 视觉统一",
+      word: "AI 视觉",
       title: "AI 图像生成",
-      text: "参考图反推、Prompt Engineering、图像重绘、商业场景生成与风格统一。",
+      text: "参考图分析、提示词设计、图像重绘、商业场景生成与风格统一。",
     },
     {
       icon: "cube",
-      preview: "assets/watch-cover.webp",
+      preview: "assets/watch-full-04.webp",
+      label: "材质灯光",
+      tools: "C4D / Octane / 产品视觉",
+      word: "产品 CGI",
       title: "CGI 产品思维",
-      text: "C4D / Octane 视觉理解、材质表现、灯光氛围、产品广告感与 3D 产品故事表达。",
+      text: "C4D / Octane 视觉理解、材质表现、灯光氛围和三维产品视觉表达。",
     },
     {
       icon: "terminal",
-      preview: "assets/keyboard-cover.webp",
+      preview: "assets/peripheral-full-12.webp",
+      label: "流程效率",
+      tools: "Codex / Quicker / PS Script",
+      word: "工作流",
       title: "AI 辅助工作流",
-      text: "使用 Codex、Quicker 与 Photoshop Script 辅助网页修改、交互原型、高频操作自动化和设计流程提效。",
+      text: "使用 Codex、Quicker 与 Photoshop Script 辅助网页调整、交互原型、高频操作自动化和设计流程提效。",
     },
   ],
 };
@@ -593,19 +706,19 @@ const workflowText = {
       icon: "sparkle",
       title: "AI 创意工具",
       tools: "Midjourney / 即梦 AI / ChatGPT",
-      text: "用于提示词反推、AI 场景图生成、创意发散、视觉风格测试与图像重绘。",
+      text: "用于提示词拆解、AI 场景图生成、创意发散、视觉风格测试与图像重绘。",
     },
     {
       icon: "cube",
       title: "3D & CGI",
       tools: "Cinema 4D / OctaneRender",
-      text: "用于产品 CGI 视觉理解、材质灯光判断、产品广告感和三维视觉表达。",
+      text: "用于产品 CGI 可视化、材质灯光表现、商业渲染氛围和三维产品视觉表达。",
     },
     {
       icon: "terminal",
       title: "工作流与自动化",
       tools: "Codex / Quicker / Photoshop Script",
-      text: "用于网页修改、交互动效沟通、自动化动作、批量处理和设计流程提效。",
+      text: "用于网页调整、交互动效验证、自动化动作、批量处理和设计流程提效。",
     },
   ],
 };
@@ -617,20 +730,38 @@ uiText.en.profileNote = "Built around Photoshop compositing and product retouchi
 uiText.en.profileFocus = "Detail page / Photoshop / C4D / Octane / AI / Workflow";
 
 uiText.zh.heroSubtitle = "专注电商详情页、产品海报、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 图像生成与工作流优化。";
-uiText.zh.capabilitiesText = "围绕商业视觉、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流形成复合型设计能力。";
-uiText.zh.profileText = "AI 驱动型商业视觉设计师，专注电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 场景图与工作流优化。";
-uiText.zh.profileNote = "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光与广告感判断能力，并结合 Illustrator 基础、Codex、Quicker 与 Photoshop Script 提升设计效率。";
+uiText.zh.capabilitiesText = "从电商视觉、产品 CGI、AI 图像到自动化工作流，整理完整的商业视觉能力。";
+uiText.zh.profileText = "商业视觉设计师，专注电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 场景图与工作流优化。";
+uiText.zh.profileNote = "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光和商业画面判断能力，并结合 Illustrator、Codex、Quicker 与 Photoshop Script 提升设计效率。";
 uiText.zh.profileFocus = "详情页 / Photoshop / C4D / Octane / AI / 工作流";
 
 capabilitiesText.en[4].title = "C4D / Octane Product CGI";
 capabilitiesText.en[4].text = "C4D / Octane product visualization, material control, lighting atmosphere, commercial rendering judgment and 3D product storytelling.";
 capabilitiesText.zh[4].title = "C4D / Octane 产品 CGI";
-capabilitiesText.zh[4].text = "C4D / Octane 产品可视化、材质表现、灯光氛围、广告感判断与 3D 产品叙事表达。";
+capabilitiesText.zh[4].text = "C4D / Octane 产品可视化、材质表现、灯光氛围、商业画面判断与三维产品视觉表达。";
 
 workflowText.en[2].title = "C4D & Octane CGI";
 workflowText.en[2].text = "Used for product CGI visualization, material and lighting decisions, commercial rendering atmosphere and three-dimensional product storytelling.";
 workflowText.zh[2].title = "C4D 与 Octane CGI";
-workflowText.zh[2].text = "用于产品 CGI 可视化、材质与灯光判断、商业渲染氛围以及三维产品叙事表达。";
+workflowText.zh[2].text = "用于产品 CGI 可视化、材质灯光表现、商业渲染氛围和三维产品视觉表达。";
+
+Object.assign(uiText.en, {
+  ctaPresence1: "E-commerce Detail Pages",
+  ctaPresence2: "C4D / Octane Product CGI",
+  ctaPresence3: "AI-assisted Visual Systems",
+  availabilityEyebrow: "Availability",
+  availabilityTitle: "OPEN FOR SELECTED COMMERCIAL VISUAL PROJECTS",
+  availabilityText: "Currently focused on product pages, launch visuals, CGI hero imagery and AI-assisted commercial systems.",
+});
+
+Object.assign(uiText.zh, {
+  ctaPresence1: "电商详情页",
+  ctaPresence2: "C4D / Octane 产品 CGI",
+  ctaPresence3: "AI 辅助视觉系统",
+  availabilityEyebrow: "合作状态",
+  availabilityTitle: "当前开放精选商业视觉项目合作",
+  availabilityText: "目前合作重点包括产品详情页、上市视觉、CGI 主视觉与 AI 辅助商业视觉系统。",
+});
 
   const brandList = [
     "Audio-Technica 铁三角",
@@ -664,41 +795,42 @@ Object.assign(uiText.en, {
 });
 
 Object.assign(uiText.zh, {
-  metaDescription: "幻之道个人作品集，展示 AI 驱动型商业视觉、电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流。",
-  brandSmall: "发布作品",
+  metaDescription: "幻之道个人作品集，展示电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流。",
+  brandSmall: "作品集",
   navIndex: "索引",
   navWork: "作品",
   navProfile: "简介",
   navContact: "联系",
-  heroEyebrow: "12 个作品 / 站酷案例 / 突尼咖啡 / 电商 / AI / 3D",
-  heroTitle: '<span class="hero-title-line">发布</span><span class="hero-title-line">影响<span class="hero-dot">.</span></span>',
-  heroTitlePlain: "发布 影响.",
-  heroRole: "AI 驱动型商业视觉设计师",
+  heroEyebrow: "12 组作品 / 站酷案例 / 咖啡机 / 电商 / AI / 3D",
+  heroTitle: '<span class="hero-title-line">商业</span><span class="hero-title-line">视觉<span class="hero-dot">.</span></span>',
+  heroTitlePlain: "商业视觉.",
+  heroRole: "商业视觉设计师",
   heroSubtitle: "电商详情页 / Photoshop 商业后期 / C4D CGI / Octane 灯光材质 / AI 图像 / 工作流优化",
   totalWorks: "组作品",
   projectTracks: "个方向",
   latestStatus: "更新中",
   latestPublish: "持续更新",
-  heroFrame: "站酷发布案例 / 商业视觉 / 三维产品叙事。",
+  heroFrame: "站酷发布案例 / 商业视觉 / 三维产品表达。",
   showreelEyebrow: "动态案例",
-  showreelText: "独立满屏视频段落，用动态产品镜头直接展示三维、材质、灯光和节奏。",
+  showreelText: "通过产品动态镜头展示三维造型、材质灯光和画面节奏。",
   soundUnlock: "打开声音",
-  soundHint: "这支动态短片需要声音一起观看。",
+  soundHint: "这支动态短片包含声音设计。",
   capabilitiesEyebrow: "核心能力",
   capabilitiesTitle: "核心能力",
-  capabilitiesText: "围绕商业视觉、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流形成复合型设计能力。",
+  capabilitiesText: "从电商视觉、产品 CGI、AI 图像到自动化工作流，整理完整的商业视觉能力。",
   workflowEyebrow: "工具链与工作流",
   workflowTitle: "工具链与工作流",
   indexEyebrow: "已发布作品归档",
-  indexTitle: "精选已发布作品的视觉归档。",
-  workEyebrow: "拖拽轨道",
-  workTitle: "精选完整发布案例，而非零散素材展示。",
+  indexTitle: "已发布作品精选。",
+  indexLead: "商业视觉 / 产品 CGI / AI 驱动案例。",
+  workEyebrow: "横向作品轨道",
+  workTitle: "精选完整案例，展示从产品视觉到页面落地的过程。",
   archiveEyebrow: "精选作品",
   archiveTitle: "作品网格",
   archiveText: "作品覆盖电商详情页、Photoshop 产品视觉、AI 场景图、3D 产品视觉与商业海报。",
   profileEyebrow: "个人简介",
-  profileText: "AI 驱动型商业视觉设计师，专注电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 场景图与工作流优化。",
-  profileNote: "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光与广告感判断能力，并结合 Illustrator 基础、Codex、Quicker 与 Photoshop Script 提升设计效率。",
+  profileText: "商业视觉设计师，专注电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 场景图与工作流优化。",
+  profileNote: "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光和商业画面判断能力，并结合 Illustrator、Codex、Quicker 与 Photoshop Script 提升设计效率。",
   profileLocationLabel: "所在地",
   profileLocation: "广东佛山",
   profileFocusLabel: "方向",
@@ -708,11 +840,11 @@ Object.assign(uiText.zh, {
   profileToolsLabel: "工具",
   profileTools: "Photoshop / Illustrator / C4D / Octane / Midjourney / 即梦 AI / Codex / Quicker / Photoshop Script",
   brandExperienceEyebrow: "品牌项目经验",
-  brandExperienceTitle: "BRAND EXPERIENCE",
-  brandExperienceText: "覆盖电商详情页、产品海报、AI 商业视觉与 CGI 风格产品表达的项目品牌经验。",
+  brandExperienceTitle: "品牌项目经验",
+  brandExperienceText: "覆盖电商详情页、产品海报、AI 商业视觉与 CGI 产品表达的项目经验。",
   contactEyebrow: "联系合作",
   linksTitle: "一起打造更有销售力的产品视觉。",
-  contactText: "可合作方向包括电商详情页、产品海报、AI 商业视觉与 CGI 风格产品表达。",
+  contactText: "可合作方向包括电商详情页、产品海报、AI 商业视觉与 CGI 产品表达。",
   zcoolPortfolio: "站酷作品集",
   viewWorks: "查看作品",
   wechatContact: "微信 / 联系",
@@ -731,8 +863,8 @@ Object.assign(uiText.zh, {
   localProject: "本地项目",
   views: "浏览",
   cgiEyebrow: "CGI 流程",
-  cgiTitle: "从模型<br />到产品叙事。",
-  cgiLead: "用 C4D / Octane、Photoshop 与 AI 辅助思路，把产品结构转化为具有商业冲击力的视觉表达。",
+  cgiTitle: "从模型<br />到产品画面。",
+  cgiLead: "结合 C4D / Octane、Photoshop 与 AI 辅助思路，把产品结构转化为更完整的商业视觉。",
   cgiStep1Title: "结构与形体",
   cgiStep1Text: "先判断产品轮廓、机械结构和主视觉角度，再进入画面组织。",
   cgiStep2Title: "材质与灯光",
@@ -740,7 +872,7 @@ Object.assign(uiText.zh, {
   cgiStep3Title: "后期与合成",
   cgiStep3Text: "通过 Photoshop 合成、色调控制和商业后期，强化产品层级。",
   cgiStep4Title: "AI 场景延展",
-  cgiStep4Text: "用 AI 扩展场景可能性，同时保持产品逻辑、详情页节奏和品牌一致性。",
+  cgiStep4Text: "用 AI 扩展场景方案，同时保持产品逻辑、详情页节奏和品牌一致性。",
 });
 
 Object.assign(categoryText.zh, {
@@ -764,29 +896,29 @@ Object.assign(skillText.zh, {
   detailPage: "电商详情页结构",
   photoshop: "Photoshop 修图与合成",
   aiGeneration: "AI 辅助场景生成",
-  cgi: "CGI 风格灯光与材质控制",
-  poster: "商业海报视觉方向",
-  productVisual: "产品视觉叙事",
+  cgi: "CGI 灯光与材质表现",
+  poster: "商业海报设计",
+  productVisual: "产品视觉表达",
   productStory: "产品卖点视觉化",
   motion: "产品动态节奏",
-  sceneDirection: "商业场景方向",
-  lighting: "灯光与材质判断",
+  sceneDirection: "商业场景设计",
+  lighting: "灯光与材质表现",
 });
 
 capabilitiesText.zh = [
-  { icon: "layout", preview: "assets/wigomat-cover.webp", title: "电商视觉设计", text: "电商详情页结构规划、卖点视觉化、平台转化逻辑与页面节奏控制。" },
-  { icon: "brush", preview: "assets/tuni-cover.webp", title: "Photoshop 商业后期", text: "Photoshop 产品修图、图像合成、色调优化、商业后期与详情页视觉处理。" },
-  { icon: "frame", preview: "assets/lieren-cover.webp", title: "产品商业海报", text: "新品上市、直播活动、品牌宣传、产品主视觉与商业海报设计。" },
-  { icon: "sparkle", preview: "assets/bosch-cover.webp", title: "AI 图像生成", text: "参考图反推、Prompt Engineering、图像重绘、商业场景生成与风格统一。" },
-  { icon: "cube", preview: "assets/watch-cover.webp", title: "C4D / Octane 产品 CGI", text: "C4D / Octane 产品可视化、材质表现、灯光氛围、广告感判断与 3D 产品叙事表达。" },
-  { icon: "terminal", preview: "assets/keyboard-cover.webp", title: "AI 辅助工作流", text: "使用 Codex、Quicker 与 Photoshop Script 辅助网页修改、交互原型、高频操作自动化和设计流程提效。" },
+  { icon: "layout", preview: "assets/wigomat-cover.webp", label: "转化页面", tools: "Photoshop / 版式 / 卖点梳理", word: "电商视觉", title: "电商视觉设计", text: "电商详情页结构规划、卖点视觉化、页面转化逻辑与长图节奏控制。" },
+  { icon: "brush", preview: "assets/tuni-cover.webp", label: "商业后期", tools: "Photoshop / 合成 / 精修", word: "后期精修", title: "Photoshop 商业后期", text: "产品修图、图像合成、色调优化、商业后期与详情页视觉处理。" },
+  { icon: "frame", preview: "assets/lieren-cover.webp", label: "上市视觉", tools: "海报 / 主视觉 / 活动图", word: "产品海报", title: "产品商业海报", text: "新品上市、直播活动、品牌宣传、产品主视觉与商业海报设计。" },
+  { icon: "sparkle", preview: "assets/bosch-cover.webp", label: "场景生成", tools: "提示词 / 重绘 / 视觉统一", word: "AI 视觉", title: "AI 图像生成", text: "参考图分析、提示词设计、图像重绘、商业场景生成与风格统一。" },
+  { icon: "cube", preview: "assets/watch-cover.webp", label: "材质灯光", tools: "C4D / Octane / 产品视觉", word: "产品 CGI", title: "C4D / Octane 产品 CGI", text: "产品可视化、材质表现、灯光氛围、商业画面判断与三维产品视觉表达。" },
+  { icon: "terminal", preview: "assets/keyboard-cover.webp", label: "流程效率", tools: "Codex / Quicker / PS Script", word: "工作流", title: "AI 辅助工作流", text: "使用 Codex、Quicker 与 Photoshop Script 辅助网页调整、交互原型、高频操作自动化和设计流程提效。" },
 ];
 
 workflowText.zh = [
   { icon: "image", title: "设计工具", tools: "Photoshop / Illustrator / Camera Raw / Eagle", text: "用于产品修图、图像合成、详情页排版、基础矢量处理、素材管理与商业后期。" },
-  { icon: "sparkle", title: "AI 创意工具", tools: "Midjourney / 即梦 AI / ChatGPT", text: "用于提示词反推、AI 场景图生成、创意发散、视觉风格测试与图像重绘。" },
-  { icon: "cube", title: "C4D 与 Octane CGI", tools: "Cinema 4D / OctaneRender", text: "用于产品 CGI 可视化、材质与灯光判断、商业渲染氛围以及三维产品叙事表达。" },
-  { icon: "terminal", title: "工作流与自动化", tools: "Codex / Quicker / Photoshop Script", text: "用于网页修改、交互动效沟通、自动化动作、批量处理和设计流程提效。" },
+  { icon: "sparkle", title: "AI 创意工具", tools: "Midjourney / 即梦 AI / ChatGPT", text: "用于提示词拆解、AI 场景图生成、创意发散、视觉风格测试与图像重绘。" },
+  { icon: "cube", title: "C4D 与 Octane CGI", tools: "Cinema 4D / OctaneRender", text: "用于产品 CGI 可视化、材质灯光表现、商业渲染氛围和三维产品视觉表达。" },
+  { icon: "terminal", title: "工作流与自动化", tools: "Codex / Quicker / Photoshop Script", text: "用于网页调整、交互动效验证、自动化动作、批量处理和设计流程提效。" },
 ];
 
 brandList.splice(
@@ -936,13 +1068,13 @@ const projectText = {
   },
   zh: {
     tuni: {
-      title: "突尼咖啡机产品视觉整理",
-      short: "Tuni Coffee Machine",
-      tag: "外单 / 咖啡机 / 动态视频 / 产品视觉",
+      title: "突尼咖啡机产品视觉",
+      short: "突尼咖啡机",
+      tag: "商业项目 / 咖啡机 / 动态视频 / 产品视觉",
       date: "2025",
       brand: "突尼咖啡机",
       role: "产品静态图、动态视频、红蓝光首发视觉",
-      text: "来自突尼咖啡机项目整理文件夹的独立案例，包含静态产品图与多条动态视频素材。这个分类不依赖站酷跳转，直接在站内展示产品视觉和动态镜头。",
+      text: "突尼咖啡机项目视觉，包含产品静态图、动态视频和红蓝光首发视觉。重点展示产品结构、材质细节和动态镜头表现。",
     },
     wigomat: {
       title: "wigomat 唯咖美咖啡机 W12 详情页视觉分享",
@@ -951,7 +1083,7 @@ const projectText = {
       date: "320天前",
       brand: "wigomat 唯咖美",
       role: "视觉创意、三维渲染、平面设计、动效渲染、后期精修",
-      text: "德国咖啡机品牌进入中国市场后的详情页视觉。页面信息包含品牌介绍、场景拍摄、三维渲染、动效渲染与后期精修，适合作为作品集首个完整商业案例。",
+      text: "德国咖啡机品牌进入中国市场后的详情页视觉。项目包含品牌介绍、场景拍摄、三维渲染、动效渲染与后期精修，是一个完整的商业页面案例。",
     },
     bosch: {
       title: "BOSCH 博世家电新品页面 x AI 视觉分享",
@@ -960,7 +1092,7 @@ const projectText = {
       date: "1年前",
       brand: "BOSCH 博世",
       role: "视觉创意、平面",
-      text: "服务于天猫博世家电官方旗舰店的 AI 视觉页面。以家电新品场景为核心，强调 AI 生成、合成与电商页面落地的结合。",
+      text: "服务于天猫博世家电官方旗舰店的 AI 视觉页面。以家电新品场景为核心，将 AI 生成、图像合成与电商页面落地结合在一起。",
     },
     sondy: {
       title: "森电吸尘器详情页全案视觉分享",
@@ -969,7 +1101,7 @@ const projectText = {
       date: "1年前",
       brand: "SONDY 森电",
       role: "平面、三维",
-      text: "森电吸尘器全案详情页，包含三维产品表现和电商卖点拆解。适合呈现长页节奏、产品结构和功能信息的组织能力。",
+      text: "森电吸尘器全案详情页，包含三维产品表现和电商卖点拆解。重点呈现长页节奏、产品结构和功能信息的组织方式。",
     },
     curvymoon: {
       title: "亚马逊吸尘器详情页主图全案分享",
@@ -978,7 +1110,7 @@ const projectText = {
       date: "1年前",
       brand: "Curvymoon",
       role: "视觉创意、平面、三维",
-      text: "亚马逊新品吸尘器主图与 A+ 页面全案，页面由主图、功能卖点、大图模块和产品角度展示组成，是电商发布链路里的完整项目。",
+      text: "亚马逊新品吸尘器主图与 A+ 页面全案，包含主图、功能卖点、大图模块和多角度产品展示，是完整的电商发布项目。",
     },
     lieren: {
       title: "雷神猎刃 15 电竞本视觉海报分享",
@@ -987,7 +1119,7 @@ const projectText = {
       date: "2年前",
       brand: "雷神科技",
       role: "视觉创意、平面、三维",
-      text: "雷神猎刃电竞本视觉海报，发布页记录了从初稿氛围到终稿的过程，包括太空舱场景、内部结构、透明壳和爆炸图表达。",
+      text: "雷神猎刃电竞本视觉海报，展示从初稿氛围到终稿画面的推进过程，包括太空舱场景、内部结构、透明壳和爆炸图表达。",
     },
     peripheral: {
       title: "雷神外设 3 款产品渲染图",
@@ -996,7 +1128,7 @@ const projectText = {
       date: "2年前",
       brand: "雷神科技",
       role: "产品渲染",
-      text: "与雷神外设合作的三款产品渲染，重点展示产品材质、组合角度和科技类消费电子的商业图像表达。",
+      text: "雷神外设三款产品渲染，重点展示产品材质、组合角度和科技类消费电子的商业图像表达。",
     },
     dishwasher: {
       title: "AI 电商家电场景图 / 洗碗机",
@@ -1005,7 +1137,7 @@ const projectText = {
       date: "2年前",
       brand: "AI 家电场景",
       role: "AI 场景、产品合成",
-      text: "围绕洗碗机侧面开门角度做 AI 场景合成。发布页说明了为了合成透视，需要拆分产品结构并重新组织透视关系。",
+      text: "围绕洗碗机侧面开门角度进行 AI 场景合成。为了让画面透视成立，需要拆分产品结构并重新组织空间关系。",
     },
     g45: {
       title: "雷神 G45 游戏手柄产品渲染",
@@ -1014,7 +1146,7 @@ const projectText = {
       date: "2年前",
       brand: "雷神科技",
       role: "新品游戏手柄渲染",
-      text: "雷神 G45 游戏手柄产品渲染。项目描述提到工业模型在布线与材质上带来挑战，页面重点呈现新品硬件的材质和结构。",
+      text: "雷神 G45 游戏手柄产品渲染。项目重点呈现新品硬件的材质、结构和科技感，同时处理模型布线与材质表现上的细节。",
     },
     watch: {
       title: "Jacob&Co Godfather 机械表",
@@ -1023,7 +1155,7 @@ const projectText = {
       date: "3年前",
       brand: "Jacob&Co",
       role: "机械表渲染练习",
-      text: "机械表渲染练习，使用深色场景和金属材质突出复杂结构。作为作品集里的个人 3D 练习，和商业项目形成层次。",
+      text: "机械表渲染练习，使用深色场景和金属材质突出复杂结构。作为个人 3D 练习，用来补充作品集中更偏材质和结构表现的部分。",
     },
     avata: {
       title: "DJI Avata 产品表现",
@@ -1032,7 +1164,7 @@ const projectText = {
       date: "3年前",
       brand: "DJI Avata",
       role: "产品表现练习",
-      text: "DJI Avata 产品表现练习，强调飞行器形体、竖向构图和硬朗光影，是早期三维产品表现能力的集中展示。",
+      text: "DJI Avata 产品表现练习，强调飞行器形体、竖向构图和硬朗光影，展示早期三维产品表现能力。",
     },
     keyboard: {
       title: "键盘建模渲染",
@@ -1041,7 +1173,7 @@ const projectText = {
       date: "3年前",
       brand: "Keyboard practice",
       role: "建模渲染",
-      text: "键盘建模渲染练习，目标是尝试做干净的感觉，适合作为三维基础、材质和白底商业图像的补充案例。",
+      text: "键盘建模渲染练习，目标是做出干净、克制的白底产品图，补充三维基础和材质表现案例。",
     },
   },
 };
@@ -1056,14 +1188,24 @@ const heroNextImage = document.querySelector(".hero-image-next");
 const directionTags = document.querySelector("#directionTags");
 const indexList = document.querySelector("#indexList");
 const indexPreview = document.querySelector(".index-preview");
+const indexPreviewTrack = document.querySelector("#indexPreviewTrack");
 const workTrack = document.querySelector("#workTrack");
 const workStage = document.querySelector("#work");
+const workViewport = workTrack?.closest(".work-viewport") || null;
 const workCounter = document.querySelector("#workCounter");
 const workCurrentTitle = document.querySelector("#workCurrentTitle");
+const workCurrentBrand = document.querySelector("#workCurrentBrand");
+const workCurrentRole = document.querySelector("#workCurrentRole");
+const workGhostBrand = document.querySelector("#workGhostBrand");
 const capabilityGrid = document.querySelector("#capabilityGrid");
 const capabilityPreviewImage = document.querySelector("#capabilityPreviewImage");
 const capabilityPreviewIndex = document.querySelector("#capabilityPreviewIndex");
 const capabilityPreviewTitle = document.querySelector("#capabilityPreviewTitle");
+const capabilityPreviewText = document.querySelector("#capabilityPreviewText");
+const capabilityPreviewLabel = document.querySelector("#capabilityPreviewLabel");
+const capabilityPreviewTools = document.querySelector("#capabilityPreviewTools");
+const capabilityPreviewWord = document.querySelector("#capabilityPreviewWord");
+const capabilityPreviewMeter = document.querySelector("#capabilityPreviewMeter");
 const workflowGrid = document.querySelector("#workflowGrid");
 const brandGrid = document.querySelector("#brandGrid");
 const projectGrid = document.querySelector("#projectGrid");
@@ -1078,6 +1220,7 @@ const dialogLink = dialog.querySelector(".dialog-link");
 const closeDialog = dialog.querySelector(".dialog-close");
 let activeGallery = [];
 let activeSlide = 0;
+let currentIndexPreviewKey = null;
 let heroPool = [];
 let heroIndex = 0;
 let heroTimer = null;
@@ -1096,6 +1239,8 @@ let gridCoverResizeTimer = null;
 let imageParallaxTargets = [];
 let imageParallaxFrame = null;
 let imageParallaxBound = false;
+let capabilityStageObserver = null;
+let capabilityPreviewLock = false;
 
 function projectNumber(index) {
   return String(index + 1).padStart(2, "0");
@@ -1144,9 +1289,10 @@ function renderStaticIcons() {
 
 function renderDirectionTags() {
   if (!directionTags) return;
-  directionTags.innerHTML = (directionText[currentLanguage] || directionText.en)
+  const items = (directionText[currentLanguage] || directionText.en)
     .map((item) => `<p>${icon(item.icon)}<span>${item.label}</span></p>`)
     .join("");
+  directionTags.innerHTML = `<div class="intro-strip-track">${items}</div><div class="intro-strip-track" aria-hidden="true">${items}</div>`;
 }
 
 function renderCapabilities() {
@@ -1157,6 +1303,7 @@ function renderCapabilities() {
         <article class="capability-card reveal-block" tabindex="0" data-capability="${index}" data-reveal style="--reveal-delay: ${index * 55}ms">
           <div class="card-kicker"><span>${projectNumber(index)}</span>${icon(item.icon)}</div>
           <h3>${item.title}</h3>
+          <strong>${item.tools || item.label || item.title}</strong>
           <p>${item.text}</p>
         </article>
       `,
@@ -1166,23 +1313,79 @@ function renderCapabilities() {
 
 function updateCapabilityPreview(index = 0, animate = true) {
   const items = capabilitiesText[currentLanguage] || capabilitiesText.en;
+  const fallbackItems = capabilitiesText.en || [];
   const item = items[index] || items[0];
   if (!item || !capabilityPreviewImage) return;
+  const fallback = fallbackItems[index] || fallbackItems[0] || item;
   capabilityGrid?.querySelectorAll(".capability-card").forEach((card) => {
     card.classList.toggle("is-hovered", Number(card.dataset.capability) === index);
   });
+  capabilityGrid?.style.setProperty("--active-capability", String(index));
   if (capabilityPreviewIndex) capabilityPreviewIndex.textContent = projectNumber(index);
   if (capabilityPreviewTitle) capabilityPreviewTitle.textContent = item.title;
+  if (capabilityPreviewText) capabilityPreviewText.textContent = item.text;
+  if (capabilityPreviewLabel) capabilityPreviewLabel.textContent = item.label || fallback.label || item.title;
+  if (capabilityPreviewTools) capabilityPreviewTools.textContent = item.tools || fallback.tools || item.title;
+  if (capabilityPreviewWord) capabilityPreviewWord.textContent = item.word || fallback.word || item.title.split(" ")[0].toUpperCase();
+  if (capabilityPreviewMeter) capabilityPreviewMeter.style.width = `${((index + 1) / items.length) * 100}%`;
   if (capabilityPreviewImage.getAttribute("src") === item.preview) return;
   if (!animate || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     capabilityPreviewImage.src = item.preview;
+    setupImageIntrinsicHints();
     return;
   }
   capabilityPreviewImage.classList.add("is-switching");
   window.setTimeout(() => {
     capabilityPreviewImage.src = item.preview;
     capabilityPreviewImage.classList.remove("is-switching");
+    setupImageIntrinsicHints();
   }, 140);
+}
+
+function syncCapabilityStageFromViewport() {
+  if (!capabilityGrid) return;
+  const cards = [...capabilityGrid.querySelectorAll(".capability-card")];
+  if (!cards.length) return;
+  const viewportCenter = window.innerHeight * 0.48;
+  let bestIndex = 0;
+  let bestDistance = Infinity;
+
+  cards.forEach((card, index) => {
+    const rect = card.getBoundingClientRect();
+    const center = rect.top + rect.height / 2;
+    const distance = Math.abs(center - viewportCenter);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestIndex = index;
+    }
+  });
+
+  updateCapabilityPreview(bestIndex);
+}
+
+function setupCapabilityStage() {
+  if (!capabilityGrid) return;
+  capabilityStageObserver?.disconnect();
+  const cards = [...capabilityGrid.querySelectorAll(".capability-card")];
+  if (!cards.length) return;
+
+  capabilityStageObserver = new IntersectionObserver(
+    (entries) => {
+      if (capabilityPreviewLock) return;
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const index = Number(visible.target.dataset.capability || 0);
+      updateCapabilityPreview(index);
+    },
+    {
+      threshold: [0.35, 0.55, 0.75],
+      rootMargin: "-16% 0px -18% 0px",
+    },
+  );
+
+  cards.forEach((card) => capabilityStageObserver.observe(card));
 }
 
 function renderWorkflow() {
@@ -1241,11 +1444,13 @@ function applyLanguage() {
   renderDirectionTags();
   renderCapabilities();
   updateCapabilityPreview(0, false);
+  setupCapabilityStage();
   renderWorkflow();
   renderBrandExperience();
   renderProjects();
   setupFeatureCovers();
   setupGridCovers();
+  setupImageIntrinsicHints();
   setupImageMaskParallax();
   updateWorkScroller();
   updateKineticWords();
@@ -1262,9 +1467,13 @@ function setupHeroCarousel() {
   glitchStack.setAttribute("aria-hidden", "true");
   heroVisual.insertBefore(glitchStack, heroVisual.querySelector(".hero-flash"));
   heroPool = projects
+    .filter((project) => !["sondy", "curvymoon"].includes(project.id))
     .map((project) => project.image)
     .filter(Boolean)
     .slice(0, 10);
+  if (heroPool.length < 2) {
+    heroPool = projects.map((project) => project.image).filter(Boolean).slice(0, 10);
+  }
   if (heroPool.length < 2) return;
   heroCurrentImage.src = heroPool[0];
   heroNextImage.src = heroPool[1];
@@ -1337,18 +1546,53 @@ function updateProgress() {
 
 function updateIndexPreview(key) {
   const project = projects.find((item) => item.id === key);
-  const image = indexPreview?.querySelector("img");
-  if (!project || !image || image.getAttribute("src") === project.image) return;
-  indexPreview.classList.add("is-switching");
-  window.setTimeout(() => {
-    image.src = project.image;
-    image.alt = "";
-    indexPreview.classList.remove("is-switching");
-  }, 140);
+  const activeItem = indexPreviewTrack?.querySelector(`[data-project="${key}"]`);
+  if (!project || !activeItem || !indexPreviewTrack) return;
+  currentIndexPreviewKey = key;
+  const offset = activeItem.offsetTop;
+  indexPreviewTrack.style.transform = `translate3d(0, ${-offset}px, 0)`;
+  indexPreviewTrack.querySelectorAll(".index-preview-item").forEach((item) => {
+    item.classList.toggle("is-active", item.dataset.project === key);
+  });
+  indexList?.querySelectorAll(".index-row").forEach((row) => {
+    row.classList.toggle("is-active", row.dataset.project === key);
+  });
+}
+
+function setupImageIntrinsicHints() {
+  document.querySelectorAll(".project-tile img, .index-preview-item img, .cgi-visual img, .case-flow-item img, #capabilityPreviewImage").forEach((image) => {
+    const apply = () => {
+      const naturalWidth = image.naturalWidth || 0;
+      const naturalHeight = image.naturalHeight || 0;
+      if (!naturalWidth || !naturalHeight) return;
+      image.style.setProperty("--natural-width", `${naturalWidth}px`);
+      image.style.setProperty("--natural-height", `${naturalHeight}px`);
+    };
+    if (image.complete) {
+      apply();
+    } else {
+      image.addEventListener("load", apply, { once: true });
+    }
+  });
+  document.querySelectorAll(".case-flow-item video").forEach((video) => {
+    const apply = () => {
+      const naturalWidth = video.videoWidth || 0;
+      const naturalHeight = video.videoHeight || 0;
+      if (!naturalWidth || !naturalHeight) return;
+      video.style.setProperty("--natural-width", `${naturalWidth}px`);
+      video.style.setProperty("--natural-height", `${naturalHeight}px`);
+    };
+    if (video.readyState >= 1) {
+      apply();
+    } else {
+      video.addEventListener("loadedmetadata", apply, { once: true });
+    }
+  });
 }
 
 function setupWorkDrag() {
   if (!workTrack) return;
+  const dragSurface = workViewport || workTrack;
   let dragging = false;
   let startX = 0;
   let startScroll = 0;
@@ -1376,7 +1620,7 @@ function setupWorkDrag() {
     inertiaFrame = window.requestAnimationFrame(runInertia);
   };
 
-  workTrack.addEventListener("pointerdown", (event) => {
+  dragSurface.addEventListener("pointerdown", (event) => {
     stopInertia();
     dragging = true;
     moved = false;
@@ -1387,10 +1631,10 @@ function setupWorkDrag() {
     lastTime = event.timeStamp;
     startScroll = workTrack.scrollLeft;
     workTrack.classList.add("is-dragging");
-    workTrack.setPointerCapture(event.pointerId);
+    dragSurface.setPointerCapture(event.pointerId);
   });
 
-  workTrack.addEventListener("pointermove", (event) => {
+  dragSurface.addEventListener("pointermove", (event) => {
     if (!dragging) return;
     const delta = event.clientX - startX;
     const deltaTime = Math.max(16, event.timeStamp - lastTime);
@@ -1407,8 +1651,8 @@ function setupWorkDrag() {
     if (!dragging) return;
     dragging = false;
     workTrack.classList.remove("is-dragging");
-    if (event?.pointerId != null && workTrack.hasPointerCapture?.(event.pointerId)) {
-      workTrack.releasePointerCapture(event.pointerId);
+    if (event?.pointerId != null && dragSurface.hasPointerCapture?.(event.pointerId)) {
+      dragSurface.releasePointerCapture(event.pointerId);
     }
     if (moved) {
       ignoreWorkClick = true;
@@ -1426,9 +1670,9 @@ function setupWorkDrag() {
     pendingProject = null;
   };
 
-  workTrack.addEventListener("pointerup", endDrag);
-  workTrack.addEventListener("pointercancel", endDrag);
-  workTrack.addEventListener("pointerleave", endDrag);
+  dragSurface.addEventListener("pointerup", endDrag);
+  dragSurface.addEventListener("pointercancel", endDrag);
+  dragSurface.addEventListener("pointerleave", endDrag);
 }
 
 function setupMagicCursor() {
@@ -1442,6 +1686,9 @@ function setupMagicCursor() {
   const interactiveSelector = [
     ".project-tile",
     ".feature-card",
+    ".capability-card",
+    ".workflow-item",
+    ".cgi-step",
     ".showreel",
     ".hero-visual",
     ".brand",
@@ -1474,12 +1721,14 @@ function setupMagicCursor() {
   const cursorLabel = (target) => {
     if (target.matches(".showreel, .sound-unlock")) return "PLAY";
     if (target.matches(".lang-switch button, .filter-bar button, .case-auto")) return "SET";
+    if (target.matches(".dialog-link")) return "OPEN";
     if (target.matches(".project-tile, .feature-card, .hero-visual, .index-row, .case-thumb, .case-stage")) return "VIEW";
+    if (target.matches(".capability-card, .workflow-item, .cgi-step")) return "OPEN";
     return "GO";
   };
 
   const useLargeCursor = (target) =>
-    target.matches(".project-tile, .feature-card, .hero-visual, .index-row, .case-thumb, .case-stage, .showreel, .sound-unlock");
+    target.matches(".project-tile, .feature-card, .hero-visual, .index-row, .case-thumb, .case-stage, .showreel, .sound-unlock, .capability-card, .cgi-step, .dialog-link");
 
   const showCursor = () => {
     cursorInside = true;
@@ -1509,10 +1758,12 @@ function setupMagicCursor() {
   };
 
   const animateCursor = () => {
-    cursorX += (mouseX - cursorX) * 0.48;
-    cursorY += (mouseY - cursorY) * 0.48;
+    cursorX = mouseX;
+    cursorY = mouseY;
     cursorScale += (targetScale - cursorScale) * 0.42;
-    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) scale(${cursorScale})`;
+    const parentDialog = cursor.parentElement?.closest?.("dialog[open]");
+    const offset = parentDialog ? parentDialog.getBoundingClientRect() : { left: 0, top: 0 };
+    cursor.style.transform = `translate3d(${cursorX - offset.left}px, ${cursorY - offset.top}px, 0) scale(${cursorScale})`;
     if (glow && cursorInside) {
       glow.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate3d(-50%, -50%, 0)`;
     }
@@ -1627,7 +1878,6 @@ function setupImageMaskParallax() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   imageParallaxTargets = [
-    ...document.querySelectorAll(".project-tile img"),
     ...document.querySelectorAll(".feature-media img"),
   ];
   if (!imageParallaxTargets.length) return;
@@ -1700,7 +1950,7 @@ function setupFeatureCovers() {
     if (!project || !image) return;
 
     const cardRatio = card.clientWidth / Math.max(1, card.clientHeight);
-    const candidates = project.coverCandidates?.length ? project.coverCandidates : getProjectCoverCandidates(project);
+    const candidates = project.featureCoverCandidates?.length ? project.featureCoverCandidates : project.coverCandidates;
     if (!cardRatio || !candidates.length) return;
 
     card.classList.add("is-cover-pending");
@@ -1721,20 +1971,10 @@ function setupGridCovers() {
     const project = projects.find((item) => item.id === tile.dataset.project);
     const image = tile.querySelector("img");
     if (!project || !image) return;
-
-    const tileRatio = tile.clientWidth / Math.max(1, tile.clientHeight);
-    const candidates = project.coverCandidates?.length ? project.coverCandidates : getProjectCoverCandidates(project);
-    if (!tileRatio || !candidates.length) return;
-
-    tile.classList.remove("fit-contain", "is-tight-crop");
-    tile.classList.add("is-cover-pending");
-    pickCoverForTile(candidates, tileRatio).then((coverMeta) => {
-      if (!tile.isConnected || !coverMeta?.src) return;
-      if (image.getAttribute("src") !== coverMeta.src) image.src = coverMeta.src;
-      applyCoverFitState(tile, coverMeta, tileRatio);
-      project.gridImage = coverMeta.src;
-      tile.classList.remove("is-cover-pending");
-    });
+    const preferred = project.gridCoverCandidates?.[0] || project.gridImage || project.image;
+    tile.classList.remove("fit-contain", "is-tight-crop", "is-cover-pending");
+    if (preferred && image.getAttribute("src") !== preferred) image.src = preferred;
+    project.gridImage = preferred || project.gridImage || project.image;
   });
 }
 
@@ -1780,14 +2020,24 @@ function setupCapabilityPreview() {
   capabilityGrid.addEventListener("mouseover", (event) => {
     const card = event.target.closest(".capability-card");
     if (!card) return;
+    capabilityPreviewLock = true;
     updateCapabilityPreview(Number(card.dataset.capability));
   });
   capabilityGrid.addEventListener("focusin", (event) => {
     const card = event.target.closest(".capability-card");
     if (!card) return;
+    capabilityPreviewLock = true;
     updateCapabilityPreview(Number(card.dataset.capability));
   });
-  capabilityGrid.addEventListener("mouseleave", () => updateCapabilityPreview(0));
+  capabilityGrid.addEventListener("mouseleave", () => {
+    capabilityPreviewLock = false;
+    syncCapabilityStageFromViewport();
+  });
+  capabilityGrid.addEventListener("focusout", (event) => {
+    if (capabilityGrid.contains(event.relatedTarget)) return;
+    capabilityPreviewLock = false;
+    syncCapabilityStageFromViewport();
+  });
 }
 
 function setupCgiProcess() {
@@ -1805,6 +2055,7 @@ function setupCgiProcess() {
     window.setTimeout(() => {
       image.src = nextImage;
       image.classList.remove("is-switching");
+      setupImageIntrinsicHints();
     }, 140);
   };
 
@@ -1882,25 +2133,52 @@ function setupVideoReplay() {
 }
 
 function renderProjects() {
+  indexPreviewTrack.innerHTML = projects
+    .map((project) => {
+      const copy = getProjectCopy(project);
+      const previewSrc = project.indexPreviewImage || project.gridImage || project.image;
+      return `
+        <figure class="index-preview-item" data-project="${project.id}">
+          <img src="${previewSrc}" alt="${copy.short}" loading="lazy" decoding="async" />
+        </figure>
+      `;
+    })
+    .join("");
+
   indexList.innerHTML = projects
     .map((project, index) => {
       const copy = getProjectCopy(project);
+      const sourceLabel = project.views === "local" ? t("localProject") : `${project.views} ${t("views")}`;
       return `
         <button class="index-row" type="button" data-project="${project.id}" data-reveal>
-          <span>${projectNumber(index)}</span>
-          <strong>${copy.title}</strong>
-          <em>${copy.tag}</em>
-          <b>${project.views === "local" ? t("localProject") : `${project.views} ${t("views")}`}</b>
+          <span class="index-order">${projectNumber(index)}</span>
+          <div class="index-copy">
+            <strong>${copy.title}</strong>
+          </div>
+          <div class="index-meta">
+            <em>${copy.tag}</em>
+            <b>${sourceLabel}</b>
+          </div>
         </button>
       `;
     })
     .join("");
+
+  if (projects[0]?.id) {
+    currentIndexPreviewKey = projects[0].id;
+    updateIndexPreview(projects[0].id);
+  }
 
   workTrack.innerHTML = projects
     .map((project, index) => {
       const copy = getProjectCopy(project);
       return `
         <article class="feature-card" data-project="${project.id}" data-reveal style="--reveal-delay: ${index * 55}ms">
+          <div class="feature-edge" aria-hidden="true">
+            <span>${projectNumber(index)}</span>
+            <b>OPEN</b>
+          </div>
+          <div class="feature-ghost" aria-hidden="true">${copy.brand}</div>
           <div class="feature-media">
             <img src="${project.image}" alt="${copy.title}" loading="${index < 3 ? "eager" : "lazy"}" />
           </div>
@@ -1917,10 +2195,9 @@ function renderProjects() {
   projectGrid.innerHTML = projects
     .map((project, index) => {
       const copy = getProjectCopy(project);
-      const sizeClass = gridPattern[index % gridPattern.length];
       return `
-        <button class="project-tile ${sizeClass}" type="button" data-category="${project.category}" data-project="${project.id}" data-reveal style="--reveal-delay: ${index * 42}ms">
-          <img src="${project.image}" alt="${copy.title}" loading="${index < 8 ? "eager" : "lazy"}" decoding="async" />
+        <button class="project-tile" type="button" data-category="${project.category}" data-project="${project.id}" data-reveal style="--reveal-delay: ${index * 42}ms">
+          <img src="${project.gridImage || project.image}" alt="${copy.title}" loading="${index < 8 ? "eager" : "lazy"}" decoding="async" />
           <span>${copy.short}</span>
         </button>
       `;
@@ -1943,6 +2220,7 @@ function renderProjects() {
 
 function renderDialogCopy(project) {
   const copy = getProjectCopy(project);
+  const projectIndex = Math.max(0, projects.findIndex((item) => item.id === project.id));
   dialogTag.textContent = copy.tag;
   dialogTitle.textContent = copy.title;
   dialogText.textContent = copy.text;
@@ -1954,42 +2232,64 @@ function renderDialogCopy(project) {
     <li><span>${t("source")}</span><b>${copy.date} / ${project.views === "local" ? t("localProject") : `${project.views} ${t("views")}`}</b></li>
   `;
   dialogLink.textContent = t("openZcool");
-  dialogLink.href = project.url;
-  dialogLink.style.display = project.url === "#" ? "none" : "";
+  if (project.url === "#") {
+    dialogLink.removeAttribute("href");
+    dialogLink.removeAttribute("title");
+    dialogLink.style.display = "none";
+  } else {
+    dialogLink.href = project.url;
+    dialogLink.title = project.url;
+    dialogLink.style.display = "";
+  }
+  const stageWord = dialog.querySelector(".case-stage-word");
+  const stageMeta = dialog.querySelector(".case-stage-meta");
+  if (stageWord) stageWord.textContent = copy.brand;
+  if (stageMeta) {
+    stageMeta.innerHTML = `
+      <span>${projectNumber(projectIndex)} / ${copy.brand}</span>
+      <strong>${copy.short}</strong>
+      <p>${copy.role}</p>
+    `;
+  }
 }
 
 function openProject(key) {
   const project = projects.find((item) => item.id === key);
   if (!project) return;
+  const projectIndex = Math.max(0, projects.findIndex((item) => item.id === key));
+  const copy = getProjectCopy(project);
   dialogClosing = false;
   dialog.classList.remove("is-closing");
   const gallery = project.gallery?.length ? project.gallery : [project.image];
   activeProjectKey = key;
   activeGallery = gallery;
   activeSlide = 0;
-  caseAuto = gallery.length > 1;
-  const thumbs = gallery
-    .map((src, index) => `
-      <button type="button" class="case-thumb ${index === 0 ? "active" : ""}" data-slide="${index}" aria-label="View asset ${index + 1}">
-        ${
-          src.endsWith(".mp4")
-            ? `<video src="${src}" muted playsinline preload="metadata"></video>`
-            : `<img src="${src}" alt="" loading="lazy" />`
-        }
-        <span>${String(index + 1).padStart(2, "0")}</span>
-      </button>
-    `)
+  caseAuto = false;
+  const flowItems = gallery
+    .map((src, index) => {
+      const isVideo = isVideoAsset(src);
+      return `
+        <figure class="case-flow-item ${isVideo ? "is-video" : "is-image"}" data-order="${String(index + 1).padStart(2, "0")}">
+          <div class="case-flow-frame">
+            ${
+              isVideo
+                ? `<video src="${src}" autoplay muted loop playsinline controls preload="metadata"></video>`
+                : `<img src="${src}" alt="${copy.short} artwork ${index + 1}" loading="lazy" />`
+            }
+          </div>
+        </figure>
+      `;
+    })
     .join("");
   dialogMedia.innerHTML = `
-    <div class="case-viewer">
-      <div class="case-stage" role="button" tabindex="0" aria-label="Next artwork"></div>
-      <div class="case-controls" aria-label="Artwork navigation">
-        <button type="button" class="case-prev" aria-label="${t("prev")}">${t("prev")}</button>
-        <div class="case-progress"><span></span><b>01 / ${String(gallery.length).padStart(2, "0")}</b></div>
-        <button type="button" class="case-auto active" aria-pressed="true">${t("auto")}</button>
-        <button type="button" class="case-next" aria-label="${t("next")}">${t("next")}</button>
+    <div class="case-viewer case-viewer-flow case-page-flow styled-scrollbar">
+      <div class="case-flow-intro">
+        <span>${projectNumber(projectIndex)} / ${copy.brand}</span>
+        <b>${gallery.length} ${gallery.length > 1 ? "assets" : "asset"}</b>
       </div>
-      <div class="case-strip" aria-label="Artwork thumbnails">${thumbs}</div>
+      <div class="case-flow" aria-label="Project page flow">
+        ${flowItems}
+      </div>
     </div>
   `;
   renderDialogCopy(project);
@@ -1997,8 +2297,7 @@ function openProject(key) {
   document.body.classList.add("dialog-open");
   const cursor = document.getElementById("magic-cursor");
   if (cursor && cursor.parentElement !== dialog) dialog.appendChild(cursor);
-  renderSlide();
-  startCaseAuto();
+  setupImageIntrinsicHints();
 }
 
 function closeProject() {
@@ -2031,7 +2330,8 @@ function renderSlide() {
   stage.classList.remove("is-entering");
   void stage.offsetWidth;
   stage.classList.add("is-entering");
-  stage.innerHTML = src.endsWith(".mp4")
+  stage.classList.toggle("is-video", isVideoAsset(src));
+  stage.innerHTML = isVideoAsset(src)
     ? `<video src="${src}" autoplay muted loop playsinline controls></video>`
     : `<img src="${src}" alt="Artwork ${activeSlide + 1}" />`;
   dialog.querySelectorAll(".case-thumb").forEach((button) => {
@@ -2164,6 +2464,8 @@ function bindEvents() {
     gridCoverResizeTimer = window.setTimeout(() => {
       setupFeatureCovers();
       setupGridCovers();
+      if (currentIndexPreviewKey) updateIndexPreview(currentIndexPreviewKey);
+      setupImageIntrinsicHints();
       setupImageMaskParallax();
     }, 180);
   });
@@ -2210,6 +2512,7 @@ function updateWorkScroller() {
   if (!workStage || !workTrack) return;
 
   const cards = [...workTrack.children];
+  if (!cards.length) return;
   const maxScroll = Math.max(1, workTrack.scrollWidth - workTrack.clientWidth);
   const raw = Math.min(1, Math.max(0, workTrack.scrollLeft / maxScroll));
   const center = workTrack.scrollLeft + workTrack.clientWidth / 2;
@@ -2224,9 +2527,16 @@ function updateWorkScroller() {
     }
   });
   workStage.style.setProperty("--work-progress", `${raw * 100}%`);
-  const copy = projects[activeIndex] ? getProjectCopy(projects[activeIndex]) : null;
+  const project = projects[activeIndex] || null;
+  const copy = project ? getProjectCopy(project) : null;
   if (workCounter) workCounter.textContent = projectNumber(activeIndex);
   if (workCurrentTitle) workCurrentTitle.textContent = copy?.short || "";
+  if (workCurrentBrand) workCurrentBrand.textContent = copy?.brand || "";
+  if (workCurrentRole) workCurrentRole.textContent = copy?.role || "";
+  if (workGhostBrand) workGhostBrand.textContent = copy?.brand || "";
+  if (project) {
+    workStage.style.setProperty("--work-stage-image", `url("${project.trackImage || project.image}")`);
+  }
 
   cards.forEach((card, index) => {
     const delta = index - activeIndex;

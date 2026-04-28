@@ -123,18 +123,25 @@
         <div class="capability-layout">
           <div class="capability-grid" id="capabilityGrid"></div>
           <aside class="capability-preview reveal-block" data-reveal aria-label="Capability visual preview">
+            <div class="capability-preview-word" id="capabilityPreviewWord" aria-hidden="true">COMMERCE</div>
             <img id="capabilityPreviewImage" src="assets/wigomat-cover.webp" alt="Commercial visual preview" />
+            <div class="capability-preview-hud" aria-hidden="true">
+              <span id="capabilityPreviewLabel">Conversion Systems</span>
+              <strong id="capabilityPreviewTools">Photoshop / Layout / Product Story</strong>
+            </div>
             <div class="capability-preview-copy">
               <span id="capabilityPreviewIndex">01</span>
               <strong id="capabilityPreviewTitle">E-commerce Visual Design</strong>
+              <p id="capabilityPreviewText">Detail page structure, selling-point visualization, platform conversion logic and long-page rhythm control.</p>
             </div>
+            <div class="capability-preview-meter" aria-hidden="true"><span id="capabilityPreviewMeter"></span></div>
           </aside>
         </div>
       </section>
 
       <section class="cgi-process section-dark ambient-section" id="cgi-process">
         <div class="cgi-visual reveal-block" data-reveal>
-          <img id="cgiProcessImage" src="assets/tuni-cover.webp" alt="C4D and Octane CGI process visual" />
+          <img id="cgiProcessImage" src="assets/peripheral-full-30.webp" alt="C4D and Octane CGI process visual" />
           <div class="cgi-hud" aria-hidden="true">
             <span>C4D</span>
             <span>OCTANE</span>
@@ -147,7 +154,7 @@
           <h2 class="reveal-block" data-reveal data-i18n-html="cgiTitle">FROM MODEL<br />TO PRODUCT STORY.</h2>
           <p class="cgi-lead reveal-block" data-reveal data-i18n="cgiLead">A compact view of how C4D / Octane, Photoshop and AI-assisted thinking turn product structure into commercial visual impact.</p>
           <div class="cgi-steps" aria-label="CGI process steps">
-            <article class="cgi-step is-active reveal-block" tabindex="0" data-reveal data-cgi-image="assets/tuni-cover.webp">
+            <article class="cgi-step is-active reveal-block" tabindex="0" data-reveal data-cgi-image="assets/peripheral-full-30.webp">
               <span>01</span>
               <strong data-i18n="cgiStep1Title">Structure & Form</strong>
               <p data-i18n="cgiStep1Text">Read the product silhouette, mechanical structure and hero angle before composition starts.</p>
@@ -157,12 +164,12 @@
               <strong data-i18n="cgiStep2Title">Material & Light</strong>
               <p data-i18n="cgiStep2Text">Use Octane-style lighting judgment to build metal, glass, plastic and atmosphere.</p>
             </article>
-            <article class="cgi-step reveal-block" tabindex="0" data-reveal data-cgi-image="assets/tuni-cover.webp">
+            <article class="cgi-step reveal-block" tabindex="0" data-reveal data-cgi-image="assets/peripheral-full-04.webp">
               <span>03</span>
               <strong data-i18n="cgiStep3Title">Retouch & Composite</strong>
               <p data-i18n="cgiStep3Text">Polish product hierarchy through Photoshop compositing, tone control and commercial post-production.</p>
             </article>
-            <article class="cgi-step reveal-block" tabindex="0" data-reveal data-cgi-image="assets/bosch-cover.webp">
+            <article class="cgi-step reveal-block" tabindex="0" data-reveal data-cgi-image="assets/bosch-full-02.webp">
               <span>04</span>
               <strong data-i18n="cgiStep4Title">AI Scene Expansion</strong>
               <p data-i18n="cgiStep4Text">Extend scene options with AI while keeping product logic, detail-page rhythm and brand consistency.</p>
@@ -183,8 +190,9 @@
         <div class="sticky-title reveal-block" data-reveal>
           <p class="eyebrow" data-i18n="indexEyebrow">Published Archive</p>
           <h2 data-i18n="indexTitle">A curated index of selected published works.</h2>
+          <p class="index-lead" data-i18n="indexLead">A tighter reading line of released commercial visuals, CGI studies and AI-led product cases.</p>
           <div class="index-preview" aria-hidden="true">
-            <img src="assets/wigomat-cover.webp" alt="" />
+            <div class="index-preview-track" id="indexPreviewTrack"></div>
           </div>
         </div>
         <div class="index-list" id="indexList" aria-label="Published work index"></div>
@@ -197,13 +205,20 @@
             <h2 data-i18n="workTitle">Selected published cases with complete visual context.</h2>
           </div>
           <div class="work-meta reveal-block" data-reveal>
-            <div class="work-progress"><span></span></div>
+            <div class="work-progress-group">
+              <div class="work-progress"><span></span></div>
+              <div class="work-details">
+                <span id="workCurrentBrand">Tuni Coffee Machine</span>
+                <p id="workCurrentRole">Product stills / Motion / CGI launch visual</p>
+              </div>
+            </div>
             <div class="work-current">
               <b id="workCounter">01</b>
               <p id="workCurrentTitle">Tuni Coffee Machine</p>
             </div>
           </div>
           <div class="work-viewport">
+            <div class="work-ghost" aria-hidden="true"><span id="workGhostBrand">TUNI</span></div>
             <div class="work-track" id="workTrack" aria-label="Published work horizontal list"></div>
           </div>
         </div>
@@ -265,6 +280,11 @@
           <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
           <h2 data-i18n-html="linksTitle">LET'S BUILD PRODUCT VISUALS THAT SELL.</h2>
           <p data-i18n="contactText">Open to e-commerce visuals, product posters, AI-assisted content and CGI-style product storytelling.</p>
+          <div class="cta-presence" aria-label="Collaboration focus">
+            <span data-i18n="ctaPresence1">E-commerce Detail Pages</span>
+            <span data-i18n="ctaPresence2">C4D / Octane Product CGI</span>
+            <span data-i18n="ctaPresence3">AI-assisted Visual Systems</span>
+          </div>
           <div class="cta-actions">
             <a href="https://www.zcool.com.cn/u/12943024" target="_blank" rel="noreferrer" data-i18n="zcoolPortfolio">ZCOOL Portfolio</a>
             <a href="#work" data-i18n="viewWorks">View Works</a>
@@ -282,6 +302,11 @@
               <span data-i18n="wechatScanText">Use WeChat to scan and start a direct conversation.</span>
             </div>
           </section>
+          <section class="contact-status-card" aria-label="Availability note">
+            <p class="eyebrow" data-i18n="availabilityEyebrow">Availability</p>
+            <strong data-i18n="availabilityTitle">OPEN FOR SELECTED COMMERCIAL VISUAL PROJECTS</strong>
+            <p data-i18n="availabilityText">Currently focused on product pages, launch visuals, CGI hero imagery and AI-assisted commercial systems.</p>
+          </section>
           <div class="link-list compact-originals" id="linkList"></div>
         </div>
       </section>
@@ -291,11 +316,15 @@
       <button class="dialog-close" type="button" aria-label="Close">×</button>
       <div class="dialog-media"></div>
       <div class="dialog-copy">
-        <p class="eyebrow"></p>
-        <h3></h3>
-        <p class="dialog-text"></p>
-        <ul class="dialog-facts"></ul>
-        <a class="dialog-link" href="#" target="_blank" rel="noreferrer">Open ZCOOL page</a>
+        <div class="dialog-copy-scroll">
+          <p class="eyebrow"></p>
+          <h3></h3>
+          <p class="dialog-text"></p>
+          <ul class="dialog-facts"></ul>
+        </div>
+        <div class="dialog-actions">
+          <a class="dialog-link" href="#" target="_blank" rel="noreferrer">Open ZCOOL page</a>
+        </div>
       </div>
     </dialog>
 

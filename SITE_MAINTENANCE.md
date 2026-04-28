@@ -43,7 +43,7 @@ git remote -v
 - Platform: `Cloudflare Pages`
 - Pages project name: `designer-portfolio`
 - Production URL: `https://designer-portfolio-8bo.pages.dev`
-- Latest recorded preview deployment URL: `https://50049628.designer-portfolio-8bo.pages.dev`
+- Latest recorded preview deployment URL: `https://1d693ab6.designer-portfolio-8bo.pages.dev`
 
 ### Cloudflare login
 
