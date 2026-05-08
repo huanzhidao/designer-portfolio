@@ -1,17 +1,16 @@
 const projects = [
   {
     id: "tuni",
-    title: "突尼咖啡机产品视觉",
-    short: "突尼咖啡机",
+    title: "Tuni Coffee Machine Product Visual Archive",
+    short: "Tuni Coffee Machine",
     category: "coffee",
-    tag: "商业项目 / 咖啡机 / 动态视频 / 产品视觉",
+    tag: "Freelance / Coffee Machine / Motion / Product Visual",
     date: "2025",
     views: "local",
-    brand: "突尼咖啡机",
-    role: "产品静态图、动态视频、红蓝光首发视觉",
+    brand: "Tuni Coffee Machine",
+    role: "Product stills, motion video, red-blue launch visual",
     tools: "Cinema 4D / Octane / Photoshop / Motion",
-    text:
-      "突尼咖啡机项目视觉，包含产品静态图、动态视频和红蓝光首发视觉。重点展示产品结构、材质细节和动态镜头表现。",
+    text: "A standalone case from the Tuni coffee machine project folder, including product stills and motion assets.",
     image: "assets/tuni-cover.webp",
     gallery: [
       "assets/tuni-gallery-01.webp",
@@ -19,197 +18,186 @@ const projects = [
       "assets/tuni-gallery-02.webp",
       "assets/tuni-motion-01.mp4",
       "assets/tuni-gallery-03.webp",
-      "assets/tuni-gallery-04.webp",
+      "assets/tuni-gallery-04.webp"
     ],
     url: "#",
   },
   {
     id: "wigomat",
-    title: "wigomat唯咖美-咖啡机W12详情页视觉分享",
+    title: "wigomat W12 Coffee Machine Detail Page Visual",
     short: "wigomat W12",
     category: "ecommerce",
-    tag: "网页 / 电商 / 详情页",
-    date: "320天前",
+    tag: "Web / E-commerce / Detail Page",
+    date: "320 days ago",
     views: "1235",
-    brand: "wigomat唯咖美",
-    role: "视觉创意、三维渲染、平面设计、动效渲染、后期精修",
+    brand: "wigomat",
+    role: "Visual concept, 3D rendering, graphic design, motion rendering, retouching",
     tools: "Cinema 4D / Octane / Photoshop",
-    text:
-      "德国咖啡机品牌进入中国市场后的详情页视觉。项目包含品牌介绍、场景拍摄、三维渲染、动效渲染与后期精修，是一个完整的商业页面案例。",
+    text: "A complete commercial detail-page case for a German coffee machine brand entering the Chinese market.",
     image: "assets/wigomat-cover.webp",
     gallery: ["assets/wigomat-gallery-01.webp", "assets/wigomat-gallery-02.webp", "assets/wigomat-gallery-03.webp", "assets/wigomat-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNzIwMzkxMDg=.html",
   },
   {
     id: "bosch",
-    title: "BOSCH 博世家电新品页面xAI视觉分享",
+    title: "BOSCH Appliance New Product Page x AI Visuals",
     short: "BOSCH AI",
     category: "ai",
-    tag: "AI创作 / 家电 / 洗烘 / 洗碗机",
-    date: "1年前",
+    tag: "AI Creation / Home Appliance / Oven / Dishwasher",
+    date: "1 year ago",
     views: "1974",
-    brand: "BOSCH 博世",
-    role: "视觉创意、平面",
+    brand: "BOSCH",
+    role: "Visual concept, graphic direction",
     tools: "Photoshop / Stable Diffusion / ComfyUI / LiblibAI",
-    text:
-      "服务于天猫博世家电官方旗舰店的 AI 视觉页面。以家电新品场景为核心，将 AI 生成、图像合成与电商页面落地结合在一起。",
+    text: "AI-driven product-page visuals for BOSCH home appliances, combining generated imagery and e-commerce execution.",
     image: "assets/bosch-cover.webp",
     gallery: ["assets/bosch-gallery-01.webp", "assets/bosch-gallery-02.webp", "assets/bosch-gallery-03.webp", "assets/bosch-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNzE2OTU2Njg=.html",
   },
   {
     id: "sondy",
-    title: "森电吸尘器详情页全案视觉分享",
+    title: "SONDY Vacuum Cleaner Detail Page Case",
     short: "SONDY Vacuum",
     category: "ecommerce",
-    tag: "网页 / 电商 / 详情页 / 吸尘器 / 三维",
-    date: "1年前",
+    tag: "Web / E-commerce / Detail Page / Vacuum / 3D",
+    date: "1 year ago",
     views: "1650",
-    brand: "SONDY 森电",
-    role: "平面、三维",
+    brand: "SONDY",
+    role: "Graphic design, 3D product visuals",
     tools: "Cinema 4D / Octane / Photoshop",
-    text:
-      "森电吸尘器全案详情页，包含三维产品表现和电商卖点拆解。重点呈现长页节奏、产品结构和功能信息的组织方式。",
+    text: "A long-form e-commerce detail page using 3D product visuals and structured information blocks.",
     image: "assets/sondy-cover.webp",
     gallery: ["assets/sondy-gallery-01.webp", "assets/sondy-gallery-02.webp", "assets/sondy-gallery-03.webp", "assets/sondy-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNzA0Mjk4OTY=.html",
   },
   {
     id: "curvymoon",
-    title: "亚马逊吸尘器详情页+主图全案分享",
+    title: "Curvymoon Vacuum Hero Visual and A+ Page",
     short: "Curvymoon A+",
     category: "ecommerce",
-    tag: "网页 / 电商 / 亚马逊 / 三维 / 吸尘器",
-    date: "1年前",
+    tag: "Web / E-commerce / Amazon / 3D / Vacuum",
+    date: "1 year ago",
     views: "3502",
     brand: "Curvymoon",
-    role: "视觉创意、平面、三维",
+    role: "Visual concept, graphic design, 3D",
     tools: "Cinema 4D / Octane / Photoshop / Midjourney",
-    text:
-      "亚马逊新品吸尘器主图与 A+ 页面全案，包含主图、功能卖点、大图模块和多角度产品展示，是完整的电商发布项目。",
+    text: "A full Amazon A+ visual package including hero images, feature modules and product-angle storytelling.",
     image: "assets/curvymoon-cover.webp",
     gallery: ["assets/curvymoon-gallery-01.webp", "assets/curvymoon-gallery-02.webp", "assets/curvymoon-gallery-03.webp", "assets/curvymoon-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNjg0Mzk1NTI=.html",
   },
   {
     id: "lieren",
-    title: "雷神猎刃15电竞本视觉海报分享",
+    title: "ThundeRobot Lieren 15 Gaming Laptop Poster",
     short: "ThundeRobot Laptop",
     category: "poster",
-    tag: "三维 / 海报 / 笔记本电脑 / 科技",
-    date: "2年前",
+    tag: "3D / Poster / Laptop / Technology",
+    date: "2 years ago",
     views: "3832",
-    brand: "雷神科技",
-    role: "视觉创意、平面、三维",
+    brand: "ThundeRobot",
+    role: "Visual concept, graphic design, 3D",
     tools: "Cinema 4D / Octane / Photoshop",
-    text:
-      "雷神猎刃电竞本视觉海报，发布页记录了从初稿氛围到终稿的过程，包括太空舱场景、内部结构、透明壳和爆炸图表达。",
+    text: "A visual poster case spanning atmosphere sketches, space-station scenes and final explosive product graphics.",
     image: "assets/lieren-cover.webp",
     gallery: ["assets/lieren-gallery-01.webp", "assets/lieren-gallery-02.webp", "assets/lieren-gallery-03.webp", "assets/lieren-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNjc0OTk2MTY=.html",
   },
   {
     id: "peripheral",
-    title: "雷神外设3款产品渲染图",
+    title: "ThundeRobot Peripheral Product Renders",
     short: "ThundeRobot Peripherals",
     category: "3d",
-    tag: "三维 / 产品 / 外设",
-    date: "2年前",
+    tag: "3D / Product / Peripherals",
+    date: "2 years ago",
     views: "2235",
-    brand: "雷神科技",
-    role: "产品渲染",
+    brand: "ThundeRobot",
+    role: "Product rendering",
     tools: "Cinema 4D / Octane / Photoshop",
-    text:
-      "与雷神外设合作的三款产品渲染，重点展示产品材质、组合角度和科技类消费电子的商业图像表达。",
+    text: "Three consumer-electronics render sets focused on material quality, product combinations and commercial hardware imagery.",
     image: "assets/peripheral-cover.webp",
     gallery: ["assets/peripheral-gallery-01.webp", "assets/peripheral-gallery-02.webp", "assets/peripheral-gallery-03.webp", "assets/peripheral-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNjY5OTEzMTY=.html",
   },
   {
     id: "dishwasher",
-    title: "AI-电商家电场景图-洗碗机",
+    title: "AI E-commerce Appliance Scene Images / Dishwasher",
     short: "AI Dishwasher",
     category: "ai",
-    tag: "AI创作 / MJ / 合成 / 洗碗机 / 电商",
-    date: "2年前",
+    tag: "AI Creation / MJ / Compositing / Dishwasher / E-commerce",
+    date: "2 years ago",
     views: "389",
-    brand: "AI 家电场景",
-    role: "AI 场景、产品合成",
+    brand: "AI Appliance Scenes",
+    role: "AI scenes, product compositing",
     tools: "Midjourney / Photoshop",
-    text:
-      "围绕洗碗机侧面开门角度做 AI 场景合成。发布页说明了为了合成透视，需要拆分产品结构并重新组织透视关系。",
+    text: "An AI compositing exercise around a side-opening dishwasher angle, rebuilding perspective and product structure.",
     image: "assets/dishwasher-cover.webp",
     gallery: ["assets/dishwasher-gallery-01.webp", "assets/dishwasher-gallery-02.webp", "assets/dishwasher-gallery-03.webp", "assets/dishwasher-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNjY3MDkzMDQ=.html",
   },
   {
     id: "g45",
-    title: "雷神G45游戏手柄产品渲染",
+    title: "ThundeRobot G45 Game Controller Rendering",
     short: "G45 Controller",
     category: "3d",
-    tag: "三维 / 产品 / 游戏手柄 / 产品渲染",
-    date: "2年前",
+    tag: "3D / Product / Game Controller / Rendering",
+    date: "2 years ago",
     views: "1402",
-    brand: "雷神科技",
-    role: "新品游戏手柄渲染",
+    brand: "ThundeRobot",
+    role: "New product controller rendering",
     tools: "Octane / C4D / Photoshop",
-    text:
-      "雷神 G45 游戏手柄产品渲染。项目描述提到工业模型在布线与材质上带来挑战，页面重点呈现新品硬件的材质和结构。",
+    text: "Product rendering focused on hardware material, structure, wiring details and clean commercial presentation.",
     image: "assets/g45-cover.webp",
     gallery: ["assets/g45-gallery-01.webp", "assets/g45-gallery-02.webp", "assets/g45-gallery-03.webp", "assets/g45-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNjYwNTg3Mjg=.html",
   },
   {
     id: "watch",
-    title: "Jacob&Co Godfather 机械表",
+    title: "Jacob&Co Godfather Mechanical Watch",
     short: "Godfather Watch",
     category: "3d",
-    tag: "三维 / 产品 / C4D / OC / 机械表",
-    date: "3年前",
+    tag: "3D / Product / C4D / OC / Mechanical Watch",
+    date: "3 years ago",
     views: "1170",
     brand: "Jacob&Co",
-    role: "机械表渲染练习",
+    role: "Mechanical watch rendering practice",
     tools: "Cinema 4D / Octane / Photoshop",
-    text:
-      "机械表渲染练习，使用深色场景和金属材质突出复杂结构。作为作品集里的个人 3D 练习，和商业项目形成层次。",
+    text: "A mechanical watch rendering study using dark scene language and metallic materials to highlight complex structure.",
     image: "assets/watch-cover.webp",
     gallery: ["assets/watch-gallery-01.webp", "assets/watch-gallery-02.webp", "assets/watch-gallery-03.webp", "assets/watch-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNjM4ODMxMDA=.html",
   },
   {
     id: "avata",
-    title: "DJI Avata 产品表现",
+    title: "DJI Avata Product Visualization",
     short: "DJI Avata",
     category: "3d",
-    tag: "三维 / 其他三维 / OC / C4D / 渲染",
-    date: "3年前",
+    tag: "3D / Product / OC / C4D / Rendering",
+    date: "3 years ago",
     views: "1423",
     brand: "DJI Avata",
-    role: "产品表现练习",
+    role: "Product visualization practice",
     tools: "Photoshop / Octane / C4D",
-    text:
-      "DJI Avata 产品表现练习，强调飞行器形体、竖向构图和硬朗光影，是早期三维产品表现能力的集中展示。",
+    text: "A DJI Avata visualization focused on body form, vertical composition, strong lighting and early 3D product presentation.",
     image: "assets/avata-cover.webp",
     gallery: ["assets/avata-gallery-01.webp", "assets/avata-gallery-02.webp", "assets/avata-gallery-03.webp", "assets/avata-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNjMxNjAzMjA=.html",
   },
   {
     id: "keyboard",
-    title: "键盘建模渲染",
+    title: "Keyboard Modeling and Rendering",
     short: "Keyboard Render",
     category: "3d",
-    tag: "三维 / 产品",
-    date: "3年前",
+    tag: "3D / Product",
+    date: "3 years ago",
     views: "965",
     brand: "Keyboard practice",
-    role: "建模渲染",
+    role: "Modeling and rendering",
     tools: "C4D / OC / Photoshop",
-    text:
-      "键盘建模渲染练习，发布页说明目标是尝试做干净的感觉，适合作为三维基础、材质和白底商业图像的补充案例。",
+    text: "A keyboard modeling and rendering study aimed at clean commercial product imagery and material control.",
     image: "assets/keyboard-cover.webp",
     gallery: ["assets/keyboard-gallery-01.webp", "assets/keyboard-gallery-02.webp", "assets/keyboard-gallery-03.webp", "assets/keyboard-gallery-04.webp"],
     url: "https://www.zcool.com.cn/work/ZNjIyNjk4MDA=.html",
-  },
+  }
 ];
 
 const hiddenProjectIds = new Set(["dishwasher"]);
@@ -345,56 +333,63 @@ projects.forEach((project) => {
 
 const uiText = {
   en: {
-    metaDescription: "HUANZHIDAO portfolio for AI-driven commercial visual design, e-commerce detail pages, Photoshop retouching, AI images, CGI product stories and workflow automation.",
-    brandSmall: "Published Works",
-    navIndex: "INDEX",
-    navWork: "WORK",
+    metaDescription: "HUANZHIDAO portfolio for commercial visual design, product CGI, AIGC imagery, motion, e-commerce detail pages and workflow automation.",
+    brandSmall: "Portfolio",
+    navIndex: "OVERVIEW",
+    navWork: "WORKS",
     navProfile: "PROFILE",
     navContact: "CONTACT",
-    heroEyebrow: "12 works / ZCOOL cases / Tuni coffee / e-commerce / AI / 3D",
-    heroTitle: '<span class="hero-title-line">PUBLISH</span><span class="hero-title-line">IMPACT<span class="hero-dot">.</span></span>',
-    heroTitlePlain: "PUBLISH IMPACT.",
-    heroRole: "AI-Driven Commercial Visual Designer",
-    heroSubtitle: "E-commerce Visuals / Photoshop Retouching / AI Images / CGI Product Stories / Workflow Automation",
-    totalWorks: "Total Works",
-    projectTracks: "Project Tracks",
-    latestStatus: "Updated",
-    latestPublish: "Recently Updated",
-    heroFrame: "ZCOOL published cases / commercial visuals / 3D product stories.",
-    showreelEyebrow: "Motion Case",
-    showreelText: "A full-screen film section that presents 3D, material, lighting and rhythm through product motion.",
+    heroEyebrow: "2025 / 2026 selected product visuals",
+    heroTitle: '<span class="hero-title-line">Portfolio</span>',
+    heroTitlePlain: "Portfolio",
+    heroRole: "Commercial Visual Designer",
+    heroSubtitle: "Rendering / AIGC Visual / Motion / E-commerce detail pages / Photoshop retouching",
+    totalWorks: "Selected Works",
+    projectTracks: "Core Tracks",
+    latestStatus: "Curated",
+    latestPublish: "2026 Edition",
+    heroFrame: "Product pages / CGI / AI visuals / motion.",
+    portfolioProofEyebrow: "Three tracks",
+    portfolioProofTitle: "Product understanding,<br />visual experimentation,<br />premium finish.",
+    portfolioProofText: "Selected work organized into Rendering, AIGC Visual and Motion.",
+    portfolioProofPoint1: "Rendering",
+    portfolioProofPoint2: "AIGC Visual",
+    portfolioProofPoint3: "Motion",
+    showreelEyebrow: "Motion",
+    showreelTitle: "MOTION",
+    showreelText: "Selected product film, launch rhythm and motion-led commercial presentation.",
     soundUnlock: "TURN SOUND ON",
     soundHint: "The motion cut is designed with audio.",
-    capabilitiesEyebrow: "Core capabilities",
-    capabilitiesTitle: "CAPABILITIES",
-    capabilitiesText: "A compact overview of my design, AI, CGI and workflow capabilities.",
+    capabilitiesEyebrow: "Three capability blocks",
+    capabilitiesTitle: "THREE CORE TRACKS",
+    capabilitiesText: "Rendering, AIGC Visual and Motion structure the main body of the portfolio.",
     workflowEyebrow: "Tools & Workflow",
     workflowTitle: "TOOLS & WORKFLOW",
-    indexEyebrow: "Published Archive",
-    indexTitle: "Selected published works.",
-    indexLead: "Commercial visuals / product CGI / AI-led cases.",
-    workEyebrow: "Drag Track",
-    workTitle: "Selected published cases with complete visual context.",
-    archiveEyebrow: "Curated Selection",
-    archiveTitle: "WORKS GRID",
-    archiveText: "Selected works across e-commerce detail pages, Photoshop-based product visuals, AI-generated scenes, 3D product visuals and commercial posters.",
+    indexEyebrow: "Archive",
+    indexTitle: "SELECTED ARCHIVE",
+    indexLead: "Product visuals, CGI studies and AI-led cases.",
+    workEyebrow: "Rendering",
+    workTitle: "RENDERING",
+    archiveEyebrow: "AIGC Visual",
+    archiveTitle: "AIGC VISUAL",
+    archiveText: "Open any cover to view the full case flow, role, tools and source link.",
     profileEyebrow: "Profile",
-    profileText: "AI-driven commercial visual designer focused on e-commerce detail pages, Photoshop-based visual retouching, AI-generated scenes, CGI-style product visuals and workflow automation.",
-    profileNote: "Familiar with Photoshop compositing, product retouching and detail page visual handling, with Illustrator basics, C4D / Octane, Codex, Quicker and Photoshop Script supporting a more efficient design workflow.",
+    profileText: "Commercial visual designer focused on e-commerce detail pages, Photoshop retouching, C4D / Octane product CGI, AI-generated scenes and workflow automation.",
+    profileNote: "Work is reorganized by capability track and case completeness for faster browsing.",
     profileLocationLabel: "Location",
     profileLocation: "Foshan, Guangdong",
     profileFocusLabel: "Focus",
-    profileFocus: "Detail page / Photoshop / AI / CGI / Workflow",
+    profileFocus: "Detail page / Photoshop / C4D / Octane / AI / Workflow",
     profileSourceLabel: "Source",
-    profileSource: "ZCOOL published works",
+    profileSource: "Published portfolio cases",
     profileToolsLabel: "Tools",
     profileTools: "Photoshop / Illustrator / C4D / Octane / Midjourney / Jimeng AI / Codex / Quicker / Photoshop Script",
     brandExperienceEyebrow: "Brand Experience",
     brandExperienceTitle: "BRAND EXPERIENCE",
-    brandExperienceText: "Selected project brands across e-commerce visuals, product posters, AI-assisted commercial content and CGI-style product storytelling.",
+    brandExperienceText: "Selected project brands across product pages, CGI visuals, AI commercial work and launch presentation.",
     contactEyebrow: "Contact",
-    linksTitle: "LET'S BUILD PRODUCT VISUALS THAT SELL.",
-    contactText: "Open to e-commerce visuals, product posters, AI-assisted content and CGI-style product storytelling.",
+    linksTitle: "LET'S CREATE<br />SOMETHING IMPRESSIVE.",
+    contactText: "Open to product pages, CGI visuals, launch materials and AI-assisted commercial imagery.",
     ctaPresence1: "E-commerce Detail Pages",
     ctaPresence2: "C4D / Octane Product CGI",
     ctaPresence3: "AI-assisted Visual Systems",
@@ -418,67 +413,91 @@ const uiText = {
     source: "Source",
     localProject: "local project",
     views: "views",
+    cgiEyebrow: "CGI Process",
+    cgiTitle: "FROM MODEL<br />TO PRODUCT STORY.",
+    cgiLead: "A compact view of how C4D / Octane, Photoshop and AI-assisted thinking turn product structure into commercial visual impact.",
+    cgiStep1Title: "Structure & Form",
+    cgiStep1Text: "Read the product silhouette, mechanical structure and hero angle before composition starts.",
+    cgiStep2Title: "Material & Light",
+    cgiStep2Text: "Use Octane-style lighting judgment to build metal, glass, plastic and atmosphere.",
+    cgiStep3Title: "Retouch & Composite",
+    cgiStep3Text: "Polish product hierarchy through Photoshop compositing, tone control and commercial post-production.",
+    cgiStep4Title: "AI Scene Expansion",
+    cgiStep4Text: "Extend scene options with AI while keeping product logic, detail-page rhythm and brand consistency.",
   },
   zh: {
-    metaDescription: "幻之道个人作品集，展示电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流。",
-    brandSmall: "作品集",
-    navIndex: "索引",
+    metaDescription: "HUANZHIDAO 作品集，聚焦商业视觉设计、产品 CGI、AIGC 视觉、动效、电商详情页与工作流优化。",
+    brandSmall: "Portfolio",
+    navIndex: "概览",
     navWork: "作品",
     navProfile: "简介",
     navContact: "联系",
-    heroEyebrow: "12 组作品 / 站酷案例 / 咖啡机 / 电商 / AI / 3D",
-    heroTitle: '<span class="hero-title-line">商业</span><span class="hero-title-line">视觉<span class="hero-dot">.</span></span>',
-    heroTitlePlain: "商业视觉.",
+    heroEyebrow: "2025 / 2026 精选产品视觉",
+    heroTitle: '<span class="hero-title-line">Portfolio</span>',
+    heroTitlePlain: "Portfolio",
     heroRole: "商业视觉设计师",
-    heroSubtitle: "专注电商详情页、产品海报、Photoshop 商业后期、AI 图像生成与 CGI 产品视觉表达。",
-    totalWorks: "组作品",
-    projectTracks: "个方向",
-    latestStatus: "更新中",
-    latestPublish: "持续更新",
-    heroFrame: "站酷发布案例 / 商业视觉 / 三维产品表达。",
-    showreelEyebrow: "动态案例",
-    showreelText: "通过产品动态镜头展示三维造型、材质灯光和画面节奏。",
-    soundUnlock: "打开声音",
-    soundHint: "这支动态短片包含声音设计。",
-    capabilitiesEyebrow: "核心能力",
-    capabilitiesTitle: "核心能力",
-    capabilitiesText: "从电商视觉、产品 CGI、AI 图像到自动化工作流，整理完整的商业视觉能力。",
-    workflowEyebrow: "工具链与工作流",
-    workflowTitle: "工具链与工作流",
-    indexEyebrow: "已发布作品归档",
-    indexTitle: "已发布作品精选。",
-    indexLead: "商业视觉 / 产品 CGI / AI 驱动案例。",
-    workEyebrow: "横向作品轨道",
-    workTitle: "精选完整案例，展示从产品视觉到页面落地的过程。",
-    archiveEyebrow: "精选作品",
-    archiveTitle: "作品网格",
-    archiveText: "作品覆盖电商详情页、Photoshop 产品视觉、AI 场景图、3D 产品视觉与商业海报。",
-    profileEyebrow: "个人简介",
-    profileText: "商业视觉设计师，专注电商详情页、产品海报、Photoshop 商业后期、AI 场景图与 CGI 产品视觉。",
-    profileNote: "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光和商业画面判断能力，并结合 Illustrator、Codex、Quicker 与 Photoshop Script 提升设计效率。",
+    heroSubtitle: "Rendering / AIGC Visual / Motion / 电商详情页 / Photoshop 精修",
+    totalWorks: "精选案例",
+    projectTracks: "核心方向",
+    latestStatus: "精选编排",
+    latestPublish: "2026 版本",
+    heroFrame: "产品页 / CGI / AI 视觉 / 动效。",
+    portfolioProofEyebrow: "三大方向",
+    portfolioProofTitle: "产品理解、<br />视觉实验、<br />高级呈现。",
+    portfolioProofText: "作品按 Rendering、AIGC Visual 和 Motion 三个方向组织。",
+    portfolioProofPoint1: "Rendering",
+    portfolioProofPoint2: "AIGC Visual",
+    portfolioProofPoint3: "Motion",
+    showreelEyebrow: "Motion",
+    showreelTitle: "MOTION",
+    showreelText: "展示产品视频、上市节奏和镜头驱动的商业表达。",
+    soundUnlock: "开启声音",
+    soundHint: "这一段动态内容带有声音设计。",
+    capabilitiesEyebrow: "三大能力板块",
+    capabilitiesTitle: "THREE CORE TRACKS",
+    capabilitiesText: "Rendering、AIGC Visual 和 Motion 构成作品集的核心主体。",
+    workflowEyebrow: "工具与流程",
+    workflowTitle: "TOOLS & WORKFLOW",
+    indexEyebrow: "作品目录",
+    indexTitle: "精选案例目录",
+    indexLead: "收录产品视觉、CGI 练习与 AI 商业案例。",
+    workEyebrow: "Rendering",
+    workTitle: "RENDERING",
+    archiveEyebrow: "AIGC Visual",
+    archiveTitle: "AIGC VISUAL",
+    archiveText: "点击任意封面可查看完整案例流、负责内容、工具与来源链接。",
+    profileEyebrow: "简介",
+    profileText: "商业视觉设计师，聚焦电商详情页、Photoshop 精修、C4D / Octane 产品 CGI、AI 场景与工作流优化。",
+    profileNote: "作品按能力方向和案例完整度重新编排，便于快速浏览。",
     profileLocationLabel: "所在地",
     profileLocation: "广东佛山",
     profileFocusLabel: "方向",
-    profileFocus: "详情页 / Photoshop / AI / CGI / 工作流",
+    profileFocus: "详情页 / Photoshop / C4D / Octane / AI / 工作流",
     profileSourceLabel: "来源",
-    profileSource: "站酷发布作品",
+    profileSource: "已发布作品",
     profileToolsLabel: "工具",
     profileTools: "Photoshop / Illustrator / C4D / Octane / Midjourney / 即梦 AI / Codex / Quicker / Photoshop Script",
-    brandExperienceEyebrow: "品牌项目经验",
-    brandExperienceTitle: "品牌项目经验",
-    brandExperienceText: "覆盖电商详情页、产品海报、AI 商业视觉与 CGI 产品表达的项目经验。",
-    contactEyebrow: "联系合作",
-    linksTitle: "一起打造更有销售力的产品视觉。",
-    contactText: "可合作方向包括电商详情页、产品海报、AI 商业视觉与 CGI 产品表达。",
-    zcoolPortfolio: "站酷作品集",
+    brandExperienceEyebrow: "品牌经验",
+    brandExperienceTitle: "BRAND EXPERIENCE",
+    brandExperienceText: "覆盖产品页视觉、CGI 视觉、AI 商业内容和上市表达等项目品牌。",
+    contactEyebrow: "联系",
+    linksTitle: "LET'S CREATE<br />SOMETHING IMPRESSIVE.",
+    contactText: "可承接产品页视觉、CGI 视觉、上市物料和 AI 辅助商业图像。",
+    ctaPresence1: "电商详情页",
+    ctaPresence2: "C4D / Octane 产品 CGI",
+    ctaPresence3: "AI 辅助视觉系统",
+    zcoolPortfolio: "站酷主页",
     viewWorks: "查看作品",
     wechatContact: "微信 / 联系",
     wechatScanEyebrow: "微信",
-    wechatScanTitle: "扫码联系",
+    wechatScanTitle: "扫码微信",
     wechatScanText: "使用微信扫码，直接开始沟通。",
+    availabilityEyebrow: "合作状态",
+    availabilityTitle: "开放精选商业视觉项目合作",
+    availabilityText: "当前聚焦产品页、上市视觉、CGI 主视觉与 AI 辅助商业系统。",
     openZcool: "打开站酷页面",
-    prev: "上一张",
-    next: "下一张",
+    prev: "上一项",
+    next: "下一项",
     auto: "自动",
     brand: "品牌",
     role: "职责",
@@ -487,6 +506,17 @@ const uiText = {
     source: "来源",
     localProject: "本地项目",
     views: "浏览",
+    cgiEyebrow: "CGI 流程",
+    cgiTitle: "从模型<br />到产品叙事。",
+    cgiLead: "用紧凑结构展示 C4D / Octane、Photoshop 和 AI 辅助思考如何把产品结构转成商业视觉冲击力。",
+    cgiStep1Title: "结构与形体",
+    cgiStep1Text: "在构图前先判断产品轮廓、机械结构和主视角。",
+    cgiStep2Title: "材质与灯光",
+    cgiStep2Text: "用接近 Octane 的灯光判断建立金属、玻璃、塑料和氛围。",
+    cgiStep3Title: "精修与合成",
+    cgiStep3Text: "通过 Photoshop 合成、调性控制和商业后期完善产品层次。",
+    cgiStep4Title: "AI 场景扩展",
+    cgiStep4Text: "用 AI 扩展场景方案，同时保持产品逻辑、详情页节奏和品牌一致性。",
   },
 };
 
@@ -515,14 +545,81 @@ const directionText = {
     { icon: "sparkle", label: "AI VISUAL" },
     { icon: "cube", label: "3D RENDER" },
     { icon: "image", label: "VISUAL POSTER" },
-    { icon: "coffee", label: "TUNI COFFEE" },
+    { icon: "coffee", label: "PRODUCT LAUNCH" },
   ],
   zh: [
     { icon: "layout", label: "详情页" },
     { icon: "sparkle", label: "AI 视觉" },
     { icon: "cube", label: "3D 渲染" },
     { icon: "image", label: "视觉海报" },
-    { icon: "coffee", label: "突尼咖啡" },
+    { icon: "coffee", label: "产品上市" },
+  ],
+};
+
+const portfolioTrackText = {
+  en: [
+    {
+      key: "rendering",
+      title: "Rendering",
+      label: "Product CGI / Material / Light",
+      count: "10 cases",
+      image: "assets/peripheral-full-30.webp",
+      filter: "3d",
+      target: "#work",
+      text: "C4D / Octane product visuals and polished commercial rendering.",
+    },
+    {
+      key: "aigc",
+      title: "AIGC Visual",
+      label: "AI scene / Retouch / Composite",
+      count: "6 cases",
+      image: "assets/bosch-full-03.webp",
+      filter: "ai",
+      target: "#practice",
+      text: "AI-assisted scene building and Photoshop compositing for commercial imagery.",
+    },
+    {
+      key: "motion",
+      title: "Motion",
+      label: "Product film / Launch visual",
+      count: "3 videos",
+      image: "assets/tuni-cover.webp",
+      filter: "coffee",
+      target: "#showreel",
+      text: "Product motion, launch rhythm and motion-led storytelling.",
+    },
+  ],
+  zh: [
+    {
+      key: "rendering",
+      title: "Rendering",
+      label: "产品 CGI / 材质 / 灯光",
+      count: "10 个案例",
+      image: "assets/peripheral-full-30.webp",
+      filter: "3d",
+      target: "#work",
+      text: "C4D / Octane 产品视觉与高完成度商业渲染。",
+    },
+    {
+      key: "aigc",
+      title: "AIGC Visual",
+      label: "AI 场景 / 重绘 / 合成",
+      count: "6 个案例",
+      image: "assets/bosch-full-03.webp",
+      filter: "ai",
+      target: "#practice",
+      text: "AI 辅助场景搭建与 Photoshop 合成，服务商业图像输出。",
+    },
+    {
+      key: "motion",
+      title: "Motion",
+      label: "产品视频 / 上市视觉",
+      count: "3 支视频",
+      image: "assets/tuni-cover.webp",
+      filter: "coffee",
+      target: "#showreel",
+      text: "产品动态、上市节奏和镜头驱动的产品表达。",
+    },
   ],
 };
 
@@ -541,129 +638,75 @@ const skillText = {
   },
   zh: {
     detailPage: "电商详情页结构",
-    photoshop: "Photoshop 修图与合成",
+    photoshop: "Photoshop 精修与合成",
     aiGeneration: "AI 辅助场景生成",
-    cgi: "CGI 灯光与材质表现",
-    poster: "商业海报设计",
-    productVisual: "产品视觉表达",
-    productStory: "产品卖点视觉化",
+    cgi: "CGI 灯光与材质控制",
+    poster: "商业海报方向",
+    productVisual: "产品视觉叙事",
+    productStory: "产品卖点可视化",
     motion: "产品动态节奏",
-    sceneDirection: "商业场景设计",
-    lighting: "灯光与材质表现",
+    sceneDirection: "商业场景方向",
+    lighting: "灯光与材质判断",
   },
 };
 
 const capabilitiesText = {
   en: [
     {
-      icon: "layout",
-      preview: "assets/wigomat-full-03.webp",
-      label: "Conversion Systems",
-      tools: "Photoshop / Layout / Product Story",
-      word: "COMMERCE",
-      title: "E-commerce Visual Design",
-      text: "Detail page structure, selling-point visualization, platform conversion logic and long-page rhythm control.",
-    },
-    {
-      icon: "brush",
-      preview: "assets/tuni-gallery-03.webp",
-      label: "Retouch Precision",
-      tools: "Photoshop / Composite / Finish",
-      word: "RETOUCH",
-      title: "Photoshop Visual Retouching",
-      text: "Photoshop product retouching, image compositing, tone refinement, commercial post-production and detail page visual handling.",
-    },
-    {
-      icon: "frame",
-      preview: "assets/lieren-full-03.webp",
-      label: "Launch Campaigns",
-      tools: "Poster / Key Visual / Promotion",
-      word: "POSTER",
-      title: "Product Poster Design",
-      text: "Launch visuals, livestream campaigns, brand communication, product key visuals and commercial poster systems.",
+      icon: "cube",
+      preview: "assets/peripheral-full-30.webp",
+      label: "Rendering",
+      tools: "Cinema 4D / Octane / Photoshop",
+      word: "RENDERING",
+      title: "Rendering",
+      text: "Product CGI, material control, lighting atmosphere and polished commercial presentation.",
     },
     {
       icon: "sparkle",
       preview: "assets/bosch-full-03.webp",
-      label: "Scene Expansion",
-      tools: "Prompt / Repaint / Visual System",
-      word: "AI",
-      title: "AI Image Generation",
-      text: "Reference-image analysis, Prompt Engineering, repainting, commercial scene generation and visual style consistency.",
+      label: "AIGC Visual",
+      tools: "Midjourney / Jimeng AI / Photoshop",
+      word: "AIGC",
+      title: "AIGC Visual",
+      text: "AI image exploration, scene generation, repainting and retouching for product visual systems.",
     },
     {
-      icon: "cube",
-      preview: "assets/watch-full-04.webp",
-      label: "Material Thinking",
-      tools: "C4D / Octane / Lighting",
-      word: "CGI",
-      title: "CGI Product Thinking",
-      text: "C4D / Octane visual judgment, material expression, lighting atmosphere, product advertising feel and 3D product storytelling.",
-    },
-    {
-      icon: "terminal",
-      preview: "assets/peripheral-full-12.webp",
-      label: "System Efficiency",
-      tools: "Codex / Quicker / PS Script",
-      word: "FLOW",
-      title: "AI-assisted Workflow",
-      text: "Codex, Quicker and Photoshop Script support website edits, interaction prototypes, repeated-action automation and design workflow efficiency.",
+      icon: "image",
+      preview: "assets/tuni-cover.webp",
+      label: "Motion",
+      tools: "C4D / Motion / Product Film",
+      word: "MOTION",
+      title: "Motion",
+      text: "Product film sections, launch visuals and rhythm-led product storytelling.",
     },
   ],
   zh: [
     {
-      icon: "layout",
-      preview: "assets/wigomat-full-03.webp",
-      label: "转化页面",
-      tools: "Photoshop / 版式 / 卖点梳理",
-      word: "电商视觉",
-      title: "电商视觉设计",
-      text: "电商详情页结构规划、卖点视觉化、页面转化逻辑与长图节奏控制。",
-    },
-    {
-      icon: "brush",
-      preview: "assets/tuni-gallery-03.webp",
-      label: "商业后期",
-      tools: "Photoshop / 合成 / 精修",
-      word: "后期精修",
-      title: "Photoshop 商业后期",
-      text: "产品修图、图像合成、色调优化、商业后期与详情页视觉处理。",
-    },
-    {
-      icon: "frame",
-      preview: "assets/lieren-full-03.webp",
-      label: "上市视觉",
-      tools: "海报 / 主视觉 / 活动图",
-      word: "产品海报",
-      title: "产品商业海报",
-      text: "新品上市、直播活动、品牌宣传、产品主视觉与商业海报设计。",
+      icon: "cube",
+      preview: "assets/peripheral-full-30.webp",
+      label: "Rendering",
+      tools: "Cinema 4D / Octane / Photoshop",
+      word: "RENDERING",
+      title: "Rendering",
+      text: "产品 CGI、材质控制、灯光氛围和高完成度商业画面呈现。",
     },
     {
       icon: "sparkle",
       preview: "assets/bosch-full-03.webp",
-      label: "场景生成",
-      tools: "提示词 / 重绘 / 视觉统一",
-      word: "AI 视觉",
-      title: "AI 图像生成",
-      text: "参考图分析、提示词设计、图像重绘、商业场景生成与风格统一。",
+      label: "AIGC Visual",
+      tools: "Midjourney / 即梦 AI / Photoshop",
+      word: "AIGC",
+      title: "AIGC Visual",
+      text: "AI 图像探索、场景生成、重绘与后期合成，服务产品视觉系统。",
     },
     {
-      icon: "cube",
-      preview: "assets/watch-full-04.webp",
-      label: "材质灯光",
-      tools: "C4D / Octane / 产品视觉",
-      word: "产品 CGI",
-      title: "CGI 产品思维",
-      text: "C4D / Octane 视觉理解、材质表现、灯光氛围和三维产品视觉表达。",
-    },
-    {
-      icon: "terminal",
-      preview: "assets/peripheral-full-12.webp",
-      label: "流程效率",
-      tools: "Codex / Quicker / PS Script",
-      word: "工作流",
-      title: "AI 辅助工作流",
-      text: "使用 Codex、Quicker 与 Photoshop Script 辅助网页调整、交互原型、高频操作自动化和设计流程提效。",
+      icon: "image",
+      preview: "assets/tuni-cover.webp",
+      label: "Motion",
+      tools: "C4D / Motion / Product Film",
+      word: "MOTION",
+      title: "Motion",
+      text: "产品视频片段、上市视觉和镜头节奏驱动的产品表达。",
     },
   ],
 };
@@ -671,274 +714,68 @@ const capabilitiesText = {
 const workflowText = {
   en: [
     {
-      icon: "image",
-      title: "Design Tools",
-      tools: "Photoshop / Illustrator / Camera Raw / Eagle",
-      text: "For product retouching, image compositing, detail page layout, basic vector handling, asset management and commercial post-production.",
+      icon: "brush",
+      title: "Image Finish",
+      tools: "Photoshop / Retouch / Layout",
+      text: "Refining product edges, texture, information hierarchy and detail-page readability.",
     },
     {
       icon: "sparkle",
-      title: "AI Creative Tools",
+      title: "AI Exploration",
       tools: "Midjourney / Jimeng AI / ChatGPT",
-      text: "For prompt reverse thinking, AI scene generation, creative exploration, visual style testing and image repainting.",
+      text: "Expanding scene directions, image ideas and commercial-image options with AI.",
     },
     {
       icon: "cube",
-      title: "3D & CGI",
+      title: "C4D / Octane CGI",
       tools: "Cinema 4D / OctaneRender",
-      text: "For product CGI judgment, material and lighting decisions, product advertising feel and three-dimensional visual expression.",
+      text: "Building product lighting, material systems and commercial hero imagery.",
     },
     {
       icon: "terminal",
-      title: "Workflow & Coding",
+      title: "Workflow",
       tools: "Codex / Quicker / Photoshop Script",
-      text: "For website edits, interaction motion communication, automated actions, batch processing and design workflow efficiency.",
+      text: "Using automation for web adjustments, batch tasks and design-process acceleration.",
     },
   ],
   zh: [
     {
-      icon: "image",
-      title: "设计工具",
-      tools: "Photoshop / Illustrator / Camera Raw / Eagle",
-      text: "用于产品修图、图像合成、详情页排版、基础矢量处理、素材管理与商业后期。",
+      icon: "brush",
+      title: "画面精修",
+      tools: "Photoshop / 精修 / 排版",
+      text: "处理产品边缘、质感、信息层级和详情页可读性。",
     },
     {
       icon: "sparkle",
-      title: "AI 创意工具",
+      title: "AI 探索",
       tools: "Midjourney / 即梦 AI / ChatGPT",
-      text: "用于提示词拆解、AI 场景图生成、创意发散、视觉风格测试与图像重绘。",
+      text: "用 AI 扩展场景方向、图像想法和商业图像方案。",
     },
     {
       icon: "cube",
-      title: "3D & CGI",
+      title: "C4D / Octane CGI",
       tools: "Cinema 4D / OctaneRender",
-      text: "用于产品 CGI 可视化、材质灯光表现、商业渲染氛围和三维产品视觉表达。",
+      text: "建立产品灯光、材质系统和商业主视觉。",
     },
     {
       icon: "terminal",
-      title: "工作流与自动化",
+      title: "效率流程",
       tools: "Codex / Quicker / Photoshop Script",
-      text: "用于网页调整、交互动效验证、自动化动作、批量处理和设计流程提效。",
+      text: "用自动化处理网页调整、批量任务和设计流程提效。",
     },
   ],
 };
 
-uiText.en.heroSubtitle = "E-commerce Visuals / Photoshop Retouching / C4D CGI / Octane Lighting / AI Images / Workflow Automation";
-uiText.en.capabilitiesText = "A compact overview of my commercial visual, C4D / Octane CGI, AI image and workflow capabilities.";
-uiText.en.profileText = "AI-driven commercial visual designer focused on e-commerce detail pages, Photoshop-based visual retouching, C4D / Octane product CGI, AI-generated scenes and workflow automation.";
-uiText.en.profileNote = "Built around Photoshop compositing and product retouching, with Illustrator basics, C4D / Octane product visualization, lighting and material thinking, plus Codex, Quicker and Photoshop Script for a faster design workflow.";
-uiText.en.profileFocus = "Detail page / Photoshop / C4D / Octane / AI / Workflow";
-
-uiText.zh.heroSubtitle = "专注电商详情页、产品海报、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 图像生成与工作流优化。";
-uiText.zh.capabilitiesText = "从电商视觉、产品 CGI、AI 图像到自动化工作流，整理完整的商业视觉能力。";
-uiText.zh.profileText = "商业视觉设计师，专注电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 场景图与工作流优化。";
-uiText.zh.profileNote = "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光和商业画面判断能力，并结合 Illustrator、Codex、Quicker 与 Photoshop Script 提升设计效率。";
-uiText.zh.profileFocus = "详情页 / Photoshop / C4D / Octane / AI / 工作流";
-
-capabilitiesText.en[4].title = "C4D / Octane Product CGI";
-capabilitiesText.en[4].text = "C4D / Octane product visualization, material control, lighting atmosphere, commercial rendering judgment and 3D product storytelling.";
-capabilitiesText.zh[4].title = "C4D / Octane 产品 CGI";
-capabilitiesText.zh[4].text = "C4D / Octane 产品可视化、材质表现、灯光氛围、商业画面判断与三维产品视觉表达。";
-
-workflowText.en[2].title = "C4D & Octane CGI";
-workflowText.en[2].text = "Used for product CGI visualization, material and lighting decisions, commercial rendering atmosphere and three-dimensional product storytelling.";
-workflowText.zh[2].title = "C4D 与 Octane CGI";
-workflowText.zh[2].text = "用于产品 CGI 可视化、材质灯光表现、商业渲染氛围和三维产品视觉表达。";
-
-Object.assign(uiText.en, {
-  ctaPresence1: "E-commerce Detail Pages",
-  ctaPresence2: "C4D / Octane Product CGI",
-  ctaPresence3: "AI-assisted Visual Systems",
-  availabilityEyebrow: "Availability",
-  availabilityTitle: "OPEN FOR SELECTED COMMERCIAL VISUAL PROJECTS",
-  availabilityText: "Currently focused on product pages, launch visuals, CGI hero imagery and AI-assisted commercial systems.",
-});
-
-Object.assign(uiText.zh, {
-  ctaPresence1: "电商详情页",
-  ctaPresence2: "C4D / Octane 产品 CGI",
-  ctaPresence3: "AI 辅助视觉系统",
-  availabilityEyebrow: "合作状态",
-  availabilityTitle: "当前开放精选商业视觉项目合作",
-  availabilityText: "目前合作重点包括产品详情页、上市视觉、CGI 主视觉与 AI 辅助商业视觉系统。",
-});
-
-  const brandList = [
-    "Audio-Technica 铁三角",
-    "Midea 美的",
-    "Haier 海尔",
-    "OGAWA 奥佳华",
-    "BOSCH 博世",
-    "wigomat 唯咖美",
-    "ThundeRobot 雷神",
-    "TUNI 突尼",
-    "SONDY 森电",
-    "RT-Mart 大润发",
-    "Curvymoon",
-    "森友汇",
-    "SeenDa",
-    "Royalstar 荣事达",
-  ];
-
-Object.assign(uiText.en, {
-  cgiEyebrow: "CGI Process",
-  cgiTitle: "FROM MODEL<br />TO PRODUCT STORY.",
-  cgiLead: "A compact view of how C4D / Octane, Photoshop and AI-assisted thinking turn product structure into commercial visual impact.",
-  cgiStep1Title: "Structure & Form",
-  cgiStep1Text: "Read the product silhouette, mechanical structure and hero angle before composition starts.",
-  cgiStep2Title: "Material & Light",
-  cgiStep2Text: "Use Octane-style lighting judgment to build metal, glass, plastic and atmosphere.",
-  cgiStep3Title: "Retouch & Composite",
-  cgiStep3Text: "Polish product hierarchy through Photoshop compositing, tone control and commercial post-production.",
-  cgiStep4Title: "AI Scene Expansion",
-  cgiStep4Text: "Extend scene options with AI while keeping product logic, detail-page rhythm and brand consistency.",
-});
-
-Object.assign(uiText.zh, {
-  metaDescription: "幻之道个人作品集，展示电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 图像生成与自动化工作流。",
-  brandSmall: "作品集",
-  navIndex: "索引",
-  navWork: "作品",
-  navProfile: "简介",
-  navContact: "联系",
-  heroEyebrow: "12 组作品 / 站酷案例 / 咖啡机 / 电商 / AI / 3D",
-  heroTitle: '<span class="hero-title-line">商业</span><span class="hero-title-line">视觉<span class="hero-dot">.</span></span>',
-  heroTitlePlain: "商业视觉.",
-  heroRole: "商业视觉设计师",
-  heroSubtitle: "电商详情页 / Photoshop 商业后期 / C4D CGI / Octane 灯光材质 / AI 图像 / 工作流优化",
-  totalWorks: "组作品",
-  projectTracks: "个方向",
-  latestStatus: "更新中",
-  latestPublish: "持续更新",
-  heroFrame: "站酷发布案例 / 商业视觉 / 三维产品表达。",
-  showreelEyebrow: "动态案例",
-  showreelText: "通过产品动态镜头展示三维造型、材质灯光和画面节奏。",
-  soundUnlock: "打开声音",
-  soundHint: "这支动态短片包含声音设计。",
-  capabilitiesEyebrow: "核心能力",
-  capabilitiesTitle: "核心能力",
-  capabilitiesText: "从电商视觉、产品 CGI、AI 图像到自动化工作流，整理完整的商业视觉能力。",
-  workflowEyebrow: "工具链与工作流",
-  workflowTitle: "工具链与工作流",
-  indexEyebrow: "已发布作品归档",
-  indexTitle: "已发布作品精选。",
-  indexLead: "商业视觉 / 产品 CGI / AI 驱动案例。",
-  workEyebrow: "横向作品轨道",
-  workTitle: "精选完整案例，展示从产品视觉到页面落地的过程。",
-  archiveEyebrow: "精选作品",
-  archiveTitle: "作品网格",
-  archiveText: "作品覆盖电商详情页、Photoshop 产品视觉、AI 场景图、3D 产品视觉与商业海报。",
-  profileEyebrow: "个人简介",
-  profileText: "商业视觉设计师，专注电商详情页、Photoshop 商业后期、C4D / Octane 产品 CGI、AI 场景图与工作流优化。",
-  profileNote: "以 Photoshop 图像合成、产品修图与详情页视觉处理为核心，同时具备 C4D / Octane 产品可视化、材质灯光和商业画面判断能力，并结合 Illustrator、Codex、Quicker 与 Photoshop Script 提升设计效率。",
-  profileLocationLabel: "所在地",
-  profileLocation: "广东佛山",
-  profileFocusLabel: "方向",
-  profileFocus: "详情页 / Photoshop / C4D / Octane / AI / 工作流",
-  profileSourceLabel: "来源",
-  profileSource: "站酷发布作品",
-  profileToolsLabel: "工具",
-  profileTools: "Photoshop / Illustrator / C4D / Octane / Midjourney / 即梦 AI / Codex / Quicker / Photoshop Script",
-  brandExperienceEyebrow: "品牌项目经验",
-  brandExperienceTitle: "品牌项目经验",
-  brandExperienceText: "覆盖电商详情页、产品海报、AI 商业视觉与 CGI 产品表达的项目经验。",
-  contactEyebrow: "联系合作",
-  linksTitle: "一起打造更有销售力的产品视觉。",
-  contactText: "可合作方向包括电商详情页、产品海报、AI 商业视觉与 CGI 产品表达。",
-  zcoolPortfolio: "站酷作品集",
-  viewWorks: "查看作品",
-  wechatContact: "微信 / 联系",
-  wechatScanEyebrow: "微信",
-  wechatScanTitle: "扫码联系",
-  wechatScanText: "使用微信扫码，直接开始沟通。",
-  openZcool: "打开站酷页面",
-  prev: "上一张",
-  next: "下一张",
-  auto: "自动",
-  brand: "品牌",
-  role: "职责",
-  skills: "能力",
-  tools: "工具",
-  source: "来源",
-  localProject: "本地项目",
-  views: "浏览",
-  cgiEyebrow: "CGI 流程",
-  cgiTitle: "从模型<br />到产品画面。",
-  cgiLead: "结合 C4D / Octane、Photoshop 与 AI 辅助思路，把产品结构转化为更完整的商业视觉。",
-  cgiStep1Title: "结构与形体",
-  cgiStep1Text: "先判断产品轮廓、机械结构和主视觉角度，再进入画面组织。",
-  cgiStep2Title: "材质与灯光",
-  cgiStep2Text: "用 Octane 风格的灯光判断，建立金属、玻璃、塑料和氛围层次。",
-  cgiStep3Title: "后期与合成",
-  cgiStep3Text: "通过 Photoshop 合成、色调控制和商业后期，强化产品层级。",
-  cgiStep4Title: "AI 场景延展",
-  cgiStep4Text: "用 AI 扩展场景方案，同时保持产品逻辑、详情页节奏和品牌一致性。",
-});
-
-Object.assign(categoryText.zh, {
-  all: "全部",
-  coffee: "咖啡机",
-  ecommerce: "电商",
-  ai: "AI",
-  "3d": "三维",
-  poster: "海报",
-});
-
-directionText.zh = [
-  { icon: "layout", label: "详情页" },
-  { icon: "sparkle", label: "AI 视觉" },
-  { icon: "cube", label: "3D 渲染" },
-  { icon: "image", label: "视觉海报" },
-  { icon: "coffee", label: "突尼咖啡" },
-];
-
-Object.assign(skillText.zh, {
-  detailPage: "电商详情页结构",
-  photoshop: "Photoshop 修图与合成",
-  aiGeneration: "AI 辅助场景生成",
-  cgi: "CGI 灯光与材质表现",
-  poster: "商业海报设计",
-  productVisual: "产品视觉表达",
-  productStory: "产品卖点视觉化",
-  motion: "产品动态节奏",
-  sceneDirection: "商业场景设计",
-  lighting: "灯光与材质表现",
-});
-
-capabilitiesText.zh = [
-  { icon: "layout", preview: "assets/wigomat-cover.webp", label: "转化页面", tools: "Photoshop / 版式 / 卖点梳理", word: "电商视觉", title: "电商视觉设计", text: "电商详情页结构规划、卖点视觉化、页面转化逻辑与长图节奏控制。" },
-  { icon: "brush", preview: "assets/tuni-cover.webp", label: "商业后期", tools: "Photoshop / 合成 / 精修", word: "后期精修", title: "Photoshop 商业后期", text: "产品修图、图像合成、色调优化、商业后期与详情页视觉处理。" },
-  { icon: "frame", preview: "assets/lieren-cover.webp", label: "上市视觉", tools: "海报 / 主视觉 / 活动图", word: "产品海报", title: "产品商业海报", text: "新品上市、直播活动、品牌宣传、产品主视觉与商业海报设计。" },
-  { icon: "sparkle", preview: "assets/bosch-cover.webp", label: "场景生成", tools: "提示词 / 重绘 / 视觉统一", word: "AI 视觉", title: "AI 图像生成", text: "参考图分析、提示词设计、图像重绘、商业场景生成与风格统一。" },
-  { icon: "cube", preview: "assets/watch-cover.webp", label: "材质灯光", tools: "C4D / Octane / 产品视觉", word: "产品 CGI", title: "C4D / Octane 产品 CGI", text: "产品可视化、材质表现、灯光氛围、商业画面判断与三维产品视觉表达。" },
-  { icon: "terminal", preview: "assets/keyboard-cover.webp", label: "流程效率", tools: "Codex / Quicker / PS Script", word: "工作流", title: "AI 辅助工作流", text: "使用 Codex、Quicker 与 Photoshop Script 辅助网页调整、交互原型、高频操作自动化和设计流程提效。" },
-];
-
-workflowText.zh = [
-  { icon: "image", title: "设计工具", tools: "Photoshop / Illustrator / Camera Raw / Eagle", text: "用于产品修图、图像合成、详情页排版、基础矢量处理、素材管理与商业后期。" },
-  { icon: "sparkle", title: "AI 创意工具", tools: "Midjourney / 即梦 AI / ChatGPT", text: "用于提示词拆解、AI 场景图生成、创意发散、视觉风格测试与图像重绘。" },
-  { icon: "cube", title: "C4D 与 Octane CGI", tools: "Cinema 4D / OctaneRender", text: "用于产品 CGI 可视化、材质灯光表现、商业渲染氛围和三维产品视觉表达。" },
-  { icon: "terminal", title: "工作流与自动化", tools: "Codex / Quicker / Photoshop Script", text: "用于网页调整、交互动效验证、自动化动作、批量处理和设计流程提效。" },
-];
-
-brandList.splice(
-  0,
-  brandList.length,
-  "Audio-Technica 铁三角",
-  "Midea 美的",
-  "Haier 海尔",
-  "OGAWA 奥佳华",
-  "BOSCH 博世",
-  "wigomat 唯咖美",
-  "ThundeRobot 雷神",
-  "TUNI 突尼",
-  "SONDY 森电",
-  "RT-Mart 大润发",
+const brandList = [
+  "Tuni Coffee Machine",
+  "wigomat",
+  "BOSCH",
+  "SONDY",
   "Curvymoon",
-  "森友汇",
-  "SeenDa",
-  "Royalstar 荣事达",
-);
+  "ThundeRobot",
+  "DJI",
+  "Jacob&Co",
+];
 
 const gridPattern = [
   "size-large",
@@ -1068,112 +905,112 @@ const projectText = {
   },
   zh: {
     tuni: {
-      title: "突尼咖啡机产品视觉",
-      short: "突尼咖啡机",
-      tag: "商业项目 / 咖啡机 / 动态视频 / 产品视觉",
+      title: "Tuni 咖啡机产品视觉档案",
+      short: "Tuni 咖啡机",
+      tag: "自由项目 / 咖啡机 / 动效 / 产品视觉",
       date: "2025",
-      brand: "突尼咖啡机",
-      role: "产品静态图、动态视频、红蓝光首发视觉",
-      text: "突尼咖啡机项目视觉，包含产品静态图、动态视频和红蓝光首发视觉。重点展示产品结构、材质细节和动态镜头表现。",
+      brand: "Tuni 咖啡机",
+      role: "产品静帧、动态视频、红蓝上市视觉",
+      text: "一个独立整理在站内的 Tuni 咖啡机项目，包含产品静帧和动态资产，不再依赖外部站酷跳转来承载这部分内容。",
     },
     wigomat: {
-      title: "wigomat 唯咖美咖啡机 W12 详情页视觉分享",
+      title: "wigomat 唯咖美咖啡机 W12 详情页视觉",
       short: "wigomat W12",
       tag: "网页 / 电商 / 详情页",
-      date: "320天前",
-      brand: "wigomat 唯咖美",
-      role: "视觉创意、三维渲染、平面设计、动效渲染、后期精修",
-      text: "德国咖啡机品牌进入中国市场后的详情页视觉。项目包含品牌介绍、场景拍摄、三维渲染、动效渲染与后期精修，是一个完整的商业页面案例。",
+      date: "320 天前",
+      brand: "wigomat",
+      role: "视觉概念、三维渲染、平面设计、动态渲染、后期精修",
+      text: "面向德国咖啡机品牌进入中国市场的完整商业详情页案例，结合品牌介绍、场景摄影、三维渲染与电商长页叙事。",
     },
     bosch: {
-      title: "BOSCH 博世家电新品页面 x AI 视觉分享",
+      title: "BOSCH 家电新品页 x AI 视觉",
       short: "BOSCH AI",
-      tag: "AI创作 / 家电 / 烤箱 / 洗碗机",
-      date: "1年前",
-      brand: "BOSCH 博世",
-      role: "视觉创意、平面",
-      text: "服务于天猫博世家电官方旗舰店的 AI 视觉页面。以家电新品场景为核心，将 AI 生成、图像合成与电商页面落地结合在一起。",
+      tag: "AI 创作 / 家电 / 烤箱 / 洗碗机",
+      date: "1 年前",
+      brand: "BOSCH",
+      role: "视觉概念、平面方向",
+      text: "围绕 BOSCH 家电新品页展开的 AI 视觉页面实践，重点在产品场景、生成图像、合成处理和电商落地表达。",
     },
     sondy: {
-      title: "森电吸尘器详情页全案视觉分享",
-      short: "SONDY Vacuum",
-      tag: "网页 / 电商 / 详情页 / 吸尘器 / 三维",
-      date: "1年前",
-      brand: "SONDY 森电",
-      role: "平面、三维",
-      text: "森电吸尘器全案详情页，包含三维产品表现和电商卖点拆解。重点呈现长页节奏、产品结构和功能信息的组织方式。",
+      title: "SONDY 吸尘器详情页案例",
+      short: "SONDY 吸尘器",
+      tag: "网页 / 电商 / 详情页 / 吸尘器 / 3D",
+      date: "1 年前",
+      brand: "SONDY",
+      role: "平面设计、三维产品视觉",
+      text: "一套偏长页结构的 SONDY 吸尘器电商详情页，通过三维产品视觉和信息模块拆解卖点与功能。",
     },
     curvymoon: {
-      title: "亚马逊吸尘器详情页主图全案分享",
+      title: "Curvymoon 吸尘器主视觉与 A+ 页面",
       short: "Curvymoon A+",
-      tag: "网页 / 电商 / 亚马逊 / 三维 / 吸尘器",
-      date: "1年前",
+      tag: "网页 / 电商 / Amazon / 3D / 吸尘器",
+      date: "1 年前",
       brand: "Curvymoon",
-      role: "视觉创意、平面、三维",
-      text: "亚马逊新品吸尘器主图与 A+ 页面全案，包含主图、功能卖点、大图模块和多角度产品展示，是完整的电商发布项目。",
+      role: "视觉概念、平面设计、三维表现",
+      text: "一套完整的 Amazon A+ 视觉包，覆盖主视觉、功能模块、大图区块和产品角度叙事。",
     },
     lieren: {
-      title: "雷神猎刃 15 电竞本视觉海报分享",
-      short: "ThundeRobot Laptop",
+      title: "雷神猎刃 15 游戏本视觉海报",
+      short: "雷神游戏本",
       tag: "三维 / 海报 / 笔记本电脑 / 科技",
-      date: "2年前",
-      brand: "雷神科技",
-      role: "视觉创意、平面、三维",
-      text: "雷神猎刃电竞本视觉海报，展示从初稿氛围到终稿画面的推进过程，包括太空舱场景、内部结构、透明壳和爆炸图表达。",
+      date: "2 年前",
+      brand: "ThundeRobot",
+      role: "视觉概念、平面设计、三维表现",
+      text: "一组雷神游戏本视觉海报案例，包含从前期氛围草图到空间站式终稿、透明外壳和爆发式产品图形的推演过程。",
     },
     peripheral: {
-      title: "雷神外设 3 款产品渲染图",
-      short: "ThundeRobot Peripherals",
+      title: "雷神外设产品渲染图",
+      short: "雷神外设",
       tag: "三维 / 产品 / 外设",
-      date: "2年前",
-      brand: "雷神科技",
+      date: "2 年前",
+      brand: "ThundeRobot",
       role: "产品渲染",
-      text: "雷神外设三款产品渲染，重点展示产品材质、组合角度和科技类消费电子的商业图像表达。",
+      text: "三组雷神消费电子外设渲染，重点在材质质感、产品组合关系和商业硬件画面的完成度。",
     },
     dishwasher: {
       title: "AI 电商家电场景图 / 洗碗机",
-      short: "AI Dishwasher",
-      tag: "AI创作 / MJ / 合成 / 洗碗机 / 电商",
-      date: "2年前",
+      short: "AI 洗碗机",
+      tag: "AI 创作 / MJ / 合成 / 洗碗机 / 电商",
+      date: "2 年前",
       brand: "AI 家电场景",
       role: "AI 场景、产品合成",
-      text: "围绕洗碗机侧面开门角度进行 AI 场景合成。为了让画面透视成立，需要拆分产品结构并重新组织空间关系。",
+      text: "围绕侧开式洗碗机角度展开的 AI 合成练习，重新建立透视与产品结构，让电商场景更可信。",
     },
     g45: {
       title: "雷神 G45 游戏手柄产品渲染",
-      short: "G45 Controller",
-      tag: "三维 / 产品 / 游戏手柄 / 产品渲染",
-      date: "2年前",
-      brand: "雷神科技",
-      role: "新品游戏手柄渲染",
-      text: "雷神 G45 游戏手柄产品渲染。项目重点呈现新品硬件的材质、结构和科技感，同时处理模型布线与材质表现上的细节。",
+      short: "G45 手柄",
+      tag: "三维 / 产品 / 游戏手柄 / 渲染",
+      date: "2 年前",
+      brand: "ThundeRobot",
+      role: "新品手柄渲染",
+      text: "针对雷神 G45 游戏手柄完成的产品渲染，强调硬件材质、结构关系、走线细节与干净的商业呈现。",
     },
     watch: {
       title: "Jacob&Co Godfather 机械表",
-      short: "Godfather Watch",
+      short: "Godfather 机械表",
       tag: "三维 / 产品 / C4D / OC / 机械表",
-      date: "3年前",
+      date: "3 年前",
       brand: "Jacob&Co",
       role: "机械表渲染练习",
-      text: "机械表渲染练习，使用深色场景和金属材质突出复杂结构。作为个人 3D 练习，用来补充作品集中更偏材质和结构表现的部分。",
+      text: "一组机械表渲染练习，用偏暗场景和金属材质语言突出复杂结构与高级产品形态。",
     },
     avata: {
       title: "DJI Avata 产品表现",
       short: "DJI Avata",
-      tag: "三维 / 其他三维 / OC / C4D / 渲染",
-      date: "3年前",
+      tag: "三维 / 产品 / OC / C4D / 渲染",
+      date: "3 年前",
       brand: "DJI Avata",
       role: "产品表现练习",
-      text: "DJI Avata 产品表现练习，强调飞行器形体、竖向构图和硬朗光影，展示早期三维产品表现能力。",
+      text: "一组 DJI Avata 产品表现练习，聚焦机身造型、纵向构图、强对比灯光与早期三维产品表达能力。",
     },
     keyboard: {
-      title: "键盘建模渲染",
-      short: "Keyboard Render",
+      title: "键盘建模与渲染",
+      short: "键盘渲染",
       tag: "三维 / 产品",
-      date: "3年前",
-      brand: "Keyboard practice",
-      role: "建模渲染",
-      text: "键盘建模渲染练习，目标是做出干净、克制的白底产品图，补充三维基础和材质表现案例。",
+      date: "3 年前",
+      brand: "键盘练习",
+      role: "建模与渲染",
+      text: "一组键盘建模与渲染练习，目标是获得干净的商业产品画面、材质控制与白底硬件展示能力。",
     },
   },
 };
@@ -1181,12 +1018,16 @@ const projectText = {
 const progress = document.querySelector(".scroll-progress");
 const menuButton = document.querySelector(".menu-button");
 const topNav = document.querySelector(".top-nav");
+const siteHeader = document.querySelector(".site-header");
 const parallax = document.querySelector("[data-parallax]");
 const heroVisual = document.querySelector(".hero-visual");
 const heroCurrentImage = document.querySelector(".hero-image-current");
 const heroNextImage = document.querySelector(".hero-image-next");
 const directionTags = document.querySelector("#directionTags");
+const indexSection = document.querySelector("#index");
+const indexStage = indexSection?.querySelector(".index-stage") || null;
 const indexList = document.querySelector("#indexList");
+const indexPreviewShell = indexSection?.querySelector(".index-preview-shell") || null;
 const indexPreview = document.querySelector(".index-preview");
 const indexPreviewTrack = document.querySelector("#indexPreviewTrack");
 const workTrack = document.querySelector("#workTrack");
@@ -1206,6 +1047,7 @@ const capabilityPreviewLabel = document.querySelector("#capabilityPreviewLabel")
 const capabilityPreviewTools = document.querySelector("#capabilityPreviewTools");
 const capabilityPreviewWord = document.querySelector("#capabilityPreviewWord");
 const capabilityPreviewMeter = document.querySelector("#capabilityPreviewMeter");
+const portfolioTrackGrid = document.querySelector("#portfolioTrackGrid");
 const workflowGrid = document.querySelector("#workflowGrid");
 const brandGrid = document.querySelector("#brandGrid");
 const projectGrid = document.querySelector("#projectGrid");
@@ -1221,6 +1063,7 @@ const closeDialog = dialog.querySelector(".dialog-close");
 let activeGallery = [];
 let activeSlide = 0;
 let currentIndexPreviewKey = null;
+let indexViewportSyncFrame = null;
 let heroPool = [];
 let heroIndex = 0;
 let heroTimer = null;
@@ -1229,7 +1072,9 @@ let lastHeroSwitch = 0;
 let ignoreWorkClick = false;
 let activeProjectKey = null;
 let dialogClosing = false;
-let currentLanguage = localStorage.getItem("portfolio-language") || "en";
+const storedLanguage = localStorage.getItem("portfolio-language");
+const browserLanguage = (navigator.language || "").toLowerCase();
+let currentLanguage = storedLanguage || (browserLanguage.startsWith("zh") ? "zh" : "en");
 let caseAuto = true;
 let caseTimer = null;
 let lastCaseWheel = 0;
@@ -1293,6 +1138,23 @@ function renderDirectionTags() {
     .map((item) => `<p>${icon(item.icon)}<span>${item.label}</span></p>`)
     .join("");
   directionTags.innerHTML = `<div class="intro-strip-track">${items}</div><div class="intro-strip-track" aria-hidden="true">${items}</div>`;
+}
+
+function renderPortfolioTracks() {
+  if (!portfolioTrackGrid) return;
+  portfolioTrackGrid.innerHTML = (portfolioTrackText[currentLanguage] || portfolioTrackText.en)
+    .map(
+      (item, index) => `
+        <button class="portfolio-track-card" type="button" data-portfolio-track="${item.key}" data-filter="${item.filter}" data-target="${item.target}" style="--track-index: ${index}">
+          <img src="${item.image}" alt="${item.title}" loading="${index === 0 ? "eager" : "lazy"}" decoding="async" />
+          <span class="portfolio-track-kicker">${item.label}</span>
+          <strong>${item.title}</strong>
+          <p>${item.text}</p>
+          <b>${item.count}</b>
+        </button>
+      `,
+    )
+    .join("");
 }
 
 function renderCapabilities() {
@@ -1421,7 +1283,7 @@ function renderBrandExperience() {
 function applyLanguage() {
   if (!uiText[currentLanguage]) currentLanguage = "en";
   document.documentElement.lang = currentLanguage === "zh" ? "zh-CN" : "en";
-  document.title = currentLanguage === "zh" ? "幻之道 | 发布作品集" : "HUANZHIDAO | Published Works Portfolio";
+  document.title = currentLanguage === "zh" ? "HUANZHIDAO | 作品集" : "HUANZHIDAO | Portfolio";
   const metaDescription = document.querySelector('meta[name="description"]');
   if (metaDescription) metaDescription.content = t("metaDescription");
 
@@ -1442,6 +1304,7 @@ function applyLanguage() {
 
   renderStaticIcons();
   renderDirectionTags();
+  renderPortfolioTracks();
   renderCapabilities();
   updateCapabilityPreview(0, false);
   setupCapabilityStage();
@@ -1556,6 +1419,84 @@ function updateIndexPreview(key) {
   });
   indexList?.querySelectorAll(".index-row").forEach((row) => {
     row.classList.toggle("is-active", row.dataset.project === key);
+  });
+}
+
+function getIndexPreviewTopOffset() {
+  const headerHeight = siteHeader?.getBoundingClientRect().height
+    || Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-h"))
+    || 72;
+  return Math.round(headerHeight + 18);
+}
+
+function resetIndexPreviewPin() {
+  if (!indexPreviewShell) return;
+  indexPreviewShell.classList.remove("is-fixed", "is-bottom");
+  indexPreviewShell.style.removeProperty("--index-preview-left");
+  indexPreviewShell.style.removeProperty("--index-preview-width");
+  indexPreviewShell.style.removeProperty("--index-preview-height");
+  indexPreviewShell.style.removeProperty("--index-preview-top");
+}
+
+function syncIndexPreviewPin() {
+  if (!indexStage || !indexPreviewShell || !indexPreview) return;
+  if (window.innerWidth <= 1100) {
+    resetIndexPreviewPin();
+    return;
+  }
+
+  const shellRect = indexPreviewShell.getBoundingClientRect();
+  const stageRect = indexStage.getBoundingClientRect();
+  const topOffset = getIndexPreviewTopOffset();
+  const previewHeight = shellRect.height || indexPreview.getBoundingClientRect().height || 0;
+
+  indexPreviewShell.style.setProperty("--index-preview-left", `${Math.round(shellRect.left)}px`);
+  indexPreviewShell.style.setProperty("--index-preview-width", `${Math.round(shellRect.width)}px`);
+  indexPreviewShell.style.setProperty("--index-preview-height", `${Math.round(previewHeight)}px`);
+  indexPreviewShell.style.setProperty("--index-preview-top", `${topOffset}px`);
+
+  if (stageRect.top > topOffset) {
+    indexPreviewShell.classList.remove("is-fixed", "is-bottom");
+    return;
+  }
+
+  if (stageRect.bottom <= topOffset + previewHeight) {
+    indexPreviewShell.classList.remove("is-fixed");
+    indexPreviewShell.classList.add("is-bottom");
+    return;
+  }
+
+  indexPreviewShell.classList.remove("is-bottom");
+  indexPreviewShell.classList.add("is-fixed");
+}
+
+function syncIndexPreviewToViewport() {
+  if (!indexList || window.innerWidth <= 900) return;
+  const rows = Array.from(indexList.querySelectorAll(".index-row"));
+  if (!rows.length) return;
+  const viewportMid = window.innerHeight * 0.52;
+  let bestRow = null;
+  let bestDistance = Number.POSITIVE_INFINITY;
+  rows.forEach((row) => {
+    const rect = row.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+    const center = rect.top + rect.height / 2;
+    const distance = Math.abs(center - viewportMid);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestRow = row;
+    }
+  });
+  const key = bestRow?.dataset.project;
+  if (key && key !== currentIndexPreviewKey) updateIndexPreview(key);
+}
+
+function requestIndexPreviewSync() {
+  if (indexViewportSyncFrame) return;
+  indexViewportSyncFrame = window.requestAnimationFrame(() => {
+    indexViewportSyncFrame = null;
+    syncIndexPreviewPin();
+    syncIndexPreviewToViewport();
   });
 }
 
@@ -2134,12 +2075,17 @@ function setupVideoReplay() {
 
 function renderProjects() {
   indexPreviewTrack.innerHTML = projects
-    .map((project) => {
+    .map((project, index) => {
       const copy = getProjectCopy(project);
       const previewSrc = project.indexPreviewImage || project.gridImage || project.image;
       return `
         <figure class="index-preview-item" data-project="${project.id}">
           <img src="${previewSrc}" alt="${copy.short}" loading="lazy" decoding="async" />
+          <figcaption>
+            <span>${projectNumber(index)} / ${copy.brand}</span>
+            <strong>${copy.short}</strong>
+            <p>${copy.tag}</p>
+          </figcaption>
         </figure>
       `;
     })
@@ -2149,14 +2095,19 @@ function renderProjects() {
     .map((project, index) => {
       const copy = getProjectCopy(project);
       const sourceLabel = project.views === "local" ? t("localProject") : `${project.views} ${t("views")}`;
+      const previewSrc = project.indexPreviewImage || project.gridImage || project.image;
       return `
         <button class="index-row" type="button" data-project="${project.id}" data-reveal>
           <span class="index-order">${projectNumber(index)}</span>
+          <figure class="index-thumb" aria-hidden="true">
+            <img src="${previewSrc}" alt="" loading="lazy" decoding="async" />
+          </figure>
           <div class="index-copy">
-            <strong>${copy.title}</strong>
+            <small>${copy.brand}</small>
+            <strong>${copy.short}</strong>
+            <p>${copy.tag}</p>
           </div>
           <div class="index-meta">
-            <em>${copy.tag}</em>
             <b>${sourceLabel}</b>
           </div>
         </button>
@@ -2168,6 +2119,7 @@ function renderProjects() {
     currentIndexPreviewKey = projects[0].id;
     updateIndexPreview(projects[0].id);
   }
+  requestIndexPreviewSync();
 
   workTrack.innerHTML = projects
     .map((project, index) => {
@@ -2372,6 +2324,19 @@ function toggleCaseAuto() {
   startCaseAuto();
 }
 
+function applyProjectFilter(filter = "all") {
+  const activeButton = document.querySelector(`.filter-bar button[data-filter="${filter}"]`) || document.querySelector('.filter-bar button[data-filter="all"]');
+  document.querySelector(".filter-bar button.active")?.classList.remove("active");
+  activeButton?.classList.add("active");
+  projectGrid?.classList.remove("is-filtering");
+  void projectGrid?.offsetWidth;
+  projectGrid?.classList.add("is-filtering");
+  document.querySelectorAll(".project-tile").forEach((tile) => {
+    tile.classList.toggle("is-hidden", filter !== "all" && tile.dataset.category !== filter);
+  });
+  window.setTimeout(() => projectGrid?.classList.remove("is-filtering"), 340);
+}
+
 function bindEvents() {
   document.body.addEventListener("click", (event) => {
     const langButton = event.target.closest("[data-lang]");
@@ -2409,6 +2374,14 @@ function bindEvents() {
       startCaseAuto();
     }
     if (event.target.closest(".case-auto")) toggleCaseAuto();
+
+    const trackButton = event.target.closest("[data-portfolio-track]");
+    if (trackButton) {
+      const filter = trackButton.dataset.filter || "all";
+      const target = document.querySelector(trackButton.dataset.target || "#work");
+      if (filter) applyProjectFilter(filter);
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   });
 
   indexList.addEventListener("mouseover", (event) => {
@@ -2419,20 +2392,13 @@ function bindEvents() {
     const row = event.target.closest(".index-row");
     if (row) updateIndexPreview(row.dataset.project);
   });
+  window.addEventListener("scroll", requestIndexPreviewSync, { passive: true });
+  window.addEventListener("resize", requestIndexPreviewSync);
 
   document.querySelector(".filter-bar").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-filter]");
     if (!button) return;
-    document.querySelector(".filter-bar button.active")?.classList.remove("active");
-    button.classList.add("active");
-    const filter = button.dataset.filter;
-    projectGrid?.classList.remove("is-filtering");
-    void projectGrid?.offsetWidth;
-    projectGrid?.classList.add("is-filtering");
-    document.querySelectorAll(".project-tile").forEach((tile) => {
-      tile.classList.toggle("is-hidden", filter !== "all" && tile.dataset.category !== filter);
-    });
-    window.setTimeout(() => projectGrid?.classList.remove("is-filtering"), 340);
+    applyProjectFilter(button.dataset.filter);
   });
 
   menuButton.addEventListener("click", () => {
